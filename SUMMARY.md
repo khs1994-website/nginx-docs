@@ -1,6 +1,7 @@
 - [贡献导引](CONTRIBUTING.md)
 - [介绍](README.md)
   - [安装 nginx](介绍/安装nginx.md)
+  - [从源码构建 nginx](How-To/从源码构建nginx.md)
   - [初学者指南](介绍/初学者指南.md)
   - [管理指南](https://docs.nginx.com/nginx/admin-guide/)（忽略）
   - [控制 nginx](介绍/控制nginx.md)
@@ -17,22 +18,18 @@
   - [配置 HTTPS 服务器](介绍/配置HTTPS服务器.md)
   - [nginx 如何处理 TCP/UDP 会话](介绍/Nginx如何处理TCP_UDP会话.md)
   - [关于 nginScript](介绍/关于nginScript.md)
-  - “开源应用程序架构” 中的 “nginx” 章节
 - 其他
   - [Linux 软件包](其他/linux包.md)
 - How-To
-  - [从源码构建 nginx](How-To/从源码构建nginx.md)
   - [在 Win32 平台上使用 Visual C 构建 nginx](How-To/在Win32平台上使用VisualC构建nginx.md)
   - [设置 Amazon EC2 的 Nginx Plus 环境](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus-amazon-web-services/)（忽略）
   - [使用 DTrace pid 提供程序调试 nginx](How-To/使用DTrace_pid提供程序调试nginx.md)
   - [转换重写规则](How-To/转换重写规则.md)
   - [WebSocket 代理](How-To/WebSocket代理.md)
 - 开发
-  - [贡献变更](开发/贡献变更.md)
+  - [贡献指南](开发/贡献指南.md)
   - 开发指南
 - 模块参考
-  - 指令字母索引
-  - 变量字母索引
 - [核心功能](模块参考/核心功能.md)
   - HTTP
     - [ngx_http_core_module](模块参考/http/ngx_http_core_module.md)
@@ -77,19 +74,19 @@
     - [ngx_http_rewrite_module](模块参考/http/ngx_http_rewrite_module.md)
     - [ngx_http_scgi_module](模块参考/http/ngx_http_scgi_module.md)
     - [ngx_http_secure_link_module](模块参考/http/ngx_http_secure_link_module.md)
-    - ngx_http_session_log_module
+    - [ngx_http_session_log_module](模块参考/http/ngx_http_session_log_module.md)
     - [ngx_http_slice_module](模块参考/http/ngx_http_slice_module.md)
-    - [ngx_http_spdy_module 被 ngx_http_v2_module 替代](模块参考/http/ngx_http_spdy_module.md)
+    - [ngx_http_spdy_module（过时）](模块参考/http/ngx_http_spdy_module.md)
     - [ngx_http_split_clients_module](模块参考/http/ngx_http_split_clients_module.md)
-    - ngx_http_ssi_module
-    - ngx_http_ssl_module
-    - ngx_http_status_module
-    - ngx_http_stub_status_module
-    - ngx_http_sub_module
-    - ngx_http_upstream_module
-    - ngx_http_upstream_conf_module
-    - ngx_http_upstream_hc_module
-    - ngx_http_userid_module
+    - [ngx_http_ssi_module](模块参考/http/ngx_http_ssi_module.md)
+    - [ngx_http_ssl_module](模块参考/http/ngx_http_ssl_module.md)
+    - [ngx_http_status_module（过时）](模块参考/http/ngx_http_status_module.md)
+    - [ngx_http_stub_status_module](模块参考/http/ngx_http_stub_status_module.md)
+    - [ngx_http_sub_module](模块参考/http/ngx_http_sub_module.md)
+    - [ngx_http_upstream_module](模块参考/http/ngx_http_upstream_module.md)
+    - [ngx_http_upstream_conf_module](模块参考/http/ngx_http_upstream_conf_module.md)
+    - [ngx_http_upstream_hc_module](模块参考/http/ngx_http_upstream_hc_module.md)
+    - [ngx_http_userid_module](模块参考/http/ngx_http_userid_module.md)
     - ngx_http_uwsgi_module
     - ngx_http_v2_module
     - ngx_http_xslt_module
@@ -119,7 +116,6 @@
     - [ngx_stream_ssl_preread_module](模块参考/stream/ngx_stream_ssl_preread_module.md)
     - ngx_stream_upstream_module
     - ngx_stream_upstream_hc_module
-    - ngx_stream_zone_sync_module
     - ngx_stream_zone_sync_module
   - 其他
     - [ngx_google_perftools_module](模块参考/google/ngx_google_perftools_module.md)
