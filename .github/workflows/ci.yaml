@@ -2,7 +2,7 @@ on:
   push:
   pull_request:
 
-naem: CI
+name: CI
 
 jobs:
   GitBook:
