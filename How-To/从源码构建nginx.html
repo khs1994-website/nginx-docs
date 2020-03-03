@@ -1,0 +1,2233 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>从源码构建 nginx · Nginx 文档中文译版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="DocsHome">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../介绍/初学者指南.html" />
+    
+    
+    <link rel="prev" href="../介绍/安装nginx.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../favicon.ico'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../favicon.ico">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/DocsHome" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    贡献导引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../介绍/安装nginx.html">
+            
+                <a href="../介绍/安装nginx.html">
+            
+                    
+                    安装 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="从源码构建nginx.html">
+            
+                <a href="从源码构建nginx.html">
+            
+                    
+                    从源码构建 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../介绍/初学者指南.html">
+            
+                <a href="../介绍/初学者指南.html">
+            
+                    
+                    初学者指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" >
+            
+                <a target="_blank" href="https://docs.nginx.com/nginx/admin-guide/">
+            
+                    
+                    管理指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../介绍/控制nginx.html">
+            
+                <a href="../介绍/控制nginx.html">
+            
+                    
+                    控制 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../介绍/连接处理方式.html">
+            
+                <a href="../介绍/连接处理方式.html">
+            
+                    
+                    连接处理方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../介绍/设置哈希.html">
+            
+                <a href="../介绍/设置哈希.html">
+            
+                    
+                    设置哈希
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../介绍/调试日志.html">
+            
+                <a href="../介绍/调试日志.html">
+            
+                    
+                    调试日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../介绍/记录日志到syslog.html">
+            
+                <a href="../介绍/记录日志到syslog.html">
+            
+                    
+                    记录日志到 syslog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../介绍/配置文件度量单位.html">
+            
+                <a href="../介绍/配置文件度量单位.html">
+            
+                    
+                    配置文件度量单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../介绍/命令行参数.html">
+            
+                <a href="../介绍/命令行参数.html">
+            
+                    
+                    命令行参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../介绍/Windows下的Nginx.html">
+            
+                <a href="../介绍/Windows下的Nginx.html">
+            
+                    
+                    Windows 下的 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../介绍/Nginx如何处理请求.html">
+            
+                <a href="../介绍/Nginx如何处理请求.html">
+            
+                    
+                    nginx 如何处理请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../介绍/服务器名称.html">
+            
+                <a href="../介绍/服务器名称.html">
+            
+                    
+                    服务器名称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../介绍/使用Nginx作为HTTP负载均衡器.html">
+            
+                <a href="../介绍/使用Nginx作为HTTP负载均衡器.html">
+            
+                    
+                    使用 nginx 作为 HTTP 负载均衡器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../介绍/配置HTTPS服务器.html">
+            
+                <a href="../介绍/配置HTTPS服务器.html">
+            
+                    
+                    配置 HTTPS 服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../介绍/Nginx如何处理TCP_UDP会话.html">
+            
+                <a href="../介绍/Nginx如何处理TCP_UDP会话.html">
+            
+                    
+                    nginx 如何处理 TCP/UDP 会话
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../介绍/关于nginScript.html">
+            
+                <a href="../介绍/关于nginScript.html">
+            
+                    
+                    关于 nginScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../其他/linux包.html">
+            
+                <a href="../其他/linux包.html">
+            
+                    
+                    Linux 软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    How-To
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="在Win32平台上使用VisualC构建nginx.html">
+            
+                <a href="在Win32平台上使用VisualC构建nginx.html">
+            
+                    
+                    在 Win32 平台上使用 Visual C 构建 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <a target="_blank" href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus-amazon-web-services/">
+            
+                    
+                    设置 Amazon EC2 的 Nginx Plus 环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="使用DTrace_pid提供程序调试nginx.html">
+            
+                <a href="使用DTrace_pid提供程序调试nginx.html">
+            
+                    
+                    使用 DTrace pid 提供程序调试 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="转换重写规则.html">
+            
+                <a href="转换重写规则.html">
+            
+                    
+                    转换重写规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="WebSocket代理.html">
+            
+                <a href="WebSocket代理.html">
+            
+                    
+                    WebSocket 代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../开发/贡献指南.html">
+            
+                <a href="../开发/贡献指南.html">
+            
+                    
+                    贡献指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    开发指南
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    模块参考
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../模块参考/核心功能.html">
+            
+                <a href="../模块参考/核心功能.html">
+            
+                    
+                    核心功能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    HTTP
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../模块参考/http/ngx_http_core_module.html">
+            
+                <a href="../模块参考/http/ngx_http_core_module.html">
+            
+                    
+                    ngx_http_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="../模块参考/http/ngx_http_access_module.html">
+            
+                <a href="../模块参考/http/ngx_http_access_module.html">
+            
+                    
+                    ngx_http_access_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="../模块参考/http/ngx_http_addition_module.html">
+            
+                <a href="../模块参考/http/ngx_http_addition_module.html">
+            
+                    
+                    ngx_http_addition_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" >
+            
+                <span>
+            
+                    
+                    ngx_http_api_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" data-path="../模块参考/http/ngx_http_auth_basic_module.html">
+            
+                <a href="../模块参考/http/ngx_http_auth_basic_module.html">
+            
+                    
+                    ngx_http_auth_basic_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" data-path="../模块参考/http/ngx_http_auth_jwt_module.html">
+            
+                <a href="../模块参考/http/ngx_http_auth_jwt_module.html">
+            
+                    
+                    ngx_http_auth_jwt_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.7" data-path="../模块参考/http/ngx_http_auth_request_module.html">
+            
+                <a href="../模块参考/http/ngx_http_auth_request_module.html">
+            
+                    
+                    ngx_http_auth_request_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.8" data-path="../模块参考/http/ngx_http_autoindex_module.html">
+            
+                <a href="../模块参考/http/ngx_http_autoindex_module.html">
+            
+                    
+                    ngx_http_autoindex_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.9" data-path="../模块参考/http/ngx_http_browser_module.html">
+            
+                <a href="../模块参考/http/ngx_http_browser_module.html">
+            
+                    
+                    ngx_http_browser_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.10" data-path="../模块参考/http/ngx_http_charset_module.html">
+            
+                <a href="../模块参考/http/ngx_http_charset_module.html">
+            
+                    
+                    ngx_http_charset_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.11" data-path="../模块参考/http/ngx_http_dav_module.html">
+            
+                <a href="../模块参考/http/ngx_http_dav_module.html">
+            
+                    
+                    ngx_http_dav_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.12" data-path="../模块参考/http/ngx_http_empty_gif_module.html">
+            
+                <a href="../模块参考/http/ngx_http_empty_gif_module.html">
+            
+                    
+                    ngx_http_empty_gif_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.13" data-path="../模块参考/http/ngx_http_f4f_module.html">
+            
+                <a href="../模块参考/http/ngx_http_f4f_module.html">
+            
+                    
+                    ngx_http_f4f_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.14" data-path="../模块参考/http/ngx_http_fastcgi_module.html">
+            
+                <a href="../模块参考/http/ngx_http_fastcgi_module.html">
+            
+                    
+                    ngx_http_fastcgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.15" data-path="../模块参考/http/ngx_http_flv_module.html">
+            
+                <a href="../模块参考/http/ngx_http_flv_module.html">
+            
+                    
+                    ngx_http_flv_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.16" data-path="../模块参考/http/ngx_http_geo_module.html">
+            
+                <a href="../模块参考/http/ngx_http_geo_module.html">
+            
+                    
+                    ngx_http_geo_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.17" data-path="../模块参考/http/ngx_http_geoip_module.html">
+            
+                <a href="../模块参考/http/ngx_http_geoip_module.html">
+            
+                    
+                    ngx_http_geoip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.18" data-path="../模块参考/http/ngx_http_grpc_module.html">
+            
+                <a href="../模块参考/http/ngx_http_grpc_module.html">
+            
+                    
+                    ngx_http_grpc_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.19" data-path="../模块参考/http/ngx_http_gunzip_module.html">
+            
+                <a href="../模块参考/http/ngx_http_gunzip_module.html">
+            
+                    
+                    ngx_http_gunzip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.20" data-path="../模块参考/http/ngx_http_gzip_module.html">
+            
+                <a href="../模块参考/http/ngx_http_gzip_module.html">
+            
+                    
+                    ngx_http_gzip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.21" data-path="../模块参考/http/ngx_http_gzip_static_module.html">
+            
+                <a href="../模块参考/http/ngx_http_gzip_static_module.html">
+            
+                    
+                    ngx_http_gzip_static_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.22" data-path="../模块参考/http/ngx_http_headers_module.html">
+            
+                <a href="../模块参考/http/ngx_http_headers_module.html">
+            
+                    
+                    ngx_http_headers_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.23" data-path="../模块参考/http/ngx_http_hls_module.html">
+            
+                <a href="../模块参考/http/ngx_http_hls_module.html">
+            
+                    
+                    ngx_http_hls_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.24" data-path="../模块参考/http/ngx_http_image_filter_module.html">
+            
+                <a href="../模块参考/http/ngx_http_image_filter_module.html">
+            
+                    
+                    ngx_http_image_filter_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.25" data-path="../模块参考/http/ngx_http_index_module.html">
+            
+                <a href="../模块参考/http/ngx_http_index_module.html">
+            
+                    
+                    ngx_http_index_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.26" data-path="../模块参考/http/ngx_http_js_module.html">
+            
+                <a href="../模块参考/http/ngx_http_js_module.html">
+            
+                    
+                    ngx_http_js_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.27" data-path="../模块参考/http/ngx_http_keyval_module.html">
+            
+                <a href="../模块参考/http/ngx_http_keyval_module.html">
+            
+                    
+                    ngx_http_keyval_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.28" data-path="../模块参考/http/ngx_http_limit_conn_module.html">
+            
+                <a href="../模块参考/http/ngx_http_limit_conn_module.html">
+            
+                    
+                    ngx_http_limit_conn_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.29" data-path="../模块参考/http/ngx_http_limit_req_module.html">
+            
+                <a href="../模块参考/http/ngx_http_limit_req_module.html">
+            
+                    
+                    ngx_http_limit_req_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.30" data-path="../模块参考/http/ngx_http_log_module.html">
+            
+                <a href="../模块参考/http/ngx_http_log_module.html">
+            
+                    
+                    ngx_http_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.31" data-path="../模块参考/http/ngx_http_map_module.html">
+            
+                <a href="../模块参考/http/ngx_http_map_module.html">
+            
+                    
+                    ngx_http_map_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.32" data-path="../模块参考/http/ngx_http_memcached_module.html">
+            
+                <a href="../模块参考/http/ngx_http_memcached_module.html">
+            
+                    
+                    ngx_http_memcached_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.33" data-path="../模块参考/http/ngx_http_mirror_module.html">
+            
+                <a href="../模块参考/http/ngx_http_mirror_module.html">
+            
+                    
+                    ngx_http_mirror_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.34" data-path="../模块参考/http/ngx_http_mp4_module.html">
+            
+                <a href="../模块参考/http/ngx_http_mp4_module.html">
+            
+                    
+                    ngx_http_mp4_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.35" data-path="../模块参考/http/ngx_http_perl_module.html">
+            
+                <a href="../模块参考/http/ngx_http_perl_module.html">
+            
+                    
+                    ngx_http_perl_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.36" data-path="../模块参考/http/ngx_http_proxy_module.html">
+            
+                <a href="../模块参考/http/ngx_http_proxy_module.html">
+            
+                    
+                    ngx_http_proxy_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.37" data-path="../模块参考/http/ngx_http_random_index_module.html">
+            
+                <a href="../模块参考/http/ngx_http_random_index_module.html">
+            
+                    
+                    ngx_http_random_index_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.38" data-path="../模块参考/http/ngx_http_realip_module.html">
+            
+                <a href="../模块参考/http/ngx_http_realip_module.html">
+            
+                    
+                    ngx_http_realip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.39" data-path="../模块参考/http/ngx_http_referer_module.html">
+            
+                <a href="../模块参考/http/ngx_http_referer_module.html">
+            
+                    
+                    ngx_http_referer_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.40" data-path="../模块参考/http/ngx_http_rewrite_module.html">
+            
+                <a href="../模块参考/http/ngx_http_rewrite_module.html">
+            
+                    
+                    ngx_http_rewrite_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.41" data-path="../模块参考/http/ngx_http_scgi_module.html">
+            
+                <a href="../模块参考/http/ngx_http_scgi_module.html">
+            
+                    
+                    ngx_http_scgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.42" data-path="../模块参考/http/ngx_http_secure_link_module.html">
+            
+                <a href="../模块参考/http/ngx_http_secure_link_module.html">
+            
+                    
+                    ngx_http_secure_link_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.43" data-path="../模块参考/http/ngx_http_session_log_module.html">
+            
+                <a href="../模块参考/http/ngx_http_session_log_module.html">
+            
+                    
+                    ngx_http_session_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.44" data-path="../模块参考/http/ngx_http_slice_module.html">
+            
+                <a href="../模块参考/http/ngx_http_slice_module.html">
+            
+                    
+                    ngx_http_slice_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.45" data-path="../模块参考/http/ngx_http_spdy_module.html">
+            
+                <a href="../模块参考/http/ngx_http_spdy_module.html">
+            
+                    
+                    ngx_http_spdy_module（过时）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.46" data-path="../模块参考/http/ngx_http_split_clients_module.html">
+            
+                <a href="../模块参考/http/ngx_http_split_clients_module.html">
+            
+                    
+                    ngx_http_split_clients_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.47" data-path="../模块参考/http/ngx_http_ssi_module.html">
+            
+                <a href="../模块参考/http/ngx_http_ssi_module.html">
+            
+                    
+                    ngx_http_ssi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.48" data-path="../模块参考/http/ngx_http_ssl_module.html">
+            
+                <a href="../模块参考/http/ngx_http_ssl_module.html">
+            
+                    
+                    ngx_http_ssl_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.49" data-path="../模块参考/http/ngx_http_status_module.html">
+            
+                <a href="../模块参考/http/ngx_http_status_module.html">
+            
+                    
+                    ngx_http_status_module（过时）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.50" data-path="../模块参考/http/ngx_http_stub_status_module.html">
+            
+                <a href="../模块参考/http/ngx_http_stub_status_module.html">
+            
+                    
+                    ngx_http_stub_status_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.51" data-path="../模块参考/http/ngx_http_sub_module.html">
+            
+                <a href="../模块参考/http/ngx_http_sub_module.html">
+            
+                    
+                    ngx_http_sub_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.52" data-path="../模块参考/http/ngx_http_upstream_module.html">
+            
+                <a href="../模块参考/http/ngx_http_upstream_module.html">
+            
+                    
+                    ngx_http_upstream_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.53" data-path="../模块参考/http/ngx_http_upstream_conf_module.html">
+            
+                <a href="../模块参考/http/ngx_http_upstream_conf_module.html">
+            
+                    
+                    ngx_http_upstream_conf_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.54" data-path="../模块参考/http/ngx_http_upstream_hc_module.html">
+            
+                <a href="../模块参考/http/ngx_http_upstream_hc_module.html">
+            
+                    
+                    ngx_http_upstream_hc_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.55" data-path="../模块参考/http/ngx_http_userid_module.html">
+            
+                <a href="../模块参考/http/ngx_http_userid_module.html">
+            
+                    
+                    ngx_http_userid_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.56" data-path="../模块参考/http/ngx_http_uwsgi_module.html">
+            
+                <a href="../模块参考/http/ngx_http_uwsgi_module.html">
+            
+                    
+                    ngx_http_uwsgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.57" data-path="../模块参考/http/ngx_http_v2_module.html">
+            
+                <a href="../模块参考/http/ngx_http_v2_module.html">
+            
+                    
+                    ngx_http_v2_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.58" data-path="../模块参考/http/ngx_http_xslt_module.html">
+            
+                <a href="../模块参考/http/ngx_http_xslt_module.html">
+            
+                    
+                    ngx_http_xslt_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    Mail
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../模块参考/mail/ngx_mail_core_module.html">
+            
+                <a href="../模块参考/mail/ngx_mail_core_module.html">
+            
+                    
+                    ngx_mail_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../模块参考/mail/ngx_mail_auth_http_module.html">
+            
+                <a href="../模块参考/mail/ngx_mail_auth_http_module.html">
+            
+                    
+                    ngx_mail_auth_http_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../模块参考/mail/ngx_mail_proxy_module.html">
+            
+                <a href="../模块参考/mail/ngx_mail_proxy_module.html">
+            
+                    
+                    ngx_mail_proxy_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.4" >
+            
+                <span>
+            
+                    
+                    ngx_mail_ssl_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.5" data-path="../模块参考/mail/ngx_mail_imap_module.html">
+            
+                <a href="../模块参考/mail/ngx_mail_imap_module.html">
+            
+                    
+                    ngx_mail_imap_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.6" data-path="../模块参考/mail/ngx_mail_pop3_module.html">
+            
+                <a href="../模块参考/mail/ngx_mail_pop3_module.html">
+            
+                    
+                    ngx_mail_pop3_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.7" data-path="../模块参考/mail/ngx_mail_smtp_module.html">
+            
+                <a href="../模块参考/mail/ngx_mail_smtp_module.html">
+            
+                    
+                    ngx_mail_smtp_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    Stream
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../模块参考/stream/ngx_stream_core_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_core_module.html">
+            
+                    
+                    ngx_stream_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="../模块参考/stream/ngx_stream_access_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_access_module.html">
+            
+                    
+                    ngx_stream_access_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.3" data-path="../模块参考/stream/ngx_stream_geo_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_geo_module.html">
+            
+                    
+                    ngx_stream_geo_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.4" data-path="../模块参考/stream/ngx_stream_geoip_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_geoip_module.html">
+            
+                    
+                    ngx_stream_geoip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.5" data-path="../模块参考/stream/ngx_stream_js_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_js_module.html">
+            
+                    
+                    ngx_stream_js_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.6" >
+            
+                <span>
+            
+                    
+                    ngx_stream_keyval_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.7" data-path="../模块参考/stream/ngx_stream_limit_conn_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_limit_conn_module.html">
+            
+                    
+                    ngx_stream_limit_conn_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.8" data-path="../模块参考/stream/ngx_stream_log_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_log_module.html">
+            
+                    
+                    ngx_stream_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.9" >
+            
+                <span>
+            
+                    
+                    ngx_stream_map_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.10" >
+            
+                <span>
+            
+                    
+                    ngx_stream_proxy_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.11" data-path="../模块参考/stream/ngx_stream_realip_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_realip_module.html">
+            
+                    
+                    ngx_stream_realip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.12" data-path="../模块参考/stream/ngx_stream_return_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_return_module.html">
+            
+                    
+                    ngx_stream_return_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.13" data-path="../模块参考/stream/ngx_stream_split_clients_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_split_clients_module.html">
+            
+                    
+                    ngx_stream_split_clients_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.14" >
+            
+                <span>
+            
+                    
+                    ngx_stream_ssl_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.15" data-path="../模块参考/stream/ngx_stream_ssl_preread_module.html">
+            
+                <a href="../模块参考/stream/ngx_stream_ssl_preread_module.html">
+            
+                    
+                    ngx_stream_ssl_preread_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.16" >
+            
+                <span>
+            
+                    
+                    ngx_stream_upstream_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.17" >
+            
+                <span>
+            
+                    
+                    ngx_stream_upstream_hc_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.18" >
+            
+                <span>
+            
+                    
+                    ngx_stream_zone_sync_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../模块参考/google/ngx_google_perftools_module.html">
+            
+                <a href="../模块参考/google/ngx_google_perftools_module.html">
+            
+                    
+                    ngx_google_perftools_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >从源码构建 nginx</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4ECE;&#x6E90;&#x7801;&#x6784;&#x5EFA;-nginx">&#x4ECE;&#x6E90;&#x7801;&#x6784;&#x5EFA; nginx</h1>
+<p>&#x7F16;&#x8BD1;&#x65F6;&#x4F7F;&#x7528; <code>configure</code> &#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x5404;&#x4E2A;&#x65B9;&#x9762;&#xFF0C;&#x5305;&#x62EC;&#x4E86; nginx &#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#x5904;&#x7406;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x6700;&#x7EC8;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A; <code>Makefile</code>&#x3002;<code>configure</code> &#x547D;&#x4EE4;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li><p><strong>--prefix=path</strong></p>
+<p>  &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x4FDD;&#x7559;&#x670D;&#x52A1;&#x5668;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x3002;&#x6B64;&#x76EE;&#x5F55;&#x4E5F;&#x5C06;&#x7528;&#x4E8E;&#x6240;&#x6709;&#x901A;&#x8FC7; <code>configure</code> &#x8BBE;&#x7F6E;&#x7684;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;&#x9664;&#x4E86;&#x5E93;&#x6E90;&#x7801;&#x8DEF;&#x5F84;&#x5916;&#xFF09;&#x548C; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x4E3A; <code>/usr/local/nginx</code> &#x76EE;&#x5F55;&#x3002;</p>
+</li>
+<li><p><strong>--sbin-path=path</strong></p>
+<p>  &#x8BBE;&#x7F6E; nginx &#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x3002;&#x6B64;&#x540D;&#x79F0;&#x4EC5;&#x5728;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x4E3A; <code>prefix/sbin/nginx</code>&#x3002;</p>
+</li>
+<li><p><strong>--conf-path=path</strong></p>
+<p>  &#x8BBE;&#x7F6E; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF0C;nginx &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x542F;&#x52A8;&#xFF0C;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570; <code>-c</code> &#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x4E3A; <code>prefix/conf/nginx.conf</code>&#x3002;</p>
+</li>
+<li><p><strong>--pid-path=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x5B58;&#x50A8;&#x4E3B;&#x8FDB;&#x7A0B;&#x7684;&#x8FDB;&#x7A0B; ID &#x7684; nginx.pid &#x6587;&#x4EF6;&#x540D;&#x79F0;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <a href="http://nginx.org/en/docs/ngx_core_module.html#pid" target="_blank">pid</a> &#x6307;&#x4EE4;&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x9ED8;&#x8BA4;&#x6587;&#x4EF6;&#x540D;&#x4E3A; <code>prefix/logs/nginx.pid</code>&#x3002;</p>
+</li>
+<li><p><strong>--lock-path=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x9501;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x524D;&#x7F00;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <a href="http://nginx.org/en/docs/ngx_core_module.html#lock_file" target="_blank">lock_file</a> &#x6307;&#x4EE4;&#x66F4;&#x6539;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; <code>prefix/logs/nginx.lock</code>&#x3002;</p>
+</li>
+<li><p><strong>--error-log-path=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x4E3B;&#x8981;&#x9519;&#x8BEF;&#x3001;&#x8B66;&#x544A;&#x548C;&#x8BCA;&#x65AD;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <a href="http://nginx.org/en/docs/ngx_core_module.html#error_log" target="_blank">error_log</a> &#x6307;&#x4EE4;&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x4E3A; <code>prefix/logs/error.log</code>&#x3002;</p>
+</li>
+<li><p><strong>--http-log-path=path</strong></p>
+<p>  &#x8BBE;&#x7F6E; HTTP &#x670D;&#x52A1;&#x5668;&#x4E3B;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <a href="http://nginx.org/en/docs/http/ngx_http_log_module.html#access_log" target="_blank">access_log</a> &#x6307;&#x4EE4;&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x4E3A; <code>prefix/logs/access.log</code>&#x3002;</p>
+</li>
+<li><p><strong>--build=name</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684; nginx &#x6784;&#x5EFA;&#x540D;&#x79F0;</p>
+</li>
+<li><p><strong>--user=name</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x975E;&#x7279;&#x6743;&#x7528;&#x6237;&#x540D;&#x79F0;&#xFF0C;&#x5176;&#x51ED;&#x636E;&#x5C06;&#x7531;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <a href="http://nginx.org/en/docs/ngx_core_module.html#user" target="_blank">user</a> &#x6307;&#x4EE4;&#x66F4;&#x6539;&#x540D;&#x79F0;&#x3002;&#x9ED8;&#x8BA4;&#x7684;&#x7528;&#x6237;&#x540D;&#x4E3A; <code>nobody</code>&#x3002;</p>
+</li>
+<li><p><strong>--group=name</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7EC4;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5176;&#x51ED;&#x636E;&#x5C06;&#x7531;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; <code>nginx.conf</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <a href="http://nginx.org/en/docs/ngx_core_module.html#user" target="_blank">user</a> &#x6307;&#x4EE4;&#x66F4;&#x6539;&#x540D;&#x79F0;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7EC4;&#x540D;&#x79F0;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x975E;&#x7279;&#x6743;&#x7528;&#x6237;&#x7684;&#x540D;&#x79F0;&#x3002;</p>
+</li>
+<li><p><strong>--with-select_module &#x548C; --without-select_module</strong></p>
+<p>  &#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x6784;&#x5EFA;&#x5141;&#x8BB8;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528; <code>select()</code> &#x65B9;&#x6CD5;&#x7684;&#x6A21;&#x5757;&#x3002;&#x5982;&#x679C;&#x5E73;&#x53F0;&#x4E0D;&#x652F;&#x6301;&#x5176;&#x4ED6;&#x66F4;&#x5408;&#x9002;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x5982; kqueue&#x3001;epoll &#x6216; /dev/poll&#xFF09;&#xFF0C;&#x5219;&#x5C06;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#x8BE5;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>--with-poll_module &#x548C; --without-poll_module</strong></p>
+<p>  &#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x6784;&#x5EFA;&#x5141;&#x8BB8;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528; <code>poll()</code> &#x65B9;&#x6CD5;&#x7684;&#x6A21;&#x5757;&#x3002;&#x5982;&#x679C;&#x5E73;&#x53F0;&#x4E0D;&#x652F;&#x6301;&#x5176;&#x4ED6;&#x66F4;&#x5408;&#x9002;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x5982; kqueue&#x3001;epoll &#x6216; /dev/poll&#xFF09;&#xFF0C;&#x5219;&#x5C06;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#x8BE5;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>with-threads</strong></p>
+<p>  &#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;<a href="http://nginx.org/en/docs/ngx_core_module.html#thread_pool" target="_blank">thread pools</a></p>
+</li>
+<li><p><strong>with-file-aio</strong></p>
+<p>  &#x542F;&#x7528;&#x5728;FreeBSD&#x548C;Linux&#x4E0A;<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#aio" target="_blank">asynchronous file I/O</a> (aio)&#x6307;&#x4EE4;&#x7684;&#x4F7F;&#x7528;</p>
+</li>
+<li><p><strong>--without-http_gzip_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA; HTTP &#x670D;&#x52A1;&#x5668;<a href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html" target="_blank">&#x54CD;&#x5E94;&#x538B;&#x7F29;</a>&#x6A21;&#x5757;&#x3002;&#x9700;&#x8981; zlib &#x5E93;&#x6765;&#x6784;&#x5EFA;&#x548C;&#x8FD0;&#x884C;&#x6B64;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>--without-http_rewrite_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5141;&#x8BB8; HTTP &#x670D;&#x52A1;&#x5668;<a href="http://nginx.org/en/docs/http/ngx_http_rewrite_module.html" target="_blank">&#x91CD;&#x5B9A;&#x5411;&#x8BF7;&#x6C42;</a>&#x548C;<a href="http://nginx.org/en/docs/http/ngx_http_rewrite_module.html" target="_blank">&#x66F4;&#x6539;&#x8BF7;&#x6C42; URI</a> &#x7684;&#x6A21;&#x5757;&#x3002;&#x9700;&#x8981; PCRE &#x5E93;&#x6765;&#x6784;&#x5EFA;&#x548C;&#x8FD0;&#x884C;&#x6B64;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>--without-http_proxy_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA; HTTP &#x670D;&#x52A1;&#x5668;<a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank">&#x4EE3;&#x7406;&#x6A21;&#x5757;</a>&#x3002;</p>
+</li>
+<li><p><strong>--with-http_ssl_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;&#x53EF;&#x5C06; <a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html" target="_blank">HTTPS &#x534F;&#x8BAE;&#x652F;&#x6301;</a>&#x6DFB;&#x52A0;&#x5230; HTTP &#x670D;&#x52A1;&#x5668;&#x7684;&#x6A21;&#x5757;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B64;&#x6A21;&#x5757;&#x53C2;&#x4E0E;&#x6784;&#x5EFA;&#x3002;&#x6784;&#x5EFA;&#x548C;&#x8FD0;&#x884C;&#x6B64;&#x6A21;&#x5757;&#x9700;&#x8981; OpenSSL &#x5E93;&#x652F;&#x6301;&#x3002;</p>
+</li>
+<li><p><strong>with-http_v2_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x652F;&#x6301;<a href="http://nginx.org/en/docs/http/ngx_http_v2_module.html" target="_blank">HTTP/2</a> &#x7684;&#x6A21;&#x5757;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_realip_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_realip_module.html" target="_blank">ngx_http_realip_module</a> &#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x5C06;&#x5BA2;&#x6237;&#x7AEF;&#x5730;&#x5740;&#x66F4;&#x6539;&#x4E3A;&#x5728;&#x6307;&#x5B9A;&#x7684;header&#x4E2D;&#x53D1;&#x9001;&#x7684;&#x5730;&#x5740;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_addition_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_addition_module.html" target="_blank">ngx_http_addition_module</a> &#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x80FD;&#x591F;&#x5728;&#x54CD;&#x5E94;&#x4E4B;&#x524D;&#x548C;&#x4E4B;&#x540E;&#x6DFB;&#x52A0;&#x6587;&#x672C;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_xslt_module</strong>&#x548C;<strong>with-http_xslt_module=dynamic</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;XSLT&#x6837;&#x5F0F;&#x8868;&#x8F6C;&#x5316;&#x4E3A;XML&#x54CD;&#x5E94;&#x7684;<a href="http://nginx.org/en/docs/http/ngx_http_xslt_module.html" target="_blank">ngx_http_xslt_module</a>&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;<a href="http://xmlsoft.org/XSLT/" target="_blank">libxslt</a> &#x548C; <a href="http://xmlsoft.org/" target="_blank">libxml2</a> &#x5E93;&#x9700;&#x8981;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x6765;&#x6784;&#x5EFA;&#x548C;&#x542F;&#x52A8;&#x3002;</p>
+</li>
+<li><p><strong>with-http_image_filter_module</strong>&#x548C;<strong>with-http_image_filter_module=dynamic</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_image_filter_module.html" target="_blank">ngx_http_image_filter_module</a> &#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x8F6C;&#x6362; JPEG, GIF, PNG, &#x548C; WebP &#x683C;&#x5F0F;&#x7684;&#x56FE;&#x7247;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_geoip_module</strong>&#x548C;<strong>with-http_geoip_module=dynamic</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_geoip_module.html" target="_blank">ngx_http_geoip_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x6839;&#x636E;&#x5BA2;&#x6237;&#x7AEF; IP &#x5730;&#x5740;&#x548C;&#x9884;&#x7F16;&#x8BD1;<a href="https://www.maxmind.com/en/home" target="_blank">MaxMind</a> &#x7684;&#x6570;&#x636E;&#x5E93;&#x521B;&#x5EFA;&#x53D8;&#x91CF;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_sub_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_sub_module.html" target="_blank">ngx_http_sub_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x901A;&#x8FC7;&#x5C06;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x6765;&#x4FEE;&#x6539;&#x76F8;&#x5E94;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_dav_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_dav_module.html" target="_blank">ngx_http_dav_module </a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x901A;&#x8FC7;WebDEV&#x534F;&#x8BAE;&#x63D0;&#x4F9B;&#x6587;&#x4EF6;&#x7BA1;&#x7406;&#x81EA;&#x52A8;&#x5316;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_flv_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_flv_module.html" target="_blank">ngx_http_flv_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4E3A; Flash Videos (FLV) &#x6587;&#x4EF6;&#x63D0;&#x4F9B;&#x4F2A;&#x6D41;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x652F;&#x6301;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_mp4_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_mp4_module.html" target="_blank">ngx_http_mp4_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4E3A; MP4 &#x6587;&#x4EF6;&#x63D0;&#x4F9B;&#x4F2A;&#x6D41;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x652F;&#x6301;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_gunzip_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_gunzip_module.html" target="_blank">ngx_http_gunzip_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4F7F;&#x7528; <code>Content-Encoding: gzip</code> &#x6765;&#x89E3;&#x538B;&#x7F29;&#x54CD;&#x5E94;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x4E0D;&#x652F;&#x6301;<code>gzip</code>&#x7F16;&#x7801;&#x65B9;&#x6CD5;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_auth_request_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html" target="_blank">ngx_http_auth_request_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x57FA;&#x4E8E;&#x5B50;&#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;&#x5B9E;&#x73B0;&#x5BA2;&#x6237;&#x7AEF;&#x6388;&#x6743;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_random_index_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_random_index_module.html" target="_blank">ngx_http_random_index_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5904;&#x7406;&#x659C;&#x6760;&#x5B57;&#x7B26; (&apos;/&apos;) &#x7ED3;&#x5C3E;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x9009;&#x62E9;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x968F;&#x673A;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x7D22;&#x5F15;&#x6587;&#x4EF6;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_secure_link_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_secure_link_module.html" target="_blank">ngx_http_secure_link_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_degradation_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA; <code>with-http_degradation_module</code> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_slice_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_slice_module.html" target="_blank">ngx_http_slice_module</a> &#x5C06;&#x8BF7;&#x6C42;&#x62C6;&#x5206;&#x4E3A;&#x5B50;&#x8BF7;&#x6C42;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x8FD4;&#x56DE;&#x4E00;&#x5B9A;&#x8303;&#x56F4;&#x7684;&#x54CD;&#x5E94;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x6709;&#x6548;&#x7684;&#x5927;&#x54CD;&#x5E94;&#x7F13;&#x5B58;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-http_stub_status_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_stub_status_module.html" target="_blank">ngx_http_stub_status_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x5BF9;&#x57FA;&#x672C;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x7684;&#x8BBF;&#x95EE;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>without-http_charset_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x538B;&#x7F29; HTTP &#x54CD;&#x5E94;&#x7684;<a href="http://nginx.org/en/docs/http/ngx_http_charset_module.html" target="_blank">ngx_http_charset_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5C06;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#x6DFB;&#x52A0;&#x5230; <code>Content-Type</code> &#x54CD;&#x5E94;&#x5934;&#x5B57;&#x6BB5;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x4ECE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x96C6;&#x8F6C;&#x5316;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x96C6;&#x3002;</p>
+</li>
+<li><p><strong>without-http_gzip_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x538B;&#x7F29; HTTP &#x54CD;&#x5E94;&#x7684;<a href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html" target="_blank">compresses responses</a> &#x6A21;&#x5757;&#x3002;&#x6784;&#x5EFA;&#x548C;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x9700;&#x8981; zlib &#x5E93;&#x3002;</p>
+</li>
+<li><p><strong>without-http_ssi_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html" target="_blank">without-http_ssi_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5728;&#x901A;&#x8FC7;&#x5B83;&#x7684;&#x54CD;&#x5E94;&#x4E2D;&#x5904;&#x7406; SSI (&#x670D;&#x52A1;&#x7AEF;&#x5305;&#x542B;) &#x547D;&#x4EE4;&#x3002;</p>
+</li>
+<li><p><strong>without-http_userid_module</strong></p>
+<p>  &#x5141;&#x8BB8;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_userid_module.html" target="_blank">ngx_http_userid_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x8BBE;&#x7F6E;&#x9002;&#x5408;&#x5BA2;&#x6237;&#x7AEF;&#x8BC6;&#x522B;&#x7684;cookie&#x3002;</p>
+</li>
+<li><p><strong>without-http_access_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_access_module.html" target="_blank">ngx_http_access_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5141;&#x8BB8;&#x9650;&#x5236;&#x5BF9;&#x67D0;&#x4E9B;&#x5BA2;&#x6237;&#x7AEF;&#x5730;&#x5740;&#x7684;&#x8BBF;&#x95EE;&#x3002;</p>
+</li>
+<li><p><strong>without-http_auth_basic_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_auth_basic_module.html" target="_blank">ngx_http_auth_basic_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x4F7F;&#x7528;HTTP&#x57FA;&#x672C;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x534F;&#x8BAE;&#x9A8C;&#x8BC1;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x6765;&#x9650;&#x5236;&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x8BBF;&#x95EE;&#x3002;</p>
+</li>
+<li><p><strong>without-http_mirror_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_mirror_module.html" target="_blank">ngx_http_mirror_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x540E;&#x53F0;&#x955C;&#x50CF;&#x5B50;&#x8BF7;&#x6C42;&#x6765;&#x5B9E;&#x73B0;&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x7684;&#x955C;&#x50CF;&#x3002;</p>
+</li>
+<li><p><strong>without-http_autoindex_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html" target="_blank">ngx_http_autoindex_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5904;&#x7406;&#x4EE5;&#x659C;&#x6760;(&apos;/&apos;)&#x7ED3;&#x5C3E;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x5728;<a href="http://nginx.org/en/docs/http/ngx_http_index_module.html" target="_blank">ngx_http_index_module</a> &#x6A21;&#x5757;&#x627E;&#x4E0D;&#x5230;&#x7D22;&#x5F15;&#x6587;&#x4EF6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x751F;&#x6210;&#x76EE;&#x5F55;&#x5217;&#x8868;&#x3002;</p>
+</li>
+<li><p><strong>without-http_geo_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_geo_module.html" target="_blank">ngx_http_geo_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4F7F;&#x7528;&#x53D6;&#x51B3;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;IP&#x5730;&#x5740;&#x7684;&#x503C;&#x521B;&#x5EFA;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p><strong>without-http_map_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_map_module.html" target="_blank">ngx_http_map_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4F7F;&#x7528;&#x53D6;&#x51B3;&#x4E8E;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x521B;&#x5EFA;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p><strong>without-http_split_clients_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_split_clients_module.html" target="_blank">ngx_http_split_clients_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4E3A; A/B &#x6D4B;&#x8BD5;&#x521B;&#x5EFA;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p><strong>without-http_referer_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_referer_module.html" target="_blank">ngx_http_referer_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x963B;&#x6B62;&#x5BF9; &#x201C;Referer&#x201D; &#x5934;&#x5B57;&#x6BB5;&#x4E2D;&#x5177;&#x6709;&#x65E0;&#x6548;&#x503C;&#x7684;&#x8BF7;&#x6C42;&#x8BBF;&#x95EE;&#x7AD9;&#x70B9;&#x3002;</p>
+</li>
+<li><p><strong>without-http_proxy_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5141;&#x8BB8;HTTP&#x670D;&#x52A1;&#x5668;&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8BF7;&#x6C42;&#x548C;&#x66F4;&#x6539;&#x8BF7;&#x6C42;URI <a href="http://nginx.org/en/docs/http/ngx_http_rewrite_module.html" target="_blank">redirect requests and change URI of requests</a> &#x7684;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-http_proxy_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank">proxying module</a> HTTP&#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7406;&#x6A21;&#x5757;&#x3002; </p>
+</li>
+<li><p><strong>without-http_fastcgi_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;FastCGI&#x670D;&#x52A1;&#x5668;&#x7684;<a href="http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html" target="_blank">ngx_http_fastcgi_module</a>&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-http_uwsgi_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;uwsgi&#x670D;&#x52A1;&#x5668;&#x7684;<a href="http://nginx.org/en/docs/http/ngx_http_uwsgi_module.html" target="_blank">ngx_http_uwsgi_module</a> &#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-http_scgi_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;SCGI&#x670D;&#x52A1;&#x5668;&#x7684;<a href="http://nginx.org/en/docs/http/ngx_http_scgi_module.html" target="_blank">ngx_http_scgi_module</a> &#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-http_grpc_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x4E2A;RPC&#x670D;&#x52A1;&#x5668;<a href="http://nginx.org/en/docs/http/ngx_http_grpc_module.html" target="_blank">ngx_http_grpc_module</a> &#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-http_memcached_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_memcached_module.html" target="_blank">ngx_http_memcached_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4ECE; memcached &#x670D;&#x52A1;&#x5668;&#x83B7;&#x5F97;&#x54CD;&#x5E94;&#x3002;</p>
+</li>
+<li><p><strong>without-http_limit_conn_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_limit_conn_module.html" target="_blank">ngx_http_limit_conn_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9650;&#x5236;&#x6BCF;&#x4E2A;&#x5BC6;&#x94A5;&#x7684;&#x94FE;&#x63A5;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x6765;&#x81EA;&#x5355;&#x4E2A;IP&#x5730;&#x5740;&#x7684;&#x94FE;&#x63A5;&#x6570;&#x3002;</p>
+</li>
+<li><p><strong>without-http_limit_req_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x9650;&#x5236;&#x6BCF;&#x4E2A;&#x952E;&#x7684;&#x8BF7;&#x6C42;&#x5904;&#x7406;&#x901F;&#x7387;<a href="http://nginx.org/en/docs/http/ngx_http_limit_req_module.html" target="_blank">ngx_http_limit_req_module</a> &#x6A21;&#x5757;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6765;&#x81EA;&#x5355;&#x4E2A;IP&#x5730;&#x5740;&#x7684;&#x8BF7;&#x6C42;&#x7684;&#x5904;&#x7406;&#x901F;&#x7387;&#x3002;</p>
+</li>
+<li><p><strong>without-http_empty_gif_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x53D1;&#x51FA;&#x5355;&#x50CF;&#x7D20;&#x900F;&#x660E;GIF<a href="http://nginx.org/en/docs/http/ngx_http_empty_gif_module.html" target="_blank">emits single-pixel transparent GIF</a> &#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-http_browser_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_browser_module.html" target="_blank">ngx_http_browser_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x521B;&#x5EFA;&#x7684;&#x503C;&#x7684;&#x53D8;&#x91CF;&#x53D6;&#x51B3;&#x4E8E; &#x201C;User-Agent&#x201D; &#x8BF7;&#x6C42;&#x6807;&#x5934;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#x3002;</p>
+</li>
+<li><p><strong>without-http_upstream_hash_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5B9E;&#x73B0;&#x6563;&#x5217;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x65B9;&#x6CD5;<a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html#hash" target="_blank">hash</a> &#x6A21;&#x5757;&#x3002;  </p>
+</li>
+<li><p><strong>without-http_upstream_ip_hash_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5B9E;&#x73B0;<a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html#ip_hash" target="_blank">IP_Hash</a> &#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x65B9;&#x6CD5;&#x7684;&#x6A21;&#x5757;&#x3002; </p>
+</li>
+<li><p><strong>without-http_upstream_least_conn_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;&#x5B9E;&#x73B0;<a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html#least_conn" target="_blank">least_conn</a> &#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x65B9;&#x6CD5;&#x7684;&#x6A21;&#x5757;&#x3002; </p>
+</li>
+<li><p><strong>without-http_upstream_keepalive_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive" target="_blank">caching of connections</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x5230;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#x7684;&#x94FE;&#x63A5;&#x7F13;&#x5B58;&#x3002; </p>
+</li>
+<li><p><strong>without-http_upstream_zone_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html#zone" target="_blank">zone</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x5C06;&#x4E0A;&#x6E38;&#x7EC4;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x72B6;&#x6001;&#x5B58;&#x50A8;&#x5728;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x4E2D;&#x3002; </p>
+</li>
+<li><p><strong>with-http_perl_module</strong>&#x548C;<strong>with-http_perl_module=dynamic</strong></p>
+<p>  &#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_perl_module.html" target="_blank">&#x5D4C;&#x5165;&#x5F0F;Perl</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002; </p>
+</li>
+<li><p><strong>--with-perl_modules_path=path</strong></p>
+<p>  &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4FDD;&#x7559;Perl&#x6A21;&#x5757;&#x7684;&#x8DEF;&#x5F84;&#x3002; </p>
+</li>
+<li><p><strong>with-perl=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;Perl&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;&#x3002; </p>
+</li>
+<li><p><strong>http-client-body-temp-path</strong></p>
+<p>  &#x5B9A;&#x4E49;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4FDD;&#x5B58;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x7684;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_temp_path" target="_blank">client_body_temp_path</a> &#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x59CB;&#x7EC8;&#x66F4;&#x6539;&#x76EE;&#x5F55;&#x3002;&#x9ED8;&#x8BA4;&#x7684;&#x76EE;&#x5F55;&#x540D;&#x4E3A; <code>prefix/client_body_temp</code>&#x3002; </p>
+</li>
+<li><p><strong>http-proxy-temp-path=path</strong></p>
+<p>  &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x548C;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x53D7;&#x7684;&#x6570;&#x636E;&#x3002;&#x5B89;&#x88C5;&#x540E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_temp_path" target="_blank">proxy_temp_path</a> &#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;&#x3002;&#x9ED8;&#x8BA4;&#x7684;&#x76EE;&#x5F55;&#x540D;&#x4E3A; <code>profix/proxy_temp</code></p>
+</li>
+<li><p><strong>http-fastcgi-temp-path=path</strong></p>
+<p>  &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x548C;&#x4ECE; FastCGI &#x670D;&#x52A1;&#x5668;&#x63A5;&#x53D7;&#x7684;&#x6570;&#x636E;&#x3002;&#x5B89;&#x88C5;&#x540E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_temp_path" target="_blank">fastcgi_temp_path</a> &#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;&#x3002; &#x9ED8;&#x8BA4;&#x7684;&#x76EE;&#x5F55;&#x4E3A; <code>prefix/fastcgi_temp</code></p>
+</li>
+<li><p><strong>http-uwsgi-temp-path=path</strong></p>
+<p>  &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x548C;&#x4ECE; uwsgi  &#x670D;&#x52A1;&#x5668;&#x63A5;&#x53D7;&#x7684;&#x6570;&#x636E;&#x3002;&#x5B89;&#x88C5;&#x540E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="http://nginx.org/en/docs/http/ngx_http_uwsgi_module.html#uwsgi_temp_path" target="_blank">uwsgi_temp_path</a> &#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;&#x3002; &#x9ED8;&#x8BA4;&#x7684;&#x76EE;&#x5F55;&#x4E3A; <code>prefix/uwsgi_temp</code></p>
+</li>
+<li><p><strong>http-scgi-temp-path=path</strong></p>
+<p>  &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x548C;&#x4ECE; SCGI &#x670D;&#x52A1;&#x5668;&#x63A5;&#x53D7;&#x7684;&#x6570;&#x636E;&#x3002;&#x5B89;&#x88C5;&#x540E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="http://nginx.org/en/docs/http/ngx_http_scgi_module.html#scgi_temp_path" target="_blank">scgi_temp_path</a> &#x6307;&#x4EE4;&#x5728;nginx.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;&#x3002; &#x9ED8;&#x8BA4;&#x7684;&#x76EE;&#x5F55;&#x4E3A; <code>prefix/scgi_temp</code></p>
+</li>
+<li><p><strong>without-http</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html" target="_blank">HTTP</a> &#x6A21;&#x5757;&#x3002; </p>
+</li>
+<li><p><strong>without-http-cache</strong></p>
+<p>  &#x7981;&#x7528; HTTP &#x7F13;&#x5B58;&#x3002;                                                                                                           </p>
+</li>
+<li><p><strong>with-mail</strong>&#x548C;<strong>with-mail=dynamic</strong></p>
+<p>  &#x542F;&#x7528;&#x6784;&#x5EFA; POP3/IMAP4/SMTP <a href="http://nginx.org/en/docs/mail/ngx_mail_core_module.html" target="_blank">mail proxy</a> &#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>with-mail_ssl_module</strong></p>
+<p>  &#x542F;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/mail/ngx_mail_ssl_module.html" target="_blank">SSL/TLS protocol support</a> &#x6A21;&#x5757;&#xFF0C;&#x5C06;SSL/TLS&#x534F;&#x8BAE;&#x652F;&#x6301;&#x6DFB;&#x52A0;&#x5230;&#x90AE;&#x4EF6;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x6B64;&#x6A21;&#x5757;&#x3002;&#x9700;&#x8981;OpenSSL&#x5E93;&#x6765;&#x6784;&#x5EFA;&#x548C;&#x8FD0;&#x884C;&#x6B64;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-mail_pop3_module</strong></p>
+<p>  &#x7981;&#x7528;&#x90AE;&#x4EF6;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x7684;<a href="http://nginx.org/en/docs/mail/ngx_mail_pop3_module.html" target="_blank">POP3</a> &#x534F;&#x8BAE;&#x3002;</p>
+</li>
+<li><p><strong>without-mail_imap_module</strong></p>
+<p>  &#x7981;&#x7528;&#x90AE;&#x4EF6;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x7684;<a href="http://nginx.org/en/docs/mail/ngx_mail_imap_module.html" target="_blank">IMAP</a> &#x534F;&#x8BAE;&#x3002;</p>
+</li>
+<li><p><strong>without-mail_smtp_module</strong></p>
+<p>  &#x7981;&#x7528;&#x90AE;&#x4EF6;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x7684;<a href="http://nginx.org/en/docs/mail/ngx_mail_smtp_module.html" target="_blank">SMTP</a> &#x534F;&#x8BAE;&#x3002;</p>
+</li>
+<li><p><strong>with-stream</strong>&#x548C;<strong>with-stream=dynamic</strong></p>
+<p>  &#x542F;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_core_module.html" target="_blank">&#x6D41;&#x6A21;&#x5757;</a> &#x6A21;&#x5757;&#x4EE5;&#x8FDB;&#x884C;&#x901A;&#x7528;&#x7684; TCP/UDP &#x4EE3;&#x7406;&#x548C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-stream_ssl_module</strong></p>
+<p>  &#x542F;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_ssl_module.html" target="_blank">SSL/TLS protocol support</a> &#x6A21;&#x5757;&#x3002;&#x4E3A;&#x6D41;&#x6A21;&#x5757;&#x6DFB;&#x52A0;SSL/TLS&#x534F;&#x8BAE;&#x652F;&#x6301;&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x6B64;&#x6A21;&#x5757;&#x3002;&#x9700;&#x8981;OpenSSL&#x5E93;&#x6765;&#x6784;&#x5EFA;&#x548C;&#x8FD0;&#x884C;&#x6B64;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>with-stream_realip_module</strong></p>
+<p>  &#x542F;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/http/ngx_stream_realip_module.html" target="_blank">ngx_stream_realip_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5C06;&#x5BA2;&#x6237;&#x7AEF;&#x5730;&#x5740;&#x66F4;&#x6539;&#x4E3A; PROXY &#x534F;&#x8BAE;&#x5934;&#x4E2D;&#x53D1;&#x9001;&#x7684;&#x5730;&#x5740;&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x6B64;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>with-stream_geoip_module</strong>&#x548C;<strong>with-stream_geoip_module=dynamic</strong></p>
+<p>  &#x542F;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_geoip_module.html" target="_blank">ngx_stream_geoip_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x6839;&#x636E;&#x5BA2;&#x6237;&#x7AEF;&#x5730;&#x5740;&#x548C;&#x9884;&#x7F16;&#x8BD1;&#x7684;<a href="http://www.maxmind.com/" target="_blank">MaxMind</a> &#x6570;&#x636E;&#x5E93;&#x521B;&#x5EFA;&#x53D8;&#x91CF;&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-stream_ssl_preread_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_ssl_preread_module.html" target="_blank">with-http_degradation_modulengx_stream_ssl_preread_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5141;&#x8BB8;&#x4ECE;<a href="https://tools.ietf.org/html/rfc5246#section-7.4.1.2" target="_blank">ClientHello</a> &#x6D88;&#x606F;&#x4E2D;&#x63D0;&#x53D6;&#x6D88;&#x606F;&#x800C;&#x4E0D;&#x7EC8;&#x6B62;SSL/TLS&#x3002;</p>
+</li>
+<li><p><strong>without-stream_limit_conn_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_limit_conn_module.html" target="_blank">ngx_stream_limit_conn_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9650;&#x5236;&#x6BCF;&#x4E2A;&#x5BC6;&#x94A5;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x6765;&#x81EA;&#x5355;&#x4E2A;IP&#x5730;&#x5740;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#x3002;</p>
+</li>
+<li><p><strong>without-stream_geo_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_geo_module.html" target="_blank">ngx_stream_geo_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4F7F;&#x7528;&#x53D6;&#x51B3;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;IP&#x5730;&#x5740;&#x7684;&#x503C;&#x521B;&#x5EFA;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p><strong>without-stream_map_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_map_module.html" target="_blank">ngx_stream_map_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x6839;&#x636E;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x521B;&#x5EFA;&#x503C;&#x3002;</p>
+</li>
+<li><p><strong>without-stream_split_clients_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_split_clients_module.html" target="_blank">ngx_stream_split_clients_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x4E3A; A/B &#x6D4B;&#x8BD5;&#x521B;&#x5EFA;&#x53D8;&#x91CF;</p>
+</li>
+<li><p><strong>without-stream_return_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_return_module.html" target="_blank">ngx_stream_return_module</a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x5C06;&#x4E00;&#x4E9B;&#x6307;&#x5B9A;&#x503C;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x7136;&#x540E;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;</p>
+</li>
+<li><p><strong>without-stream_upstream_hash_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_upstream_module.html#hash" target="_blank">hash</a> &#x5B9E;&#x73B0;&#x6563;&#x5217;&#x8D1F;&#x8F7D;&#x5E73;&#x8861;&#x65B9;&#x6CD5;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-stream_upstream_least_conn_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_upstream_module.html#least_conn" target="_blank">least_conn</a> &#x5B9E;&#x73B0;&#x6563;&#x5217;&#x8D1F;&#x8F7D;&#x5E73;&#x8861;&#x65B9;&#x6CD5;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>without-stream_upstream_zone_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/stream/ngx_stream_upstream_module.html#zone" target="_blank">zone</a> &#x7684;&#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x5C06;&#x4E0A;&#x6E38;&#x7EC4;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x72B6;&#x6001;&#x5B58;&#x50A8;&#x5728;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x4E2D;</p>
+</li>
+<li><p><strong>with-google_perftools_module</strong></p>
+<p>  &#x7981;&#x7528;&#x6784;&#x5EFA;<a href="http://nginx.org/en/docs/ngx_google_perftools_module.html" target="_blank">ngx_google_perftools_module </a> &#x6A21;&#x5757;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://github.com/gperftools/gperftools" target="_blank">Google Performance Tools</a> &#x5206;&#x6790;nginx&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x9002;&#x7528;&#x4E8E;nginx&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x6784;&#x5EFA;&#x3002;</p>
+</li>
+<li><p><strong>with-cpp_test_module</strong></p>
+<p>  &#x542F;&#x7528;&#x6784;&#x5EFA;ngx_cpp_test_module&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>add-module=path</strong></p>
+<p>  &#x542F;&#x7528;&#x5916;&#x90E8;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>add-dynamic-module=path</strong></p>
+<p>  &#x542F;&#x7528;&#x52A8;&#x6001;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>with-compat</strong></p>
+<p>  &#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x517C;&#x5BB9;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+<li><p><strong>with-cc=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;C&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x540D;&#x79F0;&#x3002;</p>
+</li>
+<li><p><strong>with-cpp=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;C++&#x5904;&#x7406;&#x5668;&#x7684;&#x540D;&#x79F0;&#x3002;</p>
+</li>
+<li><p><strong>with-cc-opt=parameters</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x5C06;&#x6DFB;&#x52A0;&#x5230;CFLAGS&#x53D8;&#x91CF;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;&#x5728;FreeBSD&#x4E0B;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;PCRE&#x5E93;&#x65F6;&#xFF0C;&#x5E94;&#x6307;&#x5B9A;<code>--with-cc-opt =&quot; - I / usr / local / include&quot;</code>&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x589E;&#x52A0; select() &#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x6B64;&#x5904;&#x6307;&#x5B9A;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A; <code>- with-cc-opt =&quot; - D FD_SETSIZE = 2048&quot;</code>&#x3002;</p>
+</li>
+<li><p><strong>with-ld-opt=parameters</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x5C06;&#x5728;&#x94FE;&#x63A5;&#x671F;&#x95F4;&#x4F7F;&#x7528;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;&#x5728;FreeBSD&#x4E0B;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;PCRE&#x5E93;&#x65F6;&#xFF0C;&#x5E94;&#x6307;&#x5B9A;<code>--with-ld-opt =&quot; - L / usr / local / lib&quot;</code>&#x3002;</p>
+</li>
+<li><p><strong>with-cpu-opt=cpu</strong></p>
+<p>  &#x6307;&#x5B9A;&#x7F16;&#x8BD1;&#x7684; CPU &#xFF0C;pentium, pentiumpro, pentium3, pentium4, athlon, opteron, sparc32, sparc64, ppc64&#x3002;</p>
+</li>
+<li><p><strong>without-pcre</strong></p>
+<p>  &#x7981;&#x7528; PCRE &#x5E93;&#x7684;&#x4F7F;&#x7528;&#x3002;</p>
+</li>
+<li><p><strong>with-pcre</strong></p>
+<p>  &#x5F3A;&#x5236;&#x4F7F;&#x7528; PCRE &#x5E93;&#x3002;</p>
+</li>
+<li><p><strong>with-pcre=path</strong></p>
+<p>  &#x8BBE;&#x7F6E; PCRE &#x5E93;&#x6E90;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x9700;&#x8981;&#x4ECE; <a href="http://www.pcre.org/" target="_blank">PCRE</a> &#x7AD9;&#x70B9;&#x4E0B;&#x8F7D;&#x5206;&#x53D1;&#xFF08;&#x7248;&#x672C;4.4 - 8.42&#xFF09;&#x5E76;&#x5C06;&#x5176;&#x89E3;&#x538B;&#x7F29;&#x3002;&#x5269;&#x4E0B;&#x7684;&#x5DE5;&#x4F5C;&#x7531;nginx&#x7684;./configure&#x548C;make&#x5B8C;&#x6210;&#x3002;&#x8BE5;&#x4F4D;&#x7F6E;&#x6307;&#x4EE4;&#x548C; <a href="http://nginx.org/en/docs/http/ngx_http_rewrite_module.html" target="_blank">ngx_http_rewrite_module</a> &#x6A21;&#x5757;&#x4E2D;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x652F;&#x6301;&#x9700;&#x8981;&#x8BE5;&#x5E93;&#x3002;</p>
+</li>
+<li><p><strong>with-pcre-opt=parameters</strong></p>
+<p>  &#x4E3A;PCRE&#x8BBE;&#x7F6E;&#x5176;&#x4ED6;&#x6784;&#x5EFA;&#x9009;&#x9879;&#x3002;</p>
+</li>
+<li><p><strong>with-zlib-opt=parameters</strong></p>
+<p>  &#x4E3A;zlib&#x8BBE;&#x7F6E;&#x5176;&#x4ED6;&#x6784;&#x5EFA;&#x9009;&#x9879;&#x3002;</p>
+</li>
+<li><p><strong>with-zlib-asm=cpu</strong></p>
+<p>  &#x542F;&#x7528;&#x4F7F;&#x7528;&#x9488;&#x5BF9;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;CPU&#x4F18;&#x5316;&#x7684;zlib&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;&#x6E90;&#xFF1A;pentium&#xFF0C;pentiumpro&#x3002;</p>
+</li>
+<li><p><strong>with-libatomic</strong></p>
+<p>  &#x5F3A;&#x5236;libatomic_ops&#x5E93;&#x4F7F;&#x7528;&#x3002;</p>
+</li>
+<li><p><strong>with-libatomic=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;libatomic_ops&#x5E93;&#x6E90;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+</li>
+<li><p><strong>with-openssl=path</strong></p>
+<p>  &#x8BBE;&#x7F6E;OpenSSL&#x5E93;&#x6E90;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+</li>
+<li><p><strong>with-openssl-opt=parameters</strong></p>
+<p>  &#x4E3A;OpenSSL&#x8BBE;&#x7F6E;&#x5176;&#x4ED6;&#x6784;&#x5EFA;&#x9009;&#x9879;&#x3002;</p>
+</li>
+<li><p><strong>with-debug</strong></p>
+<p>  &#x542F;&#x7528; <a href="http://nginx.org/en/docs/debugging_log.html" target="_blank">&#x8C03;&#x8BD5;&#x65E5;&#x5FD7;</a> &#x3002;                                                                                                                                                             </p>
+</li>
+<li><p><strong>--with-pcre=path</strong></p>
+<p>  &#x8BBE;&#x7F6E; PCRE &#x5E93;&#x7684;&#x6E90;&#x8DEF;&#x5F84;&#x3002;&#x53D1;&#x884C;&#x7248;&#xFF08;4.4 &#x81F3; 8.40 &#x7248;&#x672C;&#xFF09;&#x9700;&#x8981;&#x4ECE; <a href="http://www.pcre.org/" target="_blank">PCRE</a> &#x7AD9;&#x70B9;&#x4E0B;&#x8F7D;&#x5E76;&#x63D0;&#x53D6;&#x3002;&#x5176;&#x4F59;&#x5DE5;&#x4F5C;&#x7531; nginx &#x7684; <code>./configure</code> &#x548C; <code>make</code> &#x5B8C;&#x6210;&#x3002;&#x8BE5;&#x5E93;&#x662F; <a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#location" target="_blank">location</a> &#x6307;&#x4EE4;&#x548C; <a href="http://nginx.org/en/docs/http/ngx_http_rewrite_module.html" target="_blank">ngx_http_rewrite_module</a> &#x6A21;&#x5757;&#x4E2D;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x652F;&#x6301;&#x6240;&#x5FC5;&#x9700;&#x7684;&#x3002;</p>
+</li>
+<li><p><strong>--with-pcre-jit</strong></p>
+<p>  &#x4F7F;&#x7528;&#x201C;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#xFF08;just-in-time compilation&#xFF09;&#x201D;&#x652F;&#x6301;&#xFF08;1.1.12&#x7248;&#x672C;&#x7684; <a href="http://nginx.org/en/docs/ngx_core_module.html#pcre_jit" target="_blank">pcre_jit</a> &#x6307;&#x4EE4;&#xFF09;&#x6784;&#x5EFA; PCRE &#x5E93;&#x3002;</p>
+</li>
+<li><p><strong>--with-zlib=path</strong></p>
+<p>  &#x8BBE;&#x7F6E; zlib &#x5E93;&#x7684;&#x6E90;&#x8DEF;&#x5F84;&#x3002;&#x53D1;&#x884C;&#x7248;&#xFF08;1.1.3 &#x81F3; 1.2.11 &#x7248;&#x672C;&#xFF09;&#x9700;&#x8981;&#x4ECE; <a href="http://zlib.net/" target="_blank">zlib</a> &#x7AD9;&#x70B9;&#x4E0B;&#x8F7D;&#x5E76;&#x63D0;&#x53D6;&#x3002;&#x5176;&#x4F59;&#x5DE5;&#x4F5C;&#x7531; nginx &#x7684; <code>./configure</code> &#x548C; <code>make</code> &#x5B8C;&#x6210;&#x3002;&#x8BE5;&#x5E93;&#x662F; <a href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html" target="_blank">ngx_http_gzip_module</a> &#x6A21;&#x5757;&#x6240;&#x5FC5;&#x9700;&#x7684;&#x3002;</p>
+</li>
+<li><p><strong>--with-cc-opt=parameters</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x6DFB;&#x52A0;&#x5230; CFLAGS &#x53D8;&#x91CF;&#x7684;&#x989D;&#x5916;&#x53C2;&#x6570;&#x3002;&#x5F53;&#x5728; FreeBSD &#x4E0B;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x7684; PCRE &#x5E93;&#x65F6;&#xFF0C;&#x5E94;&#x6307;&#x5B9A; <code>--with-cc-opt=&quot;-I /usr/local/include&quot;</code>&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x589E;&#x52A0; <code>select()</code> &#x6240;&#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x91CF;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x6307;&#x5B9A;&#xFF0C;&#x5982;&#xFF1A;<code>--with-cc-opt=&quot;-D FD_SETSIZE=2048&quot;</code>&#x3002;</p>
+</li>
+<li><p><strong>--with-ld-opt=parameters</strong></p>
+<p>  &#x8BBE;&#x7F6E;&#x94FE;&#x63A5;&#x671F;&#x95F4;&#x4F7F;&#x7528;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;&#x5728; FreeBSD &#x4E0B;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF; PCRE &#x5E93;&#x65F6;&#xFF0C;&#x5E94;&#x6307;&#x5B9A;--with-ld-opt=&quot;-L /usr/local/lib&quot;`&#x3002;</p>
+</li>
+</ul>
+<p>&#x53C2;&#x6570;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">./configure <span class="token punctuation">\</span>
+    --sbin-path<span class="token operator">=</span>/usr/local/nginx/nginx <span class="token punctuation">\</span>
+    --conf-path<span class="token operator">=</span>/usr/local/nginx/nginx.conf <span class="token punctuation">\</span>
+    --pid-path<span class="token operator">=</span>/usr/local/nginx/nginx.pid <span class="token punctuation">\</span>
+    --with-http_ssl_module <span class="token punctuation">\</span>
+    --with-pcre<span class="token operator">=</span><span class="token punctuation">..</span>/pcre-8.40 <span class="token punctuation">\</span>
+    --with-zlib<span class="token operator">=</span><span class="token punctuation">..</span>/zlib-1.2.11
+</code></pre>
+<p>&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x4F7F;&#x7528; <code>make</code> &#x548C; <code>make install</code> &#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5; nginx&#x3002;</p>
+<h2 id="&#x539F;&#x6587;&#x6863;">&#x539F;&#x6587;&#x6863;</h2>
+<p><a href="http://nginx.org/en/docs/configure.html" target="_blank">http://nginx.org/en/docs/configure.html</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../介绍/安装nginx.html" class="navigation navigation-prev " aria-label="Previous page: 安装 nginx">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../介绍/初学者指南.html" class="navigation navigation-next " aria-label="Next page: 初学者指南">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"从源码构建 nginx","level":"1.2.2","depth":2,"next":{"title":"初学者指南","level":"1.2.3","depth":2,"path":"介绍/初学者指南.md","ref":"介绍/初学者指南.md","articles":[]},"previous":{"title":"安装 nginx","level":"1.2.1","depth":2,"path":"介绍/安装nginx.md","ref":"介绍/安装nginx.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","prism","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico","appleTouch":"favicon.ico","appleTouchMore":{"120x120":"favicon.ico","180x180":"favicon.ico"}},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"DocsHome","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Nginx 文档中文译版","language":"zh-hans","links":{"sidebar":{"Home":"https://github.com/DocsHome"}},"gitbook":"*"},"file":{"path":"How-To/从源码构建nginx.md","mtime":"2020-03-03T11:48:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-03T11:49:46.489Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

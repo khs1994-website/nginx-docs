@@ -1,0 +1,4020 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ngx_http_proxy_module · Nginx 文档中文译版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="DocsHome">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ngx_http_random_index_module.html" />
+    
+    
+    <link rel="prev" href="ngx_http_perl_module.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../../favicon.ico'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../../favicon.ico">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.ico">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/DocsHome" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../CONTRIBUTING.html">
+            
+                <a href="../../CONTRIBUTING.html">
+            
+                    
+                    贡献导引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../介绍/安装nginx.html">
+            
+                <a href="../../介绍/安装nginx.html">
+            
+                    
+                    安装 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../How-To/从源码构建nginx.html">
+            
+                <a href="../../How-To/从源码构建nginx.html">
+            
+                    
+                    从源码构建 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../介绍/初学者指南.html">
+            
+                <a href="../../介绍/初学者指南.html">
+            
+                    
+                    初学者指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" >
+            
+                <a target="_blank" href="https://docs.nginx.com/nginx/admin-guide/">
+            
+                    
+                    管理指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../介绍/控制nginx.html">
+            
+                <a href="../../介绍/控制nginx.html">
+            
+                    
+                    控制 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../介绍/连接处理方式.html">
+            
+                <a href="../../介绍/连接处理方式.html">
+            
+                    
+                    连接处理方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../介绍/设置哈希.html">
+            
+                <a href="../../介绍/设置哈希.html">
+            
+                    
+                    设置哈希
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../介绍/调试日志.html">
+            
+                <a href="../../介绍/调试日志.html">
+            
+                    
+                    调试日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../介绍/记录日志到syslog.html">
+            
+                <a href="../../介绍/记录日志到syslog.html">
+            
+                    
+                    记录日志到 syslog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../介绍/配置文件度量单位.html">
+            
+                <a href="../../介绍/配置文件度量单位.html">
+            
+                    
+                    配置文件度量单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../介绍/命令行参数.html">
+            
+                <a href="../../介绍/命令行参数.html">
+            
+                    
+                    命令行参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../介绍/Windows下的Nginx.html">
+            
+                <a href="../../介绍/Windows下的Nginx.html">
+            
+                    
+                    Windows 下的 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../介绍/Nginx如何处理请求.html">
+            
+                <a href="../../介绍/Nginx如何处理请求.html">
+            
+                    
+                    nginx 如何处理请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../../介绍/服务器名称.html">
+            
+                <a href="../../介绍/服务器名称.html">
+            
+                    
+                    服务器名称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../../介绍/使用Nginx作为HTTP负载均衡器.html">
+            
+                <a href="../../介绍/使用Nginx作为HTTP负载均衡器.html">
+            
+                    
+                    使用 nginx 作为 HTTP 负载均衡器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../../介绍/配置HTTPS服务器.html">
+            
+                <a href="../../介绍/配置HTTPS服务器.html">
+            
+                    
+                    配置 HTTPS 服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../../介绍/Nginx如何处理TCP_UDP会话.html">
+            
+                <a href="../../介绍/Nginx如何处理TCP_UDP会话.html">
+            
+                    
+                    nginx 如何处理 TCP/UDP 会话
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../../介绍/关于nginScript.html">
+            
+                <a href="../../介绍/关于nginScript.html">
+            
+                    
+                    关于 nginScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../其他/linux包.html">
+            
+                <a href="../../其他/linux包.html">
+            
+                    
+                    Linux 软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    How-To
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../How-To/在Win32平台上使用VisualC构建nginx.html">
+            
+                <a href="../../How-To/在Win32平台上使用VisualC构建nginx.html">
+            
+                    
+                    在 Win32 平台上使用 Visual C 构建 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <a target="_blank" href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus-amazon-web-services/">
+            
+                    
+                    设置 Amazon EC2 的 Nginx Plus 环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../How-To/使用DTrace_pid提供程序调试nginx.html">
+            
+                <a href="../../How-To/使用DTrace_pid提供程序调试nginx.html">
+            
+                    
+                    使用 DTrace pid 提供程序调试 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../How-To/转换重写规则.html">
+            
+                <a href="../../How-To/转换重写规则.html">
+            
+                    
+                    转换重写规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../How-To/WebSocket代理.html">
+            
+                <a href="../../How-To/WebSocket代理.html">
+            
+                    
+                    WebSocket 代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../开发/贡献指南.html">
+            
+                <a href="../../开发/贡献指南.html">
+            
+                    
+                    贡献指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    开发指南
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    模块参考
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../核心功能.html">
+            
+                <a href="../核心功能.html">
+            
+                    
+                    核心功能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    HTTP
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="ngx_http_core_module.html">
+            
+                <a href="ngx_http_core_module.html">
+            
+                    
+                    ngx_http_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="ngx_http_access_module.html">
+            
+                <a href="ngx_http_access_module.html">
+            
+                    
+                    ngx_http_access_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="ngx_http_addition_module.html">
+            
+                <a href="ngx_http_addition_module.html">
+            
+                    
+                    ngx_http_addition_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" >
+            
+                <span>
+            
+                    
+                    ngx_http_api_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" data-path="ngx_http_auth_basic_module.html">
+            
+                <a href="ngx_http_auth_basic_module.html">
+            
+                    
+                    ngx_http_auth_basic_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" data-path="ngx_http_auth_jwt_module.html">
+            
+                <a href="ngx_http_auth_jwt_module.html">
+            
+                    
+                    ngx_http_auth_jwt_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.7" data-path="ngx_http_auth_request_module.html">
+            
+                <a href="ngx_http_auth_request_module.html">
+            
+                    
+                    ngx_http_auth_request_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.8" data-path="ngx_http_autoindex_module.html">
+            
+                <a href="ngx_http_autoindex_module.html">
+            
+                    
+                    ngx_http_autoindex_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.9" data-path="ngx_http_browser_module.html">
+            
+                <a href="ngx_http_browser_module.html">
+            
+                    
+                    ngx_http_browser_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.10" data-path="ngx_http_charset_module.html">
+            
+                <a href="ngx_http_charset_module.html">
+            
+                    
+                    ngx_http_charset_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.11" data-path="ngx_http_dav_module.html">
+            
+                <a href="ngx_http_dav_module.html">
+            
+                    
+                    ngx_http_dav_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.12" data-path="ngx_http_empty_gif_module.html">
+            
+                <a href="ngx_http_empty_gif_module.html">
+            
+                    
+                    ngx_http_empty_gif_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.13" data-path="ngx_http_f4f_module.html">
+            
+                <a href="ngx_http_f4f_module.html">
+            
+                    
+                    ngx_http_f4f_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.14" data-path="ngx_http_fastcgi_module.html">
+            
+                <a href="ngx_http_fastcgi_module.html">
+            
+                    
+                    ngx_http_fastcgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.15" data-path="ngx_http_flv_module.html">
+            
+                <a href="ngx_http_flv_module.html">
+            
+                    
+                    ngx_http_flv_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.16" data-path="ngx_http_geo_module.html">
+            
+                <a href="ngx_http_geo_module.html">
+            
+                    
+                    ngx_http_geo_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.17" data-path="ngx_http_geoip_module.html">
+            
+                <a href="ngx_http_geoip_module.html">
+            
+                    
+                    ngx_http_geoip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.18" data-path="ngx_http_grpc_module.html">
+            
+                <a href="ngx_http_grpc_module.html">
+            
+                    
+                    ngx_http_grpc_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.19" data-path="ngx_http_gunzip_module.html">
+            
+                <a href="ngx_http_gunzip_module.html">
+            
+                    
+                    ngx_http_gunzip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.20" data-path="ngx_http_gzip_module.html">
+            
+                <a href="ngx_http_gzip_module.html">
+            
+                    
+                    ngx_http_gzip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.21" data-path="ngx_http_gzip_static_module.html">
+            
+                <a href="ngx_http_gzip_static_module.html">
+            
+                    
+                    ngx_http_gzip_static_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.22" data-path="ngx_http_headers_module.html">
+            
+                <a href="ngx_http_headers_module.html">
+            
+                    
+                    ngx_http_headers_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.23" data-path="ngx_http_hls_module.html">
+            
+                <a href="ngx_http_hls_module.html">
+            
+                    
+                    ngx_http_hls_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.24" data-path="ngx_http_image_filter_module.html">
+            
+                <a href="ngx_http_image_filter_module.html">
+            
+                    
+                    ngx_http_image_filter_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.25" data-path="ngx_http_index_module.html">
+            
+                <a href="ngx_http_index_module.html">
+            
+                    
+                    ngx_http_index_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.26" data-path="ngx_http_js_module.html">
+            
+                <a href="ngx_http_js_module.html">
+            
+                    
+                    ngx_http_js_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.27" data-path="ngx_http_keyval_module.html">
+            
+                <a href="ngx_http_keyval_module.html">
+            
+                    
+                    ngx_http_keyval_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.28" data-path="ngx_http_limit_conn_module.html">
+            
+                <a href="ngx_http_limit_conn_module.html">
+            
+                    
+                    ngx_http_limit_conn_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.29" data-path="ngx_http_limit_req_module.html">
+            
+                <a href="ngx_http_limit_req_module.html">
+            
+                    
+                    ngx_http_limit_req_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.30" data-path="ngx_http_log_module.html">
+            
+                <a href="ngx_http_log_module.html">
+            
+                    
+                    ngx_http_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.31" data-path="ngx_http_map_module.html">
+            
+                <a href="ngx_http_map_module.html">
+            
+                    
+                    ngx_http_map_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.32" data-path="ngx_http_memcached_module.html">
+            
+                <a href="ngx_http_memcached_module.html">
+            
+                    
+                    ngx_http_memcached_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.33" data-path="ngx_http_mirror_module.html">
+            
+                <a href="ngx_http_mirror_module.html">
+            
+                    
+                    ngx_http_mirror_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.34" data-path="ngx_http_mp4_module.html">
+            
+                <a href="ngx_http_mp4_module.html">
+            
+                    
+                    ngx_http_mp4_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.35" data-path="ngx_http_perl_module.html">
+            
+                <a href="ngx_http_perl_module.html">
+            
+                    
+                    ngx_http_perl_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.1.36" data-path="ngx_http_proxy_module.html">
+            
+                <a href="ngx_http_proxy_module.html">
+            
+                    
+                    ngx_http_proxy_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.37" data-path="ngx_http_random_index_module.html">
+            
+                <a href="ngx_http_random_index_module.html">
+            
+                    
+                    ngx_http_random_index_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.38" data-path="ngx_http_realip_module.html">
+            
+                <a href="ngx_http_realip_module.html">
+            
+                    
+                    ngx_http_realip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.39" data-path="ngx_http_referer_module.html">
+            
+                <a href="ngx_http_referer_module.html">
+            
+                    
+                    ngx_http_referer_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.40" data-path="ngx_http_rewrite_module.html">
+            
+                <a href="ngx_http_rewrite_module.html">
+            
+                    
+                    ngx_http_rewrite_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.41" data-path="ngx_http_scgi_module.html">
+            
+                <a href="ngx_http_scgi_module.html">
+            
+                    
+                    ngx_http_scgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.42" data-path="ngx_http_secure_link_module.html">
+            
+                <a href="ngx_http_secure_link_module.html">
+            
+                    
+                    ngx_http_secure_link_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.43" data-path="ngx_http_session_log_module.html">
+            
+                <a href="ngx_http_session_log_module.html">
+            
+                    
+                    ngx_http_session_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.44" data-path="ngx_http_slice_module.html">
+            
+                <a href="ngx_http_slice_module.html">
+            
+                    
+                    ngx_http_slice_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.45" data-path="ngx_http_spdy_module.html">
+            
+                <a href="ngx_http_spdy_module.html">
+            
+                    
+                    ngx_http_spdy_module（过时）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.46" data-path="ngx_http_split_clients_module.html">
+            
+                <a href="ngx_http_split_clients_module.html">
+            
+                    
+                    ngx_http_split_clients_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.47" data-path="ngx_http_ssi_module.html">
+            
+                <a href="ngx_http_ssi_module.html">
+            
+                    
+                    ngx_http_ssi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.48" data-path="ngx_http_ssl_module.html">
+            
+                <a href="ngx_http_ssl_module.html">
+            
+                    
+                    ngx_http_ssl_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.49" data-path="ngx_http_status_module.html">
+            
+                <a href="ngx_http_status_module.html">
+            
+                    
+                    ngx_http_status_module（过时）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.50" data-path="ngx_http_stub_status_module.html">
+            
+                <a href="ngx_http_stub_status_module.html">
+            
+                    
+                    ngx_http_stub_status_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.51" data-path="ngx_http_sub_module.html">
+            
+                <a href="ngx_http_sub_module.html">
+            
+                    
+                    ngx_http_sub_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.52" data-path="ngx_http_upstream_module.html">
+            
+                <a href="ngx_http_upstream_module.html">
+            
+                    
+                    ngx_http_upstream_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.53" data-path="ngx_http_upstream_conf_module.html">
+            
+                <a href="ngx_http_upstream_conf_module.html">
+            
+                    
+                    ngx_http_upstream_conf_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.54" data-path="ngx_http_upstream_hc_module.html">
+            
+                <a href="ngx_http_upstream_hc_module.html">
+            
+                    
+                    ngx_http_upstream_hc_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.55" data-path="ngx_http_userid_module.html">
+            
+                <a href="ngx_http_userid_module.html">
+            
+                    
+                    ngx_http_userid_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.56" data-path="ngx_http_uwsgi_module.html">
+            
+                <a href="ngx_http_uwsgi_module.html">
+            
+                    
+                    ngx_http_uwsgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.57" data-path="ngx_http_v2_module.html">
+            
+                <a href="ngx_http_v2_module.html">
+            
+                    
+                    ngx_http_v2_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.58" data-path="ngx_http_xslt_module.html">
+            
+                <a href="ngx_http_xslt_module.html">
+            
+                    
+                    ngx_http_xslt_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    Mail
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../mail/ngx_mail_core_module.html">
+            
+                <a href="../mail/ngx_mail_core_module.html">
+            
+                    
+                    ngx_mail_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../mail/ngx_mail_auth_http_module.html">
+            
+                <a href="../mail/ngx_mail_auth_http_module.html">
+            
+                    
+                    ngx_mail_auth_http_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../mail/ngx_mail_proxy_module.html">
+            
+                <a href="../mail/ngx_mail_proxy_module.html">
+            
+                    
+                    ngx_mail_proxy_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.4" >
+            
+                <span>
+            
+                    
+                    ngx_mail_ssl_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.5" data-path="../mail/ngx_mail_imap_module.html">
+            
+                <a href="../mail/ngx_mail_imap_module.html">
+            
+                    
+                    ngx_mail_imap_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.6" data-path="../mail/ngx_mail_pop3_module.html">
+            
+                <a href="../mail/ngx_mail_pop3_module.html">
+            
+                    
+                    ngx_mail_pop3_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.7" data-path="../mail/ngx_mail_smtp_module.html">
+            
+                <a href="../mail/ngx_mail_smtp_module.html">
+            
+                    
+                    ngx_mail_smtp_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    Stream
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../stream/ngx_stream_core_module.html">
+            
+                <a href="../stream/ngx_stream_core_module.html">
+            
+                    
+                    ngx_stream_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="../stream/ngx_stream_access_module.html">
+            
+                <a href="../stream/ngx_stream_access_module.html">
+            
+                    
+                    ngx_stream_access_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.3" data-path="../stream/ngx_stream_geo_module.html">
+            
+                <a href="../stream/ngx_stream_geo_module.html">
+            
+                    
+                    ngx_stream_geo_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.4" data-path="../stream/ngx_stream_geoip_module.html">
+            
+                <a href="../stream/ngx_stream_geoip_module.html">
+            
+                    
+                    ngx_stream_geoip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.5" data-path="../stream/ngx_stream_js_module.html">
+            
+                <a href="../stream/ngx_stream_js_module.html">
+            
+                    
+                    ngx_stream_js_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.6" >
+            
+                <span>
+            
+                    
+                    ngx_stream_keyval_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.7" data-path="../stream/ngx_stream_limit_conn_module.html">
+            
+                <a href="../stream/ngx_stream_limit_conn_module.html">
+            
+                    
+                    ngx_stream_limit_conn_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.8" data-path="../stream/ngx_stream_log_module.html">
+            
+                <a href="../stream/ngx_stream_log_module.html">
+            
+                    
+                    ngx_stream_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.9" >
+            
+                <span>
+            
+                    
+                    ngx_stream_map_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.10" >
+            
+                <span>
+            
+                    
+                    ngx_stream_proxy_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.11" data-path="../stream/ngx_stream_realip_module.html">
+            
+                <a href="../stream/ngx_stream_realip_module.html">
+            
+                    
+                    ngx_stream_realip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.12" data-path="../stream/ngx_stream_return_module.html">
+            
+                <a href="../stream/ngx_stream_return_module.html">
+            
+                    
+                    ngx_stream_return_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.13" data-path="../stream/ngx_stream_split_clients_module.html">
+            
+                <a href="../stream/ngx_stream_split_clients_module.html">
+            
+                    
+                    ngx_stream_split_clients_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.14" >
+            
+                <span>
+            
+                    
+                    ngx_stream_ssl_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.15" data-path="../stream/ngx_stream_ssl_preread_module.html">
+            
+                <a href="../stream/ngx_stream_ssl_preread_module.html">
+            
+                    
+                    ngx_stream_ssl_preread_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.16" >
+            
+                <span>
+            
+                    
+                    ngx_stream_upstream_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.17" >
+            
+                <span>
+            
+                    
+                    ngx_stream_upstream_hc_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.18" >
+            
+                <span>
+            
+                    
+                    ngx_stream_zone_sync_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../google/ngx_google_perftools_module.html">
+            
+                <a href="../google/ngx_google_perftools_module.html">
+            
+                    
+                    ngx_google_perftools_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ngx_http_proxy_module</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ngxhttpproxymodule">ngx_http_proxy_module</h1>
+<ul>
+<li><a href="#directives">&#x6307;&#x4EE4;</a><ul>
+<li><a href="#proxy_bind">proxy_bind</a></li>
+<li><a href="#proxy_buffer_size">proxy_buffer_size</a></li>
+<li><a href="#proxy_buffering">proxy_buffering</a></li>
+<li><a href="#proxy_buffers">proxy_buffers</a></li>
+<li><a href="#proxy_busy_buffers_size">proxy_busy_buffers_size</a></li>
+<li><a href="#proxy_cache">proxy_cache</a></li>
+<li><a href="#proxy_cache_background_update">proxy_cache_background_update</a></li>
+<li><a href="#proxy_cache_bypass">proxy_cache_bypass</a></li>
+<li><a href="#proxy_cache_convert_head">proxy_cache_convert_head</a></li>
+<li><a href="#proxy_cache_key">proxy_cache_key</a></li>
+<li><a href="#proxy_cache_lock">proxy_cache_lock</a></li>
+<li><a href="#proxy_cache_lock_age">proxy_cache_lock_age</a></li>
+<li><a href="#proxy_cache_lock_timeout">proxy_cache_lock_timeout</a></li>
+<li><a href="#proxy_cache_max_range_offset">proxy_cache_max_range_offset</a></li>
+<li><a href="#proxy_cache_methods">proxy_cache_methods</a></li>
+<li><a href="#proxy_cache_min_uses">proxy_cache_min_uses</a></li>
+<li><a href="#proxy_cache_path">proxy_cache_path</a></li>
+<li><a href="#proxy_cache_purge">proxy_cache_purge</a></li>
+<li><a href="#proxy_cache_revalidate">proxy_cache_revalidate</a></li>
+<li><a href="#proxy_cache_use_stale">proxy_cache_use_stale</a></li>
+<li><a href="#proxy_cache_valid">proxy_cache_valid</a></li>
+<li><a href="#proxy_connect_timeout">proxy_connect_timeout</a></li>
+<li><a href="#proxy_cookie_domain">proxy_cookie_domain</a></li>
+<li><a href="#proxy_cookie_path">proxy_cookie_path</a></li>
+<li><a href="#proxy_force_ranges">proxy_force_ranges</a></li>
+<li><a href="#proxy_headers_hash_bucket_size">proxy_headers_hash_bucket_size</a></li>
+<li><a href="#proxy_headers_hash_max_size">proxy_headers_hash_max_size</a></li>
+<li><a href="#proxy_hide_header">proxy_hide_header</a></li>
+<li><a href="#proxy_http_version">proxy_http_version</a></li>
+<li><a href="#proxy_ignore_client_abort">proxy_ignore_client_abort</a></li>
+<li><a href="#proxy_ignore_headers">proxy_ignore_headers</a></li>
+<li><a href="#proxy_intercept_errors">proxy_intercept_errors</a></li>
+<li><a href="#proxy_limit_rate">proxy_limit_rate</a></li>
+<li><a href="#proxy_max_temp_file_size">proxy_max_temp_file_size</a></li>
+<li><a href="#proxy_method">proxy_method</a></li>
+<li><a href="#proxy_next_upstream">proxy_next_upstream</a></li>
+<li><a href="#proxy_next_upstream_timeout">proxy_next_upstream_timeout</a></li>
+<li><a href="#proxy_next_upstream_tries">proxy_next_upstream_tries</a></li>
+<li><a href="#proxy_no_cache">proxy_no_cache</a></li>
+<li><a href="#proxy_pass">proxy_pass</a></li>
+<li><a href="#proxy_pass_header">proxy_pass_header</a></li>
+<li><a href="#proxy_pass_request_body">proxy_pass_request_body</a></li>
+<li><a href="#proxy_pass_request_headers">proxy_pass_request_headers</a></li>
+<li><a href="#proxy_read_timeout">proxy_read_timeout</a></li>
+<li><a href="#proxy_redirect">proxy_redirect</a></li>
+<li><a href="#proxy_request_buffering">proxy_request_buffering</a></li>
+<li><a href="#proxy_send_lowat">proxy_send_lowat</a></li>
+<li><a href="#proxy_send_timeout">proxy_send_timeout</a></li>
+<li><a href="#proxy_set_body">proxy_set_body</a></li>
+<li><a href="#proxy_set_header">proxy_set_header</a></li>
+<li><a href="#proxy_ssl_certificate">proxy_ssl_certificate</a></li>
+<li><a href="#proxy_ssl_certificate_key">proxy_ssl_certificate_key</a></li>
+<li><a href="#proxy_ssl_ciphers">proxy_ssl_ciphers</a></li>
+<li><a href="#proxy_ssl_crl">proxy_ssl_crl</a></li>
+<li><a href="#proxy_ssl_name">proxy_ssl_name</a></li>
+<li><a href="#proxy_ssl_password_file">proxy_ssl_password_file</a></li>
+<li><a href="#proxy_ssl_protocols">proxy_ssl_protocols</a></li>
+<li><a href="#proxy_ssl_server_name">proxy_ssl_server_name</a></li>
+<li><a href="#proxy_ssl_session_reuse">proxy_ssl_session_reuse</a></li>
+<li><a href="#proxy_ssl_trusted_certificate">proxy_ssl_trusted_certificate</a></li>
+<li><a href="#proxy_ssl_verify">proxy_ssl_verify</a></li>
+<li><a href="#proxy_ssl_verify_depth">proxy_ssl_verify_depth</a></li>
+<li><a href="#proxy_store">proxy_store</a></li>
+<li><a href="#proxy_store_access">proxy_store_access</a></li>
+<li><a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a></li>
+<li><a href="#proxy_temp_path">proxy_temp_path</a></li>
+</ul>
+</li>
+<li><a href="#embedded_variables">&#x5185;&#x5D4C;&#x53D8;&#x91CF;</a></li>
+</ul>
+<p><code>ngx_http_proxy_module</code> &#x6A21;&#x5757;&#x5141;&#x8BB8;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x53E6;&#x4E00;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p><a id="example_configuration"></a></p>
+<h2 id="&#x793A;&#x4F8B;&#x914D;&#x7F6E;">&#x793A;&#x4F8B;&#x914D;&#x7F6E;</h2>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span>       <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_set_header</span> Host      <span class="token variable">$host</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><a id="directives"></a></p>
+<h2 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h2>
+<h3 id="proxybind">proxy_bind</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_bind</strong> <code>address [transparent]</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 0.8.22 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x4E86;&#x672C;&#x5730; IP &#x5730;&#x5740;&#x548C;&#x53EF;&#x9009;&#x7AEF;&#x53E3;&#xFF08;1.11.2&#xFF09;&#x7684;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3002;&#x53C2;&#x6570;&#x503C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x53D8;&#x91CF;&#xFF08;1.3.12&#xFF09;&#x3002;&#x7279;&#x6B8A;&#x503C; <code>off</code> &#xFF08;1.3.12&#xFF09;&#x53D6;&#x6D88;&#x4ECE;&#x4E0A;&#x5C42;&#x914D;&#x7F6E;&#x7EA7;&#x522B;&#x7EE7;&#x627F;&#x7684; <code>proxy_bind</code> &#x6307;&#x4EE4;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5176;&#x5141;&#x8BB8;&#x7CFB;&#x7EDF;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x672C;&#x5730; IP &#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x3002;</p>
+<p><code>transparent</code> &#x53C2;&#x6570;&#xFF08;1.11.0&#xFF09;&#x5141;&#x8BB8;&#x51FA;&#x7AD9;&#x4ECE;&#x975E;&#x672C;&#x5730; IP &#x5730;&#x5740;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x771F;&#x5B9E; IP &#x5730;&#x5740;&#xFF09;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx">proxy_bind <span class="token variable">$remote_addr</span> transparent<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x901A;&#x5E38;&#x9700;&#x8981;&#x4EE5;<a href="../&#x6838;&#x5FC3;&#x6A21;&#x5757;.md#user">&#x8D85;&#x7EA7;&#x7528;&#x6237;</a>&#x6743;&#x9650;&#x8FD0;&#x884C; nginx worker &#x8FDB;&#x7A0B;&#x3002;&#x5728; Linux &#x4E0A;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x6307;&#x5B9A; <code>transparent</code> &#x53C2;&#x6570;&#xFF08;1.13.8&#xFF09;&#xFF0C;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4F1A;&#x7EE7;&#x627F; master &#x8FDB;&#x7A0B;&#x7684; <code>CAP_NET_RAW</code> &#x529F;&#x80FD;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x8981;&#x914D;&#x7F6E;&#x5185;&#x6838;&#x8DEF;&#x7531;&#x8868;&#x6765;&#x62E6;&#x622A;&#x6765;&#x81EA;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F51;&#x7EDC;&#x6D41;&#x91CF;&#x3002;</p>
+<h3 id="proxybuffersize">proxy_buffer_size</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_buffer_size</strong> <code>size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_buffer_size 4k|8k;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x6536;&#x5230;&#x7684;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x54CD;&#x5E94;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#xFF08;<code>size</code>&#xFF09;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x901A;&#x5E38;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x7B49;&#x4E8E;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x9875;&#x3002;4K &#x6216; 8K&#xFF0C;&#x56E0;&#x5E73;&#x53F0;&#x800C;&#x5F02;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5F97;&#x66F4;&#x5C0F;&#x3002;</p>
+<h3 id="proxybuffering">proxy_buffering</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_buffering</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_buffering on;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x6765;&#x81EA;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#x7F13;&#x51B2;&#x3002;</p>
+<p>&#x5F53;&#x542F;&#x7528;&#x7F13;&#x51B2;&#x65F6;&#xFF0C;nginx &#x4F1A;&#x5C3D;&#x53EF;&#x80FD;&#x5FEB;&#x5730;&#x6536;&#x5230;&#x63A5;&#x6536;&#x6765;&#x81EA;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4FDD;&#x5B58;&#x5230;&#x7531; <a href="#proxy_buffer_size">proxy_buffer_size</a> &#x548C; <a href="#proxy_buffers">proxy_buffers</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x5185;&#x5B58;&#x653E;&#x4E0D;&#x4E0B;&#x6574;&#x4E2A;&#x54CD;&#x5E94;&#xFF0C;&#x54CD;&#x5E94;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5230;&#x78C1;&#x76D8;&#x4E0A;&#x7684;<a href="#proxy_temp_path">&#x4E34;&#x65F6;&#x6587;&#x4EF6;</a>&#x4E2D;&#x3002;&#x5199;&#x5165;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7531; <a href="#proxy_max_temp_file_size">proxy_max_temp_file_size </a> &#x548C; <a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a> &#x6307;&#x4EE4;&#x63A7;&#x5236;&#x3002;</p>
+<p>&#x5F53;&#x7F13;&#x51B2;&#x88AB;&#x7981;&#x7528;&#x65F6;&#xFF0C;nginx &#x5728;&#x6536;&#x5230;&#x54CD;&#x5E94;&#x65F6;&#x7ACB;&#x5373;&#x540C;&#x6B65;&#x4F20;&#x9012;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4E0D;&#x4F1A;&#x5C1D;&#x8BD5;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BFB;&#x53D6;&#x6574;&#x4E2A;&#x54CD;&#x5E94;&#x3002;nginx &#x4E00;&#x6B21;&#x53EF;&#x4EE5;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x7684;&#x6700;&#x5927;&#x6570;&#x636E;&#x91CF;&#x7531; <a href="#proxy_buffer_size">proxy_buffer_size</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5728; <code>X-Accel-Buffering</code> &#x54CD;&#x5E94;&#x5934;&#x5B57;&#x6BB5;&#x4E2D;&#x901A;&#x8FC7; <code>yes</code> &#x6216; <code>no</code> &#x4E5F;&#x53EF;&#x4EE5;&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x7F13;&#x51B2;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="#proxy_ignore_headers">proxy_ignore_headers</a> &#x6307;&#x4EE4;&#x7981;&#x7528;&#x6B64;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="proxybuffers">proxy_buffers</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_buffers</strong> <code>number size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_buffers 8 4k|8k;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x5355;&#x4E2A;&#x8FDE;&#x63A5;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x7684; <code>number</code> &#xFF08;&#x6570;&#x91CF;&#xFF09;&#x548C; <code>size</code> &#xFF08;&#x5927;&#x5C0F;&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x7B49;&#x4E8E;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x9875;&#x3002;&#x4E3A; 4K &#x6216; 8K&#xFF0C;&#x56E0;&#x5E73;&#x53F0;&#x800C;&#x5F02;&#x3002;</p>
+<h3 id="proxybusybufferssize">proxy_busy_buffers_size</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_busy_buffers_size</strong> <code>size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_buffer_size 8k|16k;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5F53;&#x542F;&#x7528;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;<a href="#proxy_buffering">&#x7F13;&#x51B2;</a>&#x65F6;&#xFF0C;&#x9650;&#x5236;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x603B;&#x5927;&#x5C0F;&#xFF08;<code>size</code>&#xFF09;&#x5728;&#x5F53;&#x54CD;&#x5E94;&#x5C1A;&#x672A;&#x88AB;&#x5B8C;&#x5168;&#x8BFB;&#x53D6;&#x65F6;&#x53EF;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x54CD;&#x5E94;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x7684;&#x8BDD;&#xFF0C;&#x7F13;&#x51B2;&#x90E8;&#x5206;&#x54CD;&#x5E94;&#x5230;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>size</code> &#x53D7; <a href="#proxy_buffer_size">proxy_buffer_size</a> &#x548C; <a href="#proxy_buffers">proxy_buffers</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x7684;&#x4E24;&#x4E2A;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F;&#x9650;&#x5236;&#x3002;</p>
+<h3 id="proxycache">proxy_cache</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache</strong> <code>zone</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x7528;&#x4E8E;&#x7F13;&#x5B58;&#x7684;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x3002;&#x540C;&#x4E00;&#x4E2A;&#x533A;&#x57DF;&#x53EF;&#x4EE5;&#x5728;&#x51E0;&#x4E2A;&#x5730;&#x65B9;&#x4F7F;&#x7528;&#x3002;&#x53C2;&#x6570;&#x503C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x53D8;&#x91CF;&#xFF08;1.7.9&#xFF09;&#x3002;<code>off</code> &#x53C2;&#x6570;&#x5C06;&#x7981;&#x7528;&#x4ECE;&#x4E0A;&#x7EA7;&#x914D;&#x7F6E;&#x7EA7;&#x522B;&#x7EE7;&#x627F;&#x7684;&#x7F13;&#x5B58;&#x914D;&#x7F6E;&#x3002;</p>
+<h3 id="proxycachebackgroundupdate">proxy_cache_background_update</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_background_update</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_background_update off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.11.10 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5141;&#x8BB8;&#x542F;&#x52A8;&#x540E;&#x53F0;&#x5B50;&#x8BF7;&#x6C42;&#x6765;&#x66F4;&#x65B0;&#x8FC7;&#x671F;&#x7684;&#x7F13;&#x5B58;&#x9879;&#xFF0C;&#x800C;&#x8FC7;&#x65F6;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x5219;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6709;&#x5FC5;&#x8981;&#x5728;&#x66F4;&#x65B0;&#x65F6;<a href="#proxy_cache_use_stale_updating">&#x5141;&#x8BB8;</a>&#x4F7F;&#x7528;&#x9648;&#x65E7;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;</p>
+<h3 id="proxycachebypass">proxy_cache_bypass</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_bypass</strong> <code>string ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x4E0D;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x7684;&#x6761;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#x4E0D;&#x4E3A;&#x7A7A;&#x4E14;&#x4E0D;&#x7B49;&#x4E8E; <code>0</code>&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_bypass</span> <span class="token variable">$cookie_nocache</span> <span class="token variable">$arg_nocache</span><span class="token variable">$arg_comment</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_cache_bypass</span> <span class="token variable">$http_pragma</span>    <span class="token variable">$http_authorization</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x4E0E; <a href="#proxy_no_cache">proxy_no_cache</a> &#x6307;&#x4EE4;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+<h3 id="proxycacheconverthead">proxy_cache_convert_head</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_convert_head</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_convert_head on;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.9.7 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x5C06; <strong>HEAD</strong> &#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x4E3A; <strong>GET</strong> &#x8FDB;&#x884C;&#x7F13;&#x5B58;&#x3002;&#x7981;&#x7528;&#x8F6C;&#x6362;&#x65F6;&#xFF0C;&#x5E94;&#x5C06;<a href="#proxy_cache_key">&#x7F13;&#x5B58;&#x952E;</a>&#x914D;&#x7F6E;&#x4E3A;&#x5305;&#x542B; <code>$request_method</code>&#x3002;</p>
+<h3 id="proxycachekey">proxy_cache_key</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_key</strong> <code>string</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_key $scheme$proxy_host$request_uri;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E3A;&#x7F13;&#x5B58;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; key&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_key</span> <span class="token string">&quot;$host$request_uri $cookie_user&quot;</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6307;&#x4EE4;&#x7684;&#x503C;&#x4E0E;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x8FD1;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_key</span> <span class="token variable">$scheme</span><span class="token variable">$proxy_host</span><span class="token variable">$uri</span><span class="token variable">$is_args</span><span class="token variable">$args</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="proxycachelock">proxy_cache_lock</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_key</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_lock off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.1.12 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x542F;&#x7528;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E00;&#x6B21;&#x53EA;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x586B;&#x5145;&#x6839;&#x636E; <a href="#proxy_cache_key">proxy_cache_key</a> &#x6307;&#x4EE4;&#x6807;&#x8BC6;&#x7684;&#x65B0;&#x7F13;&#x5B58;&#x5143;&#x7D20;&#x3002;&#x540C;&#x4E00;&#x7F13;&#x5B58;&#x5143;&#x7D20;&#x7684;&#x5176;&#x4ED6;&#x8BF7;&#x6C42;&#x5C06;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x51FA;&#x73B0;&#x5728;&#x7F13;&#x5B58;&#x4E2D;&#x6216;&#x7F13;&#x5B58;&#x9501;&#x5B9A;&#x4EE5;&#x91CA;&#x653E;&#x6B64;&#x5143;&#x7D20;&#xFF0C;&#x76F4;&#x5230; <a href="#proxy_cache_lock_timeout">proxy_cache_lock_timeout</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x95F4;&#x3002;</p>
+<h3 id="proxycachelockage">proxy_cache_lock_age</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_lock_age</strong> <code>time</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_lock_age 5s;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.8 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x679C;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4EE5;&#x586B;&#x5145;&#x65B0;&#x7F13;&#x5B58;&#x5143;&#x7D20;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#xFF08;<code>time</code>&#xFF09;&#x5185;&#x6CA1;&#x6709;&#x5B8C;&#x6210;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5C06;&#x53E6;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<h3 id="proxycachelocktimeout">proxy_cache_lock_timeout</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_lock_timeout</strong> <code>time</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_lock_timeout 5s;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.1.12 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E; <a href="#proxy_cache_lock">proxy_cache_lock</a> &#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x5F53;&#x65F6;&#x95F4;&#xFF08;<code>time</code>&#xFF09;&#x5230;&#x671F;&#x65F6;&#xFF0C;&#x8BF7;&#x6C42;&#x5C06;&#x88AB;&#x4F20;&#x9012;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F46;&#x54CD;&#x5E94;&#x4E0D;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#x3002;</p>
+<blockquote>
+<p>&#x5728; 1.7.8 &#x4E4B;&#x524D;&#x53EF;&#x4EE5;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;</p>
+</blockquote>
+<h3 id="proxycachemaxrangeoffset">proxy_cache_max_range_offset</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_max_range_offset</strong> <code>number</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.11.6 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x5B57;&#x8282;&#x8303;&#x56F4;&#xFF08;byte-range&#xFF09;&#x8BF7;&#x6C42;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;&#x5982;&#x679C;&#x8303;&#x56F4;&#x8D85;&#x51FA;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x5219;&#x8303;&#x56F4;&#x8BF7;&#x6C42;&#x5C06;&#x4F20;&#x9012;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;</p>
+<h3 id="proxycachemethods">proxy_cache_methods</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_methods</strong> <code>GET</code> | <code>HEAD</code> | <code>POST ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_methods GET HEAD;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 0.7.59 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x5728;&#x8BE5;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x5219;&#x5C06;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;<code>GET</code> &#x548C; <code>HEAD</code> &#x65B9;&#x6CD5;&#x603B;&#x662F;&#x5728;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x4F46;&#x5EFA;&#x8BAE;&#x663E;&#x5F0F;&#x6307;&#x5B9A;&#x5B83;&#x4EEC;&#x3002;&#x53E6;&#x8BF7;&#x53C2;&#x89C1; <a href="#proxy_no_cache">proxy_no_cache</a> &#x6307;&#x4EE4;&#x3002;</p>
+<h3 id="proxycacheminuses">proxy_cache_min_uses</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_min_uses</strong> <code>number</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_min_uses 1;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x5728; <code>number</code> &#x6B64;&#x8BF7;&#x6C42;&#x540E;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;</p>
+<h3 id="proxycachepath">proxy_cache_path</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_path</strong> `path [levels=levels] [use_temp_path=on\</td>
+<td>off] keys_zone=name:size [inactive=time] [max_size=size] [manager_files=number] [manager_sleep=time] [manager_threshold=time] [loader_files=number] [loader_sleep=time] [loader_threshold=time] [purger=on\</td>
+<td>off] [purger_files=number] [purger_sleep=time] [purger_threshold=time]`;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x7684;&#x8DEF;&#x5F84;&#x548C;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x7F13;&#x5B58;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4E3A;<a href="#proxy_cache_key">&#x7F13;&#x5B58; key</a> &#x7ECF;&#x8FC7; MD5 &#x8BA1;&#x7B97;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x3002;<code>levels</code> &#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x9AD8;&#x901F;&#x7F13;&#x5B58;&#x7684;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x7EA7;&#x522B;&#xFF1A;&#x4ECE; 1 &#x5230; 3&#xFF0C;&#x6BCF;&#x4E2A;&#x7EA7;&#x522B;&#x63A5;&#x53D7;&#x503C; 1 &#x6216;&#x503C; 2&#x3002;&#x4F8B;&#x5982;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_path</span> <span class="token operator">/</span>data<span class="token operator">/</span>nginx<span class="token operator">/</span>cache levels<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span> keys_zone<span class="token operator">=</span>one<span class="token punctuation">:</span><span class="token number">10</span>m<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x7F13;&#x5B58;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre class="language-"><code>/data/nginx/cache/c/29/b7f54b2df7773722d382f4809d65029c
+</code></pre><p>&#x9996;&#x5148;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x5C06;&#x5199;&#x5165;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x547D;&#x540D;&#x8BE5;&#x6587;&#x4EF6;&#x3002;&#x4ECE; 0.8.9 &#x7248;&#x672C;&#x5F00;&#x59CB;&#xFF0C;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x548C;&#x7F13;&#x5B58;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x3002;&#x4F46;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x5C06;&#x8DE8;&#x8D8A;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x590D;&#x5236;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7B80;&#x5355;&#x7684;&#x91CD;&#x547D;&#x540D;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5EFA;&#x8BAE;&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#xFF0C;&#x7F13;&#x5B58;&#x548C;&#x4FDD;&#x5B58;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x90FD;&#x653E;&#x5728;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x3002;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x662F;&#x6839;&#x636E; <code>use_temp_path</code> &#x53C2;&#x6570;&#xFF08;1.7.10&#xFF09;&#x8BBE;&#x7F6E;&#x7684;&#x3002;&#x5982;&#x679C;&#x7701;&#x7565;&#x6B64;&#x53C2;&#x6570;&#x6216;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; <code>on</code>&#xFF0C;&#x5219;&#x5C06;&#x4F7F;&#x7528; <a href="#proxy_temp_path">proxy_temp_path</a> &#x6307;&#x4EE4;&#x6307;&#x5B9A;&#x7684;&#x76EE;&#x5F55;&#x4F4D;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A; <code>off</code>&#xFF0C;&#x5219;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5C06;&#x76F4;&#x63A5;&#x653E;&#x5165;&#x7F13;&#x5B58;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x6240;&#x6709;&#x6D3B;&#x8DC3;&#x7684; key &#x548C;&#x6709;&#x5173;&#x6570;&#x636E;&#x7684;&#x4FE1;&#x606F;&#x90FD;&#x5B58;&#x50A8;&#x5728;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x4E2D;&#xFF0C;&#x5176; <code>name</code> &#x548C; <code>size</code> &#x7531; <code>keys_zone</code> &#x53C2;&#x6570;&#x914D;&#x7F6E;&#x3002;&#x4E00;&#x5146;&#x5B57;&#x8282;&#x533A;&#x57DF;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x5927;&#x7EA6; 8000 &#x4E2A; key&#x3002;</p>
+<blockquote>
+<p>&#x4F5C;&#x4E3A;&#x5546;&#x4E1A;&#x8BA2;&#x9605;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5171;&#x4EAB;&#x5B58;&#x50A8;&#x533A;&#x57DF;&#x8FD8;&#x5B58;&#x50A8;&#x7740;&#x5176;&#x4ED6;&#x7F13;&#x5B58;<a href="ngx_http_api_module.md#http_caches_">&#x4FE1;&#x606F;</a>&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x9700;&#x8981;&#x4E3A;&#x76F8;&#x540C;&#x6570;&#x91CF;&#x7684; key &#x6307;&#x5B9A;&#x66F4;&#x5927;&#x7684;&#x533A;&#x57DF;&#x5927;&#x5C0F;&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x4E00;&#x5146;&#x5B57;&#x8282;&#x533A;&#x57DF;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x5927;&#x7EA6; 4000 &#x4E2A; key&#x3002;</p>
+</blockquote>
+<p>&#x5728; <code>inactive</code> &#x53C2;&#x6570;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x672A;&#x8BBF;&#x95EE;&#x7684;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x5C06;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x5220;&#x9664;&#xFF0C;&#x65E0;&#x8BBA;&#x5176;&#x65B0;&#x65E7;&#x7A0B;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>inactive</code> &#x8BBE;&#x7F6E;&#x4E3A; 10 &#x5206;&#x949F;&#x3002;</p>
+<p>&#x7279;&#x6B8A;&#x7684;<strong>&#x7F13;&#x5B58;&#x7BA1;&#x7406;&#x5668;</strong>&#x8FDB;&#x7A0B;&#x76D1;&#x89C6; <code>max_size</code> &#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x7684;&#x6700;&#x5927;&#x7F13;&#x5B58;&#x5927;&#x5C0F;&#x3002;&#x8D85;&#x8FC7;&#x6B64;&#x5927;&#x5C0F;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x5220;&#x9664;&#x6700;&#x8FD1;&#x6700;&#x5C11;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x3002;<code>manager_files</code>&#x3001;<code>manager_threshold</code> &#x548C; <code>manager_sleep</code> &#x53C2;&#x6570;&#xFF08;1.11.5&#xFF09;&#x914D;&#x7F6E;&#x7684;&#x6570;&#x636E;&#x5C06;&#x88AB;&#x8FED;&#x4EE3;&#x5220;&#x9664;&#x3002;&#x5728;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x671F;&#x95F4;&#xFF0C;&#x4E0D;&#x4F1A;&#x5220;&#x9664;&#x8D85;&#x8FC7; <code>manager_files</code> &#x9879;&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A; 100&#xFF09;&#x3002;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x53D7; <code>manager_threshold</code> &#x53C2;&#x6570;&#x9650;&#x5236;&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A; 200 &#x6BEB;&#x79D2;&#xFF09;&#x3002;&#x5728;&#x8FED;&#x4EE3;&#x4E4B;&#x95F4;&#xFF0C;&#x7531; <code>manager_sleep</code> &#x53C2;&#x6570;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; 50 &#x6BEB;&#x79D2;&#xFF09;&#x914D;&#x7F6E;&#x7684;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x542F;&#x52A8;&#x4E00;&#x5206;&#x949F;&#x540E;&#xFF0C;&#x7279;&#x6B8A;<strong>&#x7F13;&#x5B58;&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;</strong>&#x8FDB;&#x7A0B;&#x88AB;&#x6FC0;&#x6D3B;&#x3002;&#x5B83;&#x5C06;&#x6709;&#x5173;&#x5B58;&#x50A8;&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x5148;&#x524D;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x7684;&#x4FE1;&#x606F;&#x52A0;&#x8F7D;&#x5230;&#x7F13;&#x5B58;&#x533A;&#x3002;&#x52A0;&#x8F7D;&#x4E5F;&#x662F;&#x5728;&#x8FED;&#x4EE3;&#x4E2D;&#x5B8C;&#x6210;&#x7684;&#x3002;&#x5728;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x671F;&#x95F4;&#xFF0C;&#x4E0D;&#x4F1A;&#x52A0;&#x8F7D;&#x8D85;&#x8FC7; <code>loader_files</code> &#x9879;&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A; 100&#xFF09;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x53D7; <code>loader_threshold</code> &#x53C2;&#x6570;&#x9650;&#x5236;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; 200 &#x6BEB;&#x79D2;&#xFF09;&#x3002;&#x5728;&#x8FED;&#x4EE3;&#x4E4B;&#x95F4;&#xFF0C;&#x7531; loader_sleep &#x53C2;&#x6570;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; 50 &#x6BEB;&#x79D2;&#xFF09;&#x914D;&#x7F6E;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x6211;&#x4EEC;<a href="http://nginx.com/products/?_ga=2.38653990.485685795.1545557717-1363596925.1544107800" target="_blank">&#x5546;&#x4E1A;&#x8BA2;&#x9605;</a>&#x7684;&#x4E00;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#xFF1A;</p>
+<ul>
+<li><p><code>purger=on|off</code></p>
+<p>  &#x6307;&#x793A;&#x7F13;&#x5B58;&#x6E05;&#x9664;&#x7A0B;&#x5E8F;&#xFF08;cache purger&#xFF09;&#x662F;&#x5426;&#x5C06;&#x4ECE;&#x78C1;&#x76D8;&#x4E2D;&#x5220;&#x9664;&#x4E0E;<a href="proxy_cache_purge">&#x901A;&#x914D;&#x7B26; key</a> &#x5339;&#x914D;&#x7684;&#x7F13;&#x5B58;&#x6761;&#x76EE;&#xFF08;1.7.12&#xFF09;&#x3002;&#x5C06;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A; <code>on</code>&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; <code>off</code>&#xFF09;&#x5C06;&#x6FC0;&#x6D3B; <strong>cache purger</strong> &#x8FDB;&#x7A0B;&#xFF0C;&#x8BE5;&#x8FDB;&#x7A0B;&#x5C06;&#x6C38;&#x4E45;&#x8FED;&#x4EE3;&#x6240;&#x6709;&#x7F13;&#x5B58;&#x6761;&#x76EE;&#x5E76;&#x5220;&#x9664;&#x4E0E;&#x901A;&#x914D;&#x7B26; key &#x5339;&#x914D;&#x7684;&#x6761;&#x76EE;&#x3002;</p>
+</li>
+<li><p><code>purger_files=number</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x5728;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x671F;&#x95F4;&#x5C06;&#x626B;&#x63CF;&#x7684;&#x6761;&#x76EE;&#x6570;&#xFF08;1.7.12&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>purger_files</code> &#x8BBE;&#x7F6E;&#x4E3A; 10&#x3002;</p>
+</li>
+<li><p><code>purger_threshold=number</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#xFF08;1.7.12&#xFF09;&#x3002; &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>purger_threshold</code> &#x8BBE;&#x7F6E;&#x4E3A; 50 &#x6BEB;&#x79D2;&#x3002;</p>
+</li>
+<li><p><code>purger_sleep=number</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x8FED;&#x4EE3;&#x4E4B;&#x95F4;&#x7684;&#x6682;&#x505C;&#x95F4;&#x9694;&#xFF08;1.7.12&#xFF09;&#x3002; &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>purger_sleep</code> &#x8BBE;&#x7F6E;&#x4E3A; 50 &#x6BEB;&#x79D2;&#x3002;</p>
+<blockquote>
+<p>&#x5728; 1.7.3&#x3001;1.7.7 &#x548C; 1.11.10 &#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x7F13;&#x5B58;&#x5934;&#x683C;&#x5F0F;&#x5DF2;&#x53D1;&#x751F;&#x66F4;&#x6539;&#xFF0C;&#x5347;&#x7EA7;&#x5230;&#x8F83;&#x65B0;&#x7684; nginx &#x7248;&#x672C;&#x4E4B;&#x540E;&#xFF0C;&#x7F13;&#x5B58;&#x7684;&#x54CD;&#x5E94;&#x5C06;&#x88AB;&#x89C6;&#x4E3A;&#x65E0;&#x6548;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="proxycachepurge">proxy_cache_purge</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_purge</strong> <code>string ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.5.7 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x5C06;&#x8BF7;&#x6C42;&#x89C6;&#x4E3A;&#x7F13;&#x5B58;&#x6E05;&#x9664;&#x8BF7;&#x6C42;&#x7684;&#x6761;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#x4E0D;&#x4E3A;&#x7A7A;&#x5E76;&#x4E14;&#x4E0D;&#x7B49;&#x4E8E; <code>0</code>&#xFF0C;&#x5219;&#x5220;&#x9664;&#x6709;&#x76F8;&#x5E94;<a href="#proxy_cache_key">&#x7F13;&#x5B58; key</a> &#x7684;&#x7F13;&#x5B58;&#x9879;&#x3002;&#x901A;&#x8FC7;&#x8FD4;&#x56DE; 204&#xFF08;No Content&#xFF09;&#x54CD;&#x5E94;&#x6765;&#x6307;&#x793A;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6E05;&#x9664;&#x8BF7;&#x6C42;&#x7684;<a href="#proxy_cache_key">&#x7F13;&#x5B58; key</a> &#x4EE5;&#x661F;&#x53F7;&#xFF08;<code>*</code>&#xFF09;&#x7ED3;&#x5C3E;&#xFF0C;&#x5219;&#x5C06;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x5220;&#x9664;&#x4E0E;&#x901A;&#x914D;&#x7B26; key &#x5339;&#x914D;&#x7684;&#x6240;&#x6709;&#x7F13;&#x5B58;&#x9879;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x4E9B;&#x6761;&#x76EE;&#x5C06;&#x4FDD;&#x7559;&#x5728;&#x78C1;&#x76D8;&#x4E0A;&#xFF0C;&#x76F4;&#x5230;&#x5B83;&#x4EEC;&#x56E0;&#x4E3A;<a href="#proxy_cache_path">&#x975E;&#x6D3B;&#x8DC3;</a>&#x800C;&#x88AB;&#x5220;&#x9664;&#xFF0C;&#x6216;&#x88AB;<a href="#purger">&#x7F13;&#x5B58;&#x6E05;&#x9664;&#x7A0B;&#x5E8F;</a>&#xFF08;1.7.12&#xFF09;&#x5904;&#x7406;&#xFF0C;&#x6291;&#x6216;&#x5BA2;&#x6237;&#x7AEF;&#x5C1D;&#x8BD5;&#x8BBF;&#x95EE;&#x5B83;&#x4EEC;&#x3002;</p>
+<p>&#x914D;&#x7F6E;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_path</span> <span class="token operator">/</span>data<span class="token operator">/</span>nginx<span class="token operator">/</span>cache keys_zone<span class="token operator">=</span>cache_zone<span class="token punctuation">:</span><span class="token number">10</span>m<span class="token punctuation">;</span>
+
+<span class="token keyword">map</span> <span class="token variable">$request_method</span> <span class="token variable">$purge_method</span> <span class="token punctuation">{</span>
+    PURGE   <span class="token number">1</span><span class="token punctuation">;</span>
+    default <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
+        <span class="token keyword">proxy_cache</span> cache_zone<span class="token punctuation">;</span>
+        <span class="token keyword">proxy_cache_key</span> <span class="token variable">$uri</span><span class="token punctuation">;</span>
+        proxy_cache_purge <span class="token variable">$purge_method</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>&#x6B64;&#x529F;&#x80FD;&#x4F5C;&#x4E3A;&#x6211;&#x4EEC;<a href="http://nginx.com/products/?_ga=2.96279577.485685795.1545557717-1363596925.1544107800" target="_blank">&#x5546;&#x4E1A;&#x8BA2;&#x9605;</a>&#x7684;&#x4E00;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x3002;</p>
+</blockquote>
+<h3 id="proxycacherevalidate">proxy_cache_revalidate</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_revalidate</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_revalidate off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.5.7 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x542F;&#x7528;&#x4F7F;&#x7528;&#x5177;&#x6709; <strong>If-Modified-Since</strong> &#x548C; <strong>If-None-Match</strong> &#x5934;&#x5B57;&#x6BB5;&#x7684;&#x6761;&#x4EF6;&#x8BF7;&#x6C42;&#x6765;&#x91CD;&#x65B0;&#x9A8C;&#x8BC1;&#x8FC7;&#x671F;&#x7684;&#x7F13;&#x5B58;&#x9879;&#x3002;</p>
+<h3 id="proxycacheusestale">proxy_cache_use_stale</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_use_stale</strong> <code>error</code> | <code>timeout</code> | <code>invalid_header</code> | <code>updating</code> | <code>http_500</code> | <code>http_502</code> | <code>http_503</code> | <code>http_504</code> | <code>http_403</code> | <code>http_404</code> | <code>http_429</code> | <code>off ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cache_use_stale off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x786E;&#x5B9A;&#x5728;&#x4E0E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x901A;&#x4FE1;&#x671F;&#x95F4;&#x53EF;&#x4EE5;&#x5728;&#x54EA;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#x8FC7;&#x65F6;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;&#x8BE5;&#x6307;&#x4EE4;&#x7684;&#x53C2;&#x6570;&#x4E0E; <a href="#proxy_next_upstream">proxy_next_upstream</a> &#x6307;&#x4EE4;&#x7684;&#x53C2;&#x6570;&#x5339;&#x914D;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x9009;&#x62E9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x6765;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#xFF0C;&#x5219; <code>error</code> &#x53C2;&#x6570;&#x8FD8;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x8FC7;&#x65F6;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x66F4;&#x65B0;&#xFF0C;&#x5219; <code>updating</code> &#x53C2;&#x6570;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x8FC7;&#x65F6;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;&#x8FD9;&#x5141;&#x8BB8;&#x5728;&#x66F4;&#x65B0;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x65F6;&#x6700;&#x5927;&#x5316;&#x51CF;&#x5C11;&#x5BF9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570;&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x54CD;&#x5E94;&#x5934;&#x4E2D;&#x6307;&#x5B9A;&#x54CD;&#x5E94;&#x5931;&#x6548;&#x591A;&#x5C11;&#x79D2;&#x6570;&#x540E;&#x76F4;&#x63A5;&#x542F;&#x7528;&#x8FC7;&#x65F6;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#xFF08;1.11.10&#xFF09;&#x3002;&#x8FD9;&#x6BD4;&#x4F7F;&#x7528;&#x6307;&#x4EE4;&#x53C2;&#x6570;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#x3002;</p>
+<ul>
+<li><p><strong>Cache-Control</strong> &#x5934;&#x5B57;&#x6BB5;&#x7684; <a href="https://tools.ietf.org/html/rfc5861#section-3" target="_blank">stale-while-revalidate</a> &#x6269;&#x5C55;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x8FC7;&#x65F6;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#xFF08;&#x5982;&#x679C;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x66F4;&#x65B0;&#xFF09;&#x3002;</p>
+</li>
+<li><p><strong>Cache-Control</strong> &#x5934;&#x5B57;&#x6BB5;&#x7684; <a href="https://tools.ietf.org/html/rfc5861#section-4" target="_blank">stale-if-error</a> &#x6269;&#x5C55;&#x5141;&#x8BB8;&#x5728;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#x65F6;&#x4F7F;&#x7528;&#x8FC7;&#x65F6;&#x7684;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x3002;</p>
+</li>
+</ul>
+<p>&#x8981;&#x5728;&#x586B;&#x5145;&#x65B0;&#x7F13;&#x5B58;&#x5143;&#x7D20;&#x65F6;&#x6700;&#x5927;&#x5316;&#x51CF;&#x5C11;&#x5BF9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="#proxy_cache_lock">proxy_cache_lock</a> &#x6307;&#x4EE4;&#x3002;</p>
+<h3 id="proxycachevalid">proxy_cache_valid</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cache_valid</strong> <code>[code ...] time</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x54CD;&#x5E94;&#x4EE3;&#x7801;&#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x65F6;&#x95F4;&#x3002;&#x4F8B;&#x5982;&#x4EE5;&#x4E0B;&#x6307;&#x4EE4;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_valid</span> <span class="token number">200</span> <span class="token number">302</span> <span class="token number">10</span>m<span class="token punctuation">;</span>
+<span class="token keyword">proxy_cache_valid</span> <span class="token number">404</span>      <span class="token number">1</span>m<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4E3A;&#x4EE3;&#x7801;&#x4E3A; 200 &#x548C; 302 &#x7684;&#x54CD;&#x5E94;&#x8BBE;&#x7F6E; 10 &#x5206;&#x949F;&#x7684;&#x7F13;&#x5B58;&#x65F6;&#x95F4;&#xFF0C;&#x4E3A;&#x4EE3;&#x7801; 404 &#x7684;&#x54CD;&#x5E94;&#x8BBE;&#x7F6E; 1 &#x5206;&#x949F;&#x7684;&#x7F13;&#x5B58;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4EC5;&#x6307;&#x5B9A;&#x4E86;&#x7F13;&#x5B58; <code>time</code></p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_valid</span> <span class="token number">5</span>m<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5C06;&#x53EA;&#x7F13;&#x5B58; 200&#x3001;301 &#x548C; 302 &#x7684;&#x54CD;&#x5E94;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A; <code>any</code> &#x53C2;&#x6570;&#x6765;&#x7F13;&#x5B58;&#x4EFB;&#x4F55;&#x54CD;&#x5E94;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cache_valid</span> <span class="token number">200</span> <span class="token number">302</span> <span class="token number">10</span>m<span class="token punctuation">;</span>
+<span class="token keyword">proxy_cache_valid</span> <span class="token number">301</span>      <span class="token number">1</span>h<span class="token punctuation">;</span>
+<span class="token keyword">proxy_cache_valid</span> any      <span class="token number">1</span>m<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x54CD;&#x5E94;&#x5934;&#x4E2D;&#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x7684;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x6BD4;&#x4F7F;&#x7528;&#x8BE5;&#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x65F6;&#x95F4;&#x5177;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x3002;</p>
+<ul>
+<li><strong>X-Accel-Expires</strong> &#x5934;&#x5B57;&#x6BB5;&#x8BBE;&#x7F6E;&#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#x54CD;&#x5E94;&#x7F13;&#x5B58;&#x65F6;&#x95F4;&#x3002;&#x96F6;&#x503C;&#x5C06;&#x7981;&#x7528;&#x54CD;&#x5E94;&#x7F13;&#x5B58;&#x3002;&#x5982;&#x679C;&#x503C;&#x4EE5; <code>@</code> &#x524D;&#x7F00;&#x5F00;&#x5934;&#xFF0C;&#x5219;&#x8BBE;&#x7F6E;&#x81EA; Epoch &#x4EE5;&#x6765;&#x7684;&#x7EDD;&#x5BF9;&#x65F6;&#x95F4;&#xFF08;&#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#xFF09;&#x5185;&#x7684;&#x54CD;&#x5E94;&#x53EF;&#x4EE5;&#x88AB;&#x7F13;&#x5B58;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5934;&#x4E0D;&#x5305;&#x62EC; <strong>X-Accel-Expires</strong> &#x5B57;&#x6BB5;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5728;&#x5934;&#x5B57;&#x6BB5; <strong>Expires</strong> &#x6216; <strong>Cache-Control</strong> &#x4E2D;&#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5934;&#x5305;&#x542B;&#x4E86; <strong>Set-Cookie</strong> &#x5B57;&#x6BB5;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x7F13;&#x5B58;&#x6B64;&#x7C7B;&#x54CD;&#x5E94;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5934;&#x5305;&#x542B;&#x6709;&#x7279;&#x6B8A;&#x503C; <code>*</code> &#x7684; <strong>Vary</strong> &#x5B57;&#x6BB5;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x7F13;&#x5B58;&#x6B64;&#x7C7B;&#x54CD;&#x5E94;&#xFF08;1.7.7&#xFF09;&#x3002;&#x5982;&#x679C;&#x5934;&#x5305;&#x542B;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x503C;&#x7684; <strong>Vary</strong> &#x5B57;&#x6BB5;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x54CD;&#x5E94;&#x5219;&#x5C06;&#x8003;&#x8651;&#x7F13;&#x5B58;&#x76F8;&#x5E94;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x5B57;&#x6BB5;&#xFF08;1.7.7&#xFF09;&#x3002;</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="#proxy_ignore_headers">proxy_ignore_headers</a> &#x6307;&#x4EE4;&#x7981;&#x7528;&#x8FD9;&#x4E9B;&#x54CD;&#x5E94;&#x5934;&#x5B57;&#x6BB5;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7684;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="proxyconnecttimeout">proxy_connect_timeout</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_connect_timeout</strong> <code>time</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_connect_timeout 60s;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x4E0E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x5E94;&#x8BE5;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x8D85;&#x8FC7; 75 &#x79D2;&#x3002;</p>
+<h3 id="proxycookiepath">proxy_cookie_path</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_cookie_path</strong> <code>off</code>; <br> <strong>proxy_cookie_path</strong> <code>path replacement</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_cookie_path off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.1.15 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x7684; <strong>Set-Cookie</strong> &#x5934;&#x5B57;&#x6BB5;&#x7684; <code>path</code> &#x5C5E;&#x6027;&#x4E2D;&#x7684;&#x5E94;&#x8BE5;&#x53D8;&#x66F4;&#x7684;&#x6587;&#x672C;&#x3002;&#x5047;&#x8BBE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x5E26;&#x6709;&#x5C5E;&#x6027; <code>path=/two/some/uri/</code> &#x7684; <strong>Set-Cookie</strong> &#x5934;&#x5B57;&#x6BB5;&#x3002;&#x6307;&#x4EE4;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cookie_path</span> <span class="token operator">/</span>two<span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5C06;&#x6B64;&#x5C5E;&#x6027;&#x91CD;&#x5199;&#x4E3A; <code>path=/some/uri/</code>&#x3002;</p>
+<p><code>path</code> &#x548C; <code>replacement</code> &#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cookie_path</span> <span class="token variable">$uri</span> <span class="token operator">/</span>some<span class="token variable">$uri</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x6307;&#x5B9A;&#x8BE5;&#x6307;&#x4EE4;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8DEF;&#x5F84;&#x5E94;&#x8BE5;&#x4EE5;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684; <code>&#x301C;</code> &#x5339;&#x914D;&#x7B26;&#x53F7;&#x5F00;&#x59CB;&#xFF0C;&#x6216;&#x8005;&#x4EE5;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684; <code>&#x301C;*</code> &#x5339;&#x914D;&#x7B26;&#x53F7;&#x5F00;&#x59CB;&#x3002;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x547D;&#x540D;&#x548C;&#x4F4D;&#x7F6E;&#x6355;&#x83B7;&#xFF0C;<code>replacement</code> &#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5B83;&#x4EEC;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cookie_path</span> <span class="token operator">~</span><span class="token operator">*</span><span class="token operator">^</span><span class="token operator">/</span><span class="token keyword">user</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token operator">/</span>u<span class="token operator">/</span>$<span class="token number">1</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x53EF;&#x80FD;&#x6709;&#x591A;&#x4E2A; <code>proxy_cookie_path</code> &#x6307;&#x4EE4;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cookie_path</span> <span class="token operator">/</span>one<span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_cookie_path</span> <span class="token operator">/</span> <span class="token operator">/</span>two<span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>off</code> &#x53C2;&#x6570;&#x53D6;&#x6D88;&#x6240;&#x6709; <code>proxy_cookie_path</code> &#x6307;&#x4EE4;&#x5BF9;&#x5F53;&#x524D;&#x7EA7;&#x522B;&#x7684;&#x5F71;&#x54CD;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_cookie_path</span> off<span class="token punctuation">;</span>
+<span class="token keyword">proxy_cookie_path</span> <span class="token operator">/</span>two<span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_cookie_path</span> <span class="token operator">~</span><span class="token operator">*</span><span class="token operator">^</span><span class="token operator">/</span><span class="token keyword">user</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token operator">/</span>u<span class="token operator">/</span>$<span class="token number">1</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="proxyforceranges">proxy_force_ranges</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_force_ranges</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_force_ranges off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.7 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x65E0;&#x8BBA;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x7684; <strong>Accept-Ranges</strong> &#x5B57;&#x6BB5;&#x5982;&#x4F55;&#xFF0C;&#x5BF9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F13;&#x5B58;&#x548C;&#x672A;&#x7F13;&#x5B58;&#x54CD;&#x5E94;&#x90FD;&#x542F;&#x7528;&#x5B57;&#x8282;&#x8303;&#x56F4;&#xFF08;byte-range&#xFF09;&#x652F;&#x6301;&#x3002;</p>
+<h3 id="proxyforceranges">proxy_force_ranges</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_headers_hash_bucket_size</strong> <code>size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_headers_hash_bucket_size 64;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E; <a href="#proxy_hide_header">proxy_hide_header</a> &#x548C; <a href="#proxy_set_header">proxy_set_header</a> &#x6307;&#x4EE4;&#x4F7F;&#x7528;&#x7684;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x6876; <code>size</code>&#x3002;&#x8BBE;&#x7F6E;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x5728;<a href="../../&#x4ECB;&#x7ECD;/&#x8BBE;&#x7F6E;&#x54C8;&#x5E0C;.html">&#x5355;&#x72EC;&#x7684;&#x6587;&#x6863;</a>&#x4E2D;&#x63D0;&#x4F9B;&#x3002;</p>
+<h3 id="proxyheadershashmaxsize">proxy_headers_hash_max_size</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_headers_hash_max_size</strong> <code>size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_headers_hash_max_size 512;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E; <a href="#proxy_hide_header">proxy_hide_header</a> &#x548C; <a href="#proxy_set_header">proxy_set_header</a> &#x6307;&#x4EE4;&#x4F7F;&#x7528;&#x7684;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x6700;&#x5927; <code>size</code>&#x3002;&#x8BBE;&#x7F6E;&#x54C8;&#x5E0C;&#x8868;&#x7684;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x5728;<a href="../../&#x4ECB;&#x7ECD;/&#x8BBE;&#x7F6E;&#x54C8;&#x5E0C;.html">&#x5355;&#x72EC;&#x7684;&#x6587;&#x6863;</a>&#x4E2D;&#x63D0;&#x4F9B;&#x3002;</p>
+<h3 id="proxyhideheader">proxy_hide_header</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_hide_header</strong> <code>field</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;nginx &#x4E0D;&#x4F1A;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x54CD;&#x5E94;&#x4E2D;&#x4F20;&#x9012;&#x5934;&#x5B57;&#x6BB5; <strong>Date</strong>&#x3001;<strong>Server</strong>&#x3001;<strong>X-Pad</strong> &#x548C; <strong>X-Accel-...</strong>&#x3002;<code>proxy_hide_header</code> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x4E0D;&#x4F20;&#x9012;&#x7684;&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x5141;&#x8BB8;&#x4F20;&#x9012;&#x5B57;&#x6BB5;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="#proxy_pass_header">proxy_pass_header</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x3002;</p>
+<h3 id="proxyhttpversion">proxy_http_version</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_http_version</strong> <code>1.0</code> | <code>1.1</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_http_version 1.0;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.1.4 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x7684; HTTP &#x534F;&#x8BAE;&#x7248;&#x672C;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528; 1.0 &#x7248;&#x672C;&#x3002;&#x5EFA;&#x8BAE;&#x5C06; 1.1 &#x7248;&#x4E0E; <a href="ngx_http_upstream_module.html#keepalive">keepalive</a> &#x8FDE;&#x63A5;&#x548C; <a href="ngx_http_upstream_module.html#ntlm">NTLM &#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;</a>&#x914D;&#x5408;&#x4F7F;&#x7528;&#x3002;</p>
+<h3 id="proxyignoreclientabort">proxy_ignore_client_abort</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ignore_client_abort</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ignore_client_abort off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x786E;&#x5B9A;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x4E0D;&#x7B49;&#x5F85;&#x54CD;&#x5E94;&#x65F6;&#x662F;&#x5426;&#x5E94;&#x5173;&#x95ED;&#x4E0E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<h3 id="proxyignoreheaders">proxy_ignore_headers</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ignore_headers</strong> <code>field ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7981;&#x7528;&#x5904;&#x7406;&#x67D0;&#x4E9B;&#x6765;&#x81EA;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x5B57;&#x6BB5;&#x3002;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x4EE5;&#x4E0B;&#x5B57;&#x6BB5;&#xFF1A;<strong>X-Accel-Redirect</strong>&#x3001;<strong>X-Accel-Expires</strong>&#x3001;<strong>X-Accel-Limit-Rate</strong>&#xFF08;1.1.6&#xFF09;&#x3001;<strong>X-Accel-Buffering</strong>&#xFF08;1.1.6&#xFF09;&#x3001;<strong>X-Accel-Charset</strong>&#xFF08;1.1.6&#xFF09;&#x3001;<strong>Expires</strong>&#x3001;<strong>Cache-Control</strong>&#x3001;<strong>Set-Cookie</strong>&#xFF08;0.8.44&#xFF09;&#x548C; <strong>Vary</strong>&#xFF08;1.7.7&#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x672A;&#x7981;&#x7528;&#xFF0C;&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x5934;&#x5B57;&#x6BB5;&#x5C06;&#x4F1A;&#x4EA7;&#x751F;&#x4EE5;&#x4E0B;&#x5F71;&#x54CD;&#xFF1A;</p>
+<ul>
+<li><strong>X-Accel-Expires</strong>&#x3001;<strong>Expires</strong>&#x3001;<strong>Cache-Control</strong>&#x3001;<strong>Set-Cookie</strong> &#x548C; <strong>Vary</strong> &#x8BBE;&#x7F6E;&#x54CD;&#x5E94;<a href="#proxy_cache_valid">&#x7F13;&#x5B58;</a>&#x7684;&#x53C2;&#x6570;</li>
+<li><strong>X-Accel-Redirect</strong> &#x6267;&#x884C;<a href="ngx_http_core_module.html#internal">&#x5185;&#x90E8;&#x91CD;&#x5B9A;</a>&#x5411;&#x5230;&#x6307;&#x5B9A;&#x7684; URI</li>
+<li><strong>X-Accel-Limit-Rate</strong> &#x8BBE;&#x7F6E;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x4F20;&#x8F93;&#x54CD;&#x5E94;&#x7684;<a href="ngx_http_core_module.html#limit_rate">&#x901F;&#x7387;&#x9650;&#x5236;</a></li>
+<li><strong>X-Accel-Buffering</strong> &#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x54CD;&#x5E94;<a href="#proxy_buffering">&#x7F13;&#x51B2;</a></li>
+<li><strong>X-Accel-Charset</strong> &#x8BBE;&#x7F6E;&#x4E86;&#x6240;&#x9700;&#x7684;&#x54CD;&#x5E94;<a href="ngx_http_charset_module.html#charset">&#x5B57;&#x7B26;&#x96C6;</a></li>
+</ul>
+<h3 id="proxyintercepterrors">proxy_intercept_errors</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_intercept_errors</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_intercept_errors off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x786E;&#x5B9A;&#x72B6;&#x6001;&#x7801;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E; 300 &#x7684;&#x4EE3;&#x7406;&#x54CD;&#x5E94;&#x662F;&#x5E94;&#x8BE5;&#x4F20;&#x9012;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x8FD8;&#x662F;&#x62E6;&#x622A;&#x5E76;&#x91CD;&#x5B9A;&#x5411;&#x5230; nginx &#x4EE5;&#x4FBF;&#x4F7F;&#x7528; <a href="ngx_http_core_module.html#error_page">error_page</a> &#x6307;&#x4EE4;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="proxylimitrate">proxy_limit_rate</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_limit_rate</strong> <code>rate</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_limit_rate 0;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.7 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x9650;&#x5236;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#x7684;&#x901F;&#x7387;&#x3002;<code>rate</code> &#x4EE5;&#x6BCF;&#x79D2;&#x5B57;&#x8282;&#x6570;&#x6307;&#x5B9A;&#x3002;&#x96F6;&#x503C;&#x5219;&#x7981;&#x7528;&#x901F;&#x7387;&#x9650;&#x5236;&#x3002;&#x9650;&#x5236;&#x662F;&#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C; nginx &#x540C;&#x65F6;&#x6253;&#x5F00;&#x4E24;&#x4E2A;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5219;&#x603B;&#x901F;&#x7387;&#x5C06;&#x662F;&#x6307;&#x5B9A;&#x9650;&#x5236;&#x7684;&#x4E24;&#x500D;&#x3002;&#x4EC5;&#x5F53;&#x542F;&#x7528;&#x4E86;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;<a href="#proxy_buffering">&#x7F13;&#x51B2;</a>&#x65F6;&#xFF0C;&#x6B64;&#x9650;&#x5236;&#x624D;&#x751F;&#x6548;&#x3002;</p>
+<h3 id="proxymaxtempfilesize">proxy_max_temp_file_size</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_max_temp_file_size</strong> <code>size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_max_temp_file_size 1024m;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5F53;&#x542F;&#x7528;<a href="#proxy_buffering">&#x7F13;&#x51B2;</a>&#x6765;&#x81EA;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#xFF0C;&#x5E76;&#x4E14;&#x6574;&#x4E2A;&#x54CD;&#x5E94;&#x4E0D;&#x7B26;&#x5408; <a href="#proxy_buffer_size">proxy_buffer_size</a> &#x548C; <a href="#proxy_buffers">proxy_buffers</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x7684;&#x7F13;&#x51B2;&#x65F6;&#xFF0C;&#x90E8;&#x5206;&#x54CD;&#x5E94;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5230;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x8BE5;&#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927; <code>size</code>&#x3002;&#x4E00;&#x6B21;&#x5199;&#x5165;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x7531; <a href="#proxy_temp_file_write_size">proxy_temp_file_write_size</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x96F6;&#x503C;&#x5219;&#x7981;&#x6B62;&#x5C06;&#x7F13;&#x51B2;&#x54CD;&#x5E94;&#x5199;&#x5165;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x3002;</p>
+<blockquote>
+<p>&#x6B64;&#x9650;&#x5236;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x5C06;&#x8981;<a href="#proxy_cache">&#x7F13;&#x5B58;</a>&#x6216;<a href="#proxy_store">&#x5B58;&#x50A8;</a>&#x5728;&#x78C1;&#x76D8;&#x4E0A;&#x7684;&#x54CD;&#x5E94;&#x3002;</p>
+</blockquote>
+<h3 id="proxymethod">proxy_method</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_method</strong> <code>method</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x5B9A;&#x8F6C;&#x53D1;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BF7;&#x6C42;&#x4F7F;&#x7528;&#x7684; HTTP &#x65B9;&#x6CD5;&#xFF08;<code>method</code>&#xFF09;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x53C2;&#x6570;&#x503C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x53D8;&#x91CF;&#xFF08;1.11.6&#xFF09;&#x3002;</p>
+<h3 id="proxynextupstream">proxy_next_upstream</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_next_upstream</strong>  <code>error</code> | <code>timeout</code> | <code>invalid_header</code> | <code>http_500</code> | <code>http_502</code> | <code>http_503</code> | <code>http_504</code> | <code>http_403</code> | <code>http_404</code> | <code>http_429</code> | <code>non_idempotent</code> | <code>off ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_intercept_errors off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x5B9A;&#x5E94;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6761;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li><p><code>error</code></p>
+<p>  &#x4E0E;&#x670D;&#x52A1;&#x5668;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF0C;&#x5411;&#x5176;&#x4F20;&#x9012;&#x8BF7;&#x6C42;&#x6216;&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#x5934;&#x65F6;&#x53D1;&#x751F;&#x9519;&#x8BEF;</p>
+</li>
+<li><p><code>timeout</code></p>
+<p>  &#x5728;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF0C;&#x5411;&#x5176;&#x4F20;&#x9012;&#x8BF7;&#x6C42;&#x6216;&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#x5934;&#x65F6;&#x53D1;&#x751F;&#x8D85;&#x65F6;</p>
+</li>
+<li><p><code>invalid_header</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7A7A;&#x6216;&#x65E0;&#x6548;&#x54CD;&#x5E94;</p>
+</li>
+<li><p><code>http_500</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#x4E3A; 500 &#x7684;&#x54CD;&#x5E94;</p>
+</li>
+<li><p><code>http_502</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#x4E3A; 502 &#x7684;&#x54CD;&#x5E94;</p>
+</li>
+<li><p><code>http_503</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#x4E3A; 503 &#x7684;&#x54CD;&#x5E94;</p>
+</li>
+<li><p><code>http_504</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EE3;&#x7801; 504 &#x7684;&#x54CD;&#x5E94;</p>
+</li>
+<li><p><code>http_403</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#x4E3A; 403 &#x7684;&#x54CD;&#x5E94;</p>
+</li>
+<li><p><code>http_404</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#x4E3A; 404 &#x7684;&#x54CD;&#x5E94;</p>
+</li>
+<li><p><code>http_429</code></p>
+<p>  &#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#x4E3A; 429 &#x7684;&#x54CD;&#x5E94;&#xFF08;1.11.13&#xFF09;</p>
+</li>
+<li><p><code>non_idempotent</code></p>
+<p>  &#x901A;&#x5E38;&#xFF0C;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x5DF2;&#x53D1;&#x9001;&#x5230;&#x4E0A;&#x6E38;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5219;&#x4F7F;&#x7528;<a href="https://tools.ietf.org/html/rfc7231#section-4.2.2" target="_blank">&#x975E;&#x5E42;&#x7B49;</a>&#x65B9;&#x6CD5;&#xFF08;<code>POST</code>&#x3001;<code>LOCK</code>&#x3001;<code>PATCH</code>&#xFF09;&#x7684;&#x8BF7;&#x6C42;&#x4E0D;&#x4F1A;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#xFF08;1.9.13&#xFF09;&#xFF0C;&#x542F;&#x7528;&#x6B64;&#x9009;&#x9879;&#x663E;&#x5F0F;&#x5141;&#x8BB8;&#x91CD;&#x8BD5;&#x6B64;&#x7C7B;&#x8BF7;&#x6C42;</p>
+</li>
+<li><p><code>off</code></p>
+<p>  &#x7981;&#x6B62;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;</p>
+</li>
+</ul>
+<p>&#x5E94;&#x8BE5;&#x8BB0;&#x4F4F;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x5C1A;&#x672A;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x624D;&#x80FD;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x4F20;&#x8F93;&#x54CD;&#x5E94;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x6216;&#x8D85;&#x65F6;&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x4FEE;&#x590D;&#x6B64;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x8BE5;&#x6307;&#x4EE4;&#x8FD8;&#x5B9A;&#x4E49;&#x4E86;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x901A;&#x4FE1;&#x7684;<a href="ngx_http_upstream_module.html#max_fails">&#x5931;&#x8D25;&#x5C1D;&#x8BD5;</a>&#x3002;<code>error</code>&#x3001;<code>timeout</code> &#x548C; <code>invalid_header</code> &#x7684;&#x60C5;&#x51B5;&#x59CB;&#x7EC8;&#x88AB;&#x89C6;&#x4E3A;&#x5931;&#x8D25;&#x5C1D;&#x8BD5;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x672A;&#x5728;&#x6307;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x3002;<code>http_500</code>&#x3001;<code>http_502</code>&#x3001;<code>http_503</code>&#x3001;<code>http_504</code> &#x548C; <code>http_429</code> &#x7684;&#x60C5;&#x51B5;&#x4EC5;&#x5728;&#x6307;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x65F6;&#x624D;&#x88AB;&#x89C6;&#x4E3A;&#x5931;&#x8D25;&#x5C1D;&#x8BD5;&#x3002;<code>http_403</code> &#x548C; <code>http_404</code> &#x7684;&#x60C5;&#x51B5;&#x4E0D;&#x4F1A;&#x88AB;&#x89C6;&#x4E3A;&#x5931;&#x8D25;&#x5C1D;&#x8BD5;&#x3002;</p>
+<p>&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x80FD;&#x4F1A;&#x53D7;&#x5230;<a href="#proxy_next_upstream_tries">&#x5C1D;&#x8BD5;&#x6B21;&#x6570;</a>&#x548C;<a href="#proxy_next_upstream_timeout">&#x65F6;&#x95F4;</a>&#x7684;&#x9650;&#x5236;&#x3002;</p>
+<h3 id="proxynextupstreamtimeout">proxy_next_upstream_timeout</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_next_upstream_timeout</strong> <code>time</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_next_upstream_timeout 0;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.5 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x9650;&#x5236;&#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x5230;<a href="#proxy_next_upstream">&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;</a>&#x7684;&#x65F6;&#x95F4;&#x3002;<code>0</code> &#x503C;&#x5173;&#x95ED;&#x6B64;&#x9650;&#x5236;&#x3002;</p>
+<h3 id="proxynextupstreamtries">proxy_next_upstream_tries</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_next_upstream_tries</strong> <code>number</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_next_upstream_tries 0;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.5 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x9650;&#x5236;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x5230;<a href="#proxy_next_upstream">&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;</a>&#x7684;&#x53EF;&#x80FD;&#x5C1D;&#x8BD5;&#x6B21;&#x6570;&#x3002;<code>0</code> &#x503C;&#x5173;&#x95ED;&#x6B64;&#x9650;&#x5236;&#x3002;</p>
+<h3 id="proxynocache">proxy_no_cache</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_no_cache</strong> <code>string ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x4E0D;&#x5C06;&#x54CD;&#x5E94;&#x4FDD;&#x5B58;&#x5230;&#x7F13;&#x5B58;&#x7684;&#x6761;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#x4E0D;&#x4E3A;&#x7A7A;&#x4E14;&#x4E0D;&#x7B49;&#x4E8E; <code>0</code>&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x4FDD;&#x5B58;&#x54CD;&#x5E94;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_no_cache</span> <span class="token variable">$cookie_nocache</span> <span class="token variable">$arg_nocache</span><span class="token variable">$arg_comment</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_no_cache</span> <span class="token variable">$http_pragma</span>    <span class="token variable">$http_authorization</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x4E0E; <a href="#proxy_cache_bypass">proxy_cache_bypass</a> &#x6307;&#x4EE4;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+<h3 id="proxypass">proxy_pass</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_pass</strong> <code>URL</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x534F;&#x8BAE;&#x3001;&#x5730;&#x5740;&#x4EE5;&#x53CA;&#x5E94;&#x6620;&#x5C04;&#x4F4D;&#x7F6E;&#x7684;&#x53EF;&#x9009; URI&#x3002;&#x534F;&#x8BAE;&#x53EF;&#x4EE5;&#x6307;&#x5B9A; <code>http</code> &#x6216; <code>https</code>&#x3002;&#x53EF;&#x4EE5;&#x5C06;&#x5730;&#x5740;&#x6307;&#x5B9A;&#x4E3A;&#x57DF;&#x540D;&#x6216; IP &#x5730;&#x5740;&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7AEF;&#x53E3;&#x53F7;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8000</span><span class="token operator">/</span>uri<span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x6216;&#x8005;&#x5728; <code>unix</code> &#x5355;&#x8BCD;&#x540E;&#x9762;&#x6307;&#x5B9A;&#x4F7F;&#x7528;&#x5192;&#x53F7;&#x62EC;&#x8D77;&#x6765;&#x7684; UNIX &#x57DF;&#x5957;&#x63A5;&#x5B57;&#x8DEF;&#x5F84;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>unix<span class="token punctuation">:</span><span class="token operator">/</span>tmp<span class="token operator">/</span>backend<span class="token punctuation">.</span>socket<span class="token punctuation">:</span><span class="token operator">/</span>uri<span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x57DF;&#x540D;&#x89E3;&#x6790;&#x4E3A;&#x591A;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x5219;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x5730;&#x5740;&#x5C06;&#x4EE5;&#x8F6E;&#x8BE2;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5730;&#x5740;&#x6307;&#x5B9A;&#x4E3A;<a href="ngx_http_upstream_module.html">&#x670D;&#x52A1;&#x5668;&#x7EC4;</a>&#x3002;</p>
+<p>&#x53C2;&#x6570;&#x503C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x53D8;&#x91CF;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x5C06;&#x5730;&#x5740;&#x6307;&#x5B9A;&#x4E3A;&#x57DF;&#x540D;&#xFF0C;&#x5219;&#x5728;&#x6240;&#x63CF;&#x8FF0;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7EC4;&#x4E2D;&#x641C;&#x7D22;&#x540D;&#x79F0;&#xFF0C;&#x5982;&#x679C;&#x672A;&#x627E;&#x5230;&#xFF0C;&#x5219;&#x4F7F;&#x7528;<a href="ngx_http_core_module.html#resolver">&#x89E3;&#x6790;&#x5668;</a>&#x786E;&#x5B9A;&#x3002;</p>
+<p>&#x8BF7;&#x6C42; URI &#x6309;&#x5982;&#x4E0B;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#x5E26;&#x6709; URI &#x7684; <code>proxy_pass</code>&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x65F6;&#xFF0C;&#x4E0E;&#x8BE5;&#x4F4D;&#x7F6E;&#xFF08;location&#xFF09;&#x5339;&#x914D;&#x7684;<a href="ngx_http_core_module.html#location">&#x89C4;&#x8303;&#x5316;</a>&#x8BF7;&#x6C42; URI &#x7684;&#x90E8;&#x5206;&#x5C06;&#x88AB;&#x6307;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x7684; URI &#x66FF;&#x6362;&#xFF1A;</li>
+</ul>
+<pre class="language-"><code>```nginx
+location /name/ {
+    proxy_pass http://127.0.0.1/remote/;
+}
+```
+</code></pre><ul>
+<li><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#x6CA1;&#x6709; URI &#x7684; <code>proxy_pass</code>&#xFF0C;&#x5219;&#x8BF7;&#x6C42; URI &#x5C06;&#x4EE5;&#x4E0E;&#x5904;&#x7406;&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x65F6;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x683C;&#x5F0F;&#x76F8;&#x540C;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x5904;&#x7406;&#x66F4;&#x6539;&#x7684; URI &#x65F6;&#x4F20;&#x9012;&#x5B8C;&#x6574;&#x7684;&#x89C4;&#x8303;&#x5316;&#x8BF7;&#x6C42; URI&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx">  <span class="token keyword">location</span> <span class="token operator">/</span>some<span class="token operator">/</span>path<span class="token operator">/</span> <span class="token punctuation">{</span>
+      <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>&#x5728; 1.1.12 &#x7248;&#x672C;&#x4E4B;&#x524D;&#xFF0C;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#x6CA1;&#x6709; URI &#x7684; <code>proxy_pass</code>&#xFF0C;&#x5219;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x4F1A;&#x4F20;&#x9012;&#x539F;&#x59CB;&#x8BF7;&#x6C42; URI &#x800C;&#x4E0D;&#x662F;&#x66F4;&#x6539; URI&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<p>&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;&#x8BF7;&#x6C42; URI &#x8981;&#x66FF;&#x6362;&#x7684;&#x90E8;&#x5206;&#xFF1A;</p>
+<ul>
+<li><p>&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x6307;&#x5B9A; location &#xFF08;&#x4F4D;&#x7F6E;&#xFF09;&#x65F6;&#xFF0C;&#x4EE5;&#x53CA;&#x5728;&#x547D;&#x540D;&#x4F4D;&#x7F6E;&#x5185;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;
+&#x5728;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E94;&#x6307;&#x5B9A; <code>proxy_pass</code> &#x800C;&#x4E0D;&#x4F7F;&#x7528; URI&#x3002;</p>
+</li>
+<li><p>&#x4F7F;&#x7528; <a href="ngx_http_rewrite_module.html#rewrite">rewrite</a> &#x6307;&#x4EE4;&#x5728;&#x4EE3;&#x7406;&#x4F4D;&#x7F6E;&#x5185;&#x66F4;&#x6539; URI &#x65F6;&#xFF0C;&#x5C06;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x914D;&#x7F6E;&#x6765;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#xFF08;<code>break</code>&#xFF09;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx">  <span class="token keyword">location</span> <span class="token operator">/</span>name<span class="token operator">/</span> <span class="token punctuation">{</span>
+      <span class="token keyword">rewrite</span>    <span class="token operator">/</span>name<span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token operator">/</span>users<span class="token operator">?</span>name<span class="token operator">=</span>$<span class="token number">1</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>  &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5C06;&#x5FFD;&#x7565;&#x6307;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x7684; URI&#xFF0C;&#x5E76;&#x5C06;&#x5B8C;&#x6574;&#x66F4;&#x6539;&#x7684;&#x8BF7;&#x6C42; URI &#x4F20;&#x9012;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+</li>
+<li><p>&#x5728; proxy_pass &#x4E2D;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x65F6;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx">  <span class="token keyword">location</span> <span class="token operator">/</span>name<span class="token operator">/</span> <span class="token punctuation">{</span>
+      <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token variable">$request_uri</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>  &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x6307;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x4E86; URI&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x539F;&#x6837;&#x4F20;&#x9012;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x66FF;&#x6362;&#x539F;&#x59CB;&#x8BF7;&#x6C42; URI&#x3002;</p>
+</li>
+</ul>
+<p><a href="../../How-To/WebSocket&#x4EE3;&#x7406;.html">WebSocket</a> &#x4EE3;&#x7406;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x914D;&#x7F6E;&#xFF0C;&#x4ECE; 1.3.13 &#x7248;&#x672C;&#x5F00;&#x59CB;&#x652F;&#x6301;&#x3002;</p>
+<h3 id="proxypassheader">proxy_pass_header</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_pass_header</strong> <code>field</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5141;&#x8BB8;&#x5C06;<a href="#proxy_hide_header">&#x5DF2;&#x7981;&#x7528;</a>&#x7684;&#x5934;&#x5B57;&#x6BB5;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4F20;&#x9012;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
+<h3 id="proxypassrequestbody">proxy_pass_request_body</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_pass_request_body</strong>  <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_pass_request_body on;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x793A;&#x662F;&#x5426;&#x5C06;&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x4F53;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>x<span class="token operator">-</span>accel<span class="token operator">-</span>redirect<span class="token operator">-</span>here<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_method</span> GET<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_pass_request_body</span> off<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_set_header</span> Content<span class="token operator">-</span>Length <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">proxy_pass</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x53E6;&#x8BF7;&#x53C2;&#x9605; <a href="#proxy_set_header">proxy_set_header</a> &#x548C; <a href="#proxy_pass_request_headers">proxy_pass_request_headers</a> &#x6307;&#x4EE4;&#x3002;</p>
+<h3 id="proxypassrequestheaders">proxy_pass_request_headers</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_pass_request_headers</strong>  <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_pass_request_headers on;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x793A;&#x662F;&#x5426;&#x5C06;&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x7684; header &#x5B57;&#x6BB5;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>x<span class="token operator">-</span>accel<span class="token operator">-</span>redirect<span class="token operator">-</span>here<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_method</span> GET<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_pass_request_headers</span> off<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_pass_request_body</span> off<span class="token punctuation">;</span>
+
+    <span class="token keyword">proxy_pass</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x53E6;&#x8BF7;&#x53C2;&#x9605; <a href="#proxy_set_header">proxy_set_header</a> &#x548C; <a href="#proxy_pass_request_body">proxy_pass_request_body</a> &#x6307;&#x4EE4;&#x3002;</p>
+<h3 id="proxyreadtimeout">proxy_read_timeout</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_read_timeout</strong>  <code>time</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_read_timeout 60s;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x8BE5;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4EC5;&#x9488;&#x5BF9;&#x4E24;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x8BFB;&#x64CD;&#x4F5C;&#x4E4B;&#x95F4;&#x8BBE;&#x7F6E;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x54CD;&#x5E94;&#x7684;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x3002;&#x5982;&#x679C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5728;&#x8BE5;&#x65F6;&#x95F4;&#x5185;&#x672A;&#x4F20;&#x8F93;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#xFF0C;&#x5219;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;</p>
+<h3 id="proxyredirect">proxy_redirect</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_redirect</strong>  <code>default</code>;<br><strong>proxy_redirect</strong>  <code>off</code>;<br><strong>proxy_redirect</strong>  <code>redirect replacement</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_redirect default;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94; header &#x4E2D;&#x7684; <strong>Location</strong> &#x548C; <strong>Refresh</strong> &#x5B57;&#x6BB5;&#x5E94;&#x8981;&#x66F4;&#x6539;&#x7684;&#x6587;&#x672C;&#x3002;&#x5047;&#x8BBE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;header &#x5B57;&#x6BB5;&#x4E3A; <code>Location: http://localhost:8000/two/some/uri/</code>&#x3002;&#x6307;&#x4EE4;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8000</span><span class="token operator">/</span>two<span class="token operator">/</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>frontend<span class="token operator">/</span>one<span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5C06;&#x6B64;&#x5B57;&#x7B26;&#x4E32;&#x91CD;&#x5199;&#x4E3A; <code>Location: http://frontend/one/some/uri/</code>&#x3002;</p>
+<p><code>replacement</code> &#x4E2D;&#x53EF;&#x80FD;&#x7701;&#x7565;&#x4E86;&#x670D;&#x52A1;&#x5668;&#x540D;&#x79F0;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8000</span><span class="token operator">/</span>two<span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x6765;&#x81EA; 80 &#x7AEF;&#x53E3;&#xFF0C;&#x5219;&#x5C06;&#x63D2;&#x5165;&#x4E3B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x540D;&#x79F0;&#x548C;&#x7AEF;&#x53E3;&#x3002;</p>
+<p><code>default</code> &#x53C2;&#x6570;&#x6307;&#x5B9A;&#x7684;&#x9ED8;&#x8BA4;&#x66FF;&#x6362;&#x4F7F;&#x7528; <a href="ngx_http_core_module.html#location">location</a> &#x548C; <a href="ngx_http_proxy_module.html#proxy_pass">proxy_pass</a> &#x6307;&#x4EE4;&#x7684;&#x53C2;&#x6570;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x914D;&#x7F6E;&#x662F;&#x7B49;&#x6548;&#x7684;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>one<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span>     <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">upstream</span><span class="token punctuation">:</span>port<span class="token operator">/</span>two<span class="token operator">/</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_redirect</span> default<span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>one<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">proxy_pass</span>     <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">upstream</span><span class="token punctuation">:</span>port<span class="token operator">/</span>two<span class="token operator">/</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">upstream</span><span class="token punctuation">:</span>port<span class="token operator">/</span>two<span class="token operator">/</span> <span class="token operator">/</span>one<span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x6307;&#x5B9A; <a href="ngx_http_proxy_module.html#proxy_pass">proxy_pass</a>&#xFF0C;&#x5219;&#x4E0D;&#x5141;&#x8BB8;&#x4F7F;&#x7528; <code>default</code> &#x53C2;&#x6570;&#x3002;</p>
+<p><code>replacement</code> &#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x5305;&#x6362;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8000</span><span class="token operator">/</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span><span class="token punctuation">:</span><span class="token variable">$server_port</span><span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>redirect</code> &#x4E5F;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x53D8;&#x91CF;&#xFF08;1.1.11 &#x7248;&#x672C;&#xFF09;:</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$proxy_host</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x6307;&#x5B9A;&#x6307;&#x4EE4;&#xFF08;1.1.11&#xFF09;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>redirect</code> &#x5E94;&#x8BE5;&#x4EE5; <code>~</code> &#x7B26;&#x53F7;&#x5F00;&#x5934;&#xFF0C;&#x4EE5;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x5339;&#x914D;&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528; <code>~*</code> &#x7B26;&#x53F7;&#x4EE5;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x5339;&#x914D;&#x3002;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x547D;&#x540D;&#x548C;&#x4F4D;&#x7F6E;&#x6355;&#x83B7;&#xFF0C;&#x5E76;&#x4E14; <code>replacement</code> &#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5B83;&#x4EEC;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_redirect</span> <span class="token operator">~</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token punctuation">[</span><span class="token operator">^</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">:</span>\d<span class="token operator">+</span><span class="token punctuation">(</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token punctuation">)</span>$ $<span class="token number">1</span>$<span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_redirect</span> <span class="token operator">~</span><span class="token operator">*</span><span class="token operator">/</span><span class="token keyword">user</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token punctuation">)</span>$      <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>$<span class="token number">1.</span>example<span class="token punctuation">.</span>com<span class="token operator">/</span>$<span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>off</code> &#x53C2;&#x6570;&#x53D6;&#x6D88;&#x6240;&#x6709; <code>proxy_redirect</code> &#x6307;&#x4EE4;&#x5BF9;&#x5F53;&#x524D;&#x7EA7;&#x522B;&#x7684;&#x5F71;&#x54CD;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_redirect</span> off<span class="token punctuation">;</span>
+<span class="token keyword">proxy_redirect</span> default<span class="token punctuation">;</span>
+<span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">8000</span><span class="token operator">/</span>  <span class="token operator">/</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x6B64;&#x6307;&#x4EE4;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5C06;&#x4E3B;&#x673A;&#x540D;&#x6DFB;&#x52A0;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x51FA;&#x7684;&#x76F8;&#x5BF9;&#x91CD;&#x5B9A;&#x5411;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_redirect</span> <span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="proxyrequestbuffering">proxy_request_buffering</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_request_buffering</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_request_buffering on;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.11 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4F53;&#x7F13;&#x51B2;&#x3002;</p>
+<p>&#x542F;&#x7528;&#x7F13;&#x51B2;&#x540E;&#xFF0C;&#x5728;&#x5C06;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x524D;&#xFF0C;&#x5C06;&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;<a href="ngx_http_core_module.html#client_body_buffer_size">&#x8BFB;&#x53D6;</a>&#x6574;&#x4E2A;&#x8BF7;&#x6C42;&#x4F53;&#x3002;</p>
+<p>&#x7981;&#x7528;&#x7F13;&#x51B2;&#x65F6;&#xFF0C;&#x8BF7;&#x6C42;&#x4F53;&#x5728;&#x6536;&#x5230;&#x65F6;&#x7ACB;&#x5373;&#x53D1;&#x9001;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C; nginx &#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x4F53;&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;<a href="#proxy_next_upstream">&#x4E0B;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;</a>&#x3002;</p>
+<p>&#x5F53;&#x4F7F;&#x7528; HTTP/1.1 &#x5206;&#x5757;&#x4F20;&#x8F93;&#x7F16;&#x7801;&#x53D1;&#x9001;&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x4F53;&#x65F6;&#xFF0C;&#x65E0;&#x8BBA;&#x6307;&#x4EE4;&#x503C;&#x5982;&#x4F55;&#xFF0C;&#x90FD;&#x5C06;&#x7F13;&#x51B2;&#x8BF7;&#x6C42;&#x4F53;&#xFF0C;&#x9664;&#x975E;&#x4E3A;&#x4EE3;&#x7406;<a href="#proxy_http_version">&#x542F;&#x7528;</a>&#x4E86; HTTP/1.1&#x3002;</p>
+<h3 id="proxysendlowat">proxy_send_lowat</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_send_lowat</strong> <code>size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_send_lowat 0;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x679C;&#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x4E3A;&#x975E;&#x96F6;&#x503C;&#xFF0C;&#x5219; nginx &#x5C06;&#x5C1D;&#x8BD5;&#x901A;&#x8FC7;&#x4F7F;&#x7528; <a href="../../&#x4ECB;&#x7ECD;/&#x8FDE;&#x63A5;&#x5904;&#x7406;&#x65B9;&#x5F0F;.html#kqueue">kqueue</a> &#x65B9;&#x6CD5;&#x7684; <code>NOTE_LOWAT</code> &#x6807;&#x5FD7;&#x6216;&#x6709;&#x6307;&#x5B9A;&#x5927;&#x5C0F;&#x7684; <code>SO_SNDLOWAT</code> &#x5957;&#x63A5;&#x5B57;&#x9009;&#x9879;&#x6765;&#x6700;&#x5C0F;&#x5316;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4F20;&#x51FA;&#x8FDE;&#x63A5;&#x4E0A;&#x7684;&#x53D1;&#x9001;&#x64CD;&#x4F5C;&#x6570;&#x3002;</p>
+<p>&#x5728; Linux&#x3001;Solaris &#x548C; Windows &#x4E0A;&#x5FFD;&#x7565;&#x6B64;&#x6307;&#x4EE4;&#x3002;</p>
+<h3 id="proxysendtimeout">proxy_send_timeout</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_send_timeout</strong> <code>time</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_send_timeout 60s;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x5C06;&#x8BF7;&#x6C42;&#x4F20;&#x8F93;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x3002;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4EC5;&#x4F5C;&#x7528;&#x4E8E;&#x4E24;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x5199;&#x64CD;&#x4F5C;&#x4E4B;&#x95F4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x8BF7;&#x6C42;&#x7684;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x3002;&#x5982;&#x679C;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5728;&#x8BE5;&#x65F6;&#x95F4;&#x5185;&#x672A;&#x6536;&#x5230;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#xFF0C;&#x5219;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;</p>
+<h3 id="proxysetbody">proxy_set_body</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_set_body</strong> <code>value</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5141;&#x8BB8;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BF7;&#x6C42;&#x4F53;&#x3002;&#x8BE5;&#x503C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x6587;&#x672C;&#x3001;&#x53D8;&#x91CF;&#x53CA;&#x5176;&#x7EC4;&#x5408;&#x3002;</p>
+<h3 id="proxysetheader">proxy_set_header</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_set_header</strong> <code>filed value</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td><strong>proxy_set_header</strong> <code>Host $proxy_host</code>;<br><strong>proxy_set_header</strong> <code>Connection close</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5141;&#x8BB8;&#x5C06;&#x5B57;&#x6BB5;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x6216;&#x9644;&#x52A0;&#x5230;<a href="#proxy_pass_request_headers">&#x4F20;&#x9012;</a>&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BF7;&#x6C42; header&#x3002;&#x8BE5;&#x503C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x6587;&#x672C;&#x3001;&#x53D8;&#x91CF;&#x53CA;&#x5176;&#x7EC4;&#x5408;&#x3002;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#x5728;&#x5F53;&#x524D;&#x7EA7;&#x522B;&#x4E0A;&#x6CA1;&#x6709;&#x5B9A;&#x4E49; <code>proxy_set_header</code> &#x6307;&#x4EE4;&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x624D;&#x4ECE;&#x4E0A;&#x5C42;&#x7EA7;&#x522B;&#x7EE7;&#x627F;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EA;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_set_header</span> Host       <span class="token variable">$proxy_host</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_set_header</span> Connection close<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x542F;&#x7528;&#x4E86;&#x7F13;&#x5B58;&#xFF0C;&#x5219;&#x6765;&#x81EA;&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x7684; header &#x5B57;&#x6BB5; <strong>If-Modified-Since</strong>&#x3001;<strong>If-Unmodified-Since</strong>&#x3001;<strong>If-None-Match</strong>&#x3001;<strong>If-Match</strong>&#x3001;<strong>Range</strong> &#x548C; <strong>If-Range</strong> &#x4E0D;&#x4F1A;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x672A;&#x7ECF;&#x66F4;&#x6539;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#xFF08;header&#xFF09;&#x5B57;&#x6BB5; <strong>Host</strong> &#x53EF;&#x4EE5;&#x50CF;&#x8FD9;&#x6837;&#x4F20;&#x9012;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_set_header</span> Host       <span class="token variable">$http_host</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42; header &#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x6B64;&#x5B57;&#x6BB5;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x4F20;&#x9012;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6700;&#x597D;&#x4F7F;&#x7528; <code>$host</code> &#x53D8;&#x91CF; &#x2014;&#x2014; &#x5B83;&#x7684;&#x503C;&#x7B49;&#x4E8E; <strong>Host</strong> &#x8BF7;&#x6C42;&#x5934;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x670D;&#x52A1;&#x5668;&#x540D;&#x79F0;&#xFF0C;&#x6216;&#x8005;&#x5982;&#x679C;&#x6B64;&#x5B57;&#x6BB5;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x7B49;&#x4E8E;&#x4E3B;&#x670D;&#x52A1;&#x5668;&#x540D;&#x79F0;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_set_header</span> Host       <span class="token variable">$host</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x540D;&#x79F0;&#x53EF;&#x4EE5;&#x4E0E;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x4E00;&#x8D77;&#x4F20;&#x9012;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_set_header</span> Host       <span class="token variable">$host</span><span class="token punctuation">:</span><span class="token variable">$proxy_port</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x5934;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x6B64;&#x5B57;&#x6BB5;&#x5C06;&#x4E0D;&#x4F1A;&#x4F20;&#x9012;&#x7ED9;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_set_header</span> Accept<span class="token operator">-</span>Encoding <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="proxysocketkeepalive">proxy_socket_keepalive</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_socket_keepalive</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_socket_keepalive off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.15.6 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x914D;&#x7F6E;&#x5230;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4F20;&#x51FA;&#x8FDE;&#x63A5;&#x7684; <strong>TCP keepalive</strong> &#x884C;&#x4E3A;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x8BBE;&#x7F6E;&#x5BF9; socket &#x6709;&#x5F71;&#x54CD;&#x3002;&#x5982;&#x679C;&#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x4E3A;&#x503C; <code>on</code>&#xFF0C;&#x5219;&#x4E3A; socket &#x6253;&#x5F00; <code>SO_KEEPALIVE</code> socket &#x9009;&#x9879;&#x3002;</p>
+<h3 id="proxysslcertificate">proxy_ssl_certificate</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_certificate</strong> <code>file</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.8 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x5B9A;&#x4E00;&#x4E2A; PEM &#x683C;&#x5F0F;&#x7684;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#xFF08;<code>file</code>&#xFF09;&#xFF0C;&#x8BE5;&#x8BC1;&#x4E66;&#x7528;&#x4E8E; HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x3002;</p>
+<h3 id="proxysslcertificatekey">proxy_ssl_certificate_key</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_certificate_key</strong> <code>file</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.8 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6709;&#x5BC6;&#x94A5;&#x7684; PEM &#x683C;&#x5F0F;&#x6587;&#x4EF6;&#xFF08;<code>file</code>&#xFF09;&#xFF0C;&#x7528;&#x4E8E; HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x6307;&#x5B9A; <code>engine:name:id</code> &#x6765;&#x4EE3;&#x66FF; <code>file</code>&#xFF08;1.7.9&#xFF09;&#xFF0C;&#x5B83;&#x5C06;&#x4ECE;&#x540D;&#x4E3A; <code>name</code> &#x7684; OpenSSL &#x5F15;&#x64CE;&#x52A0;&#x8F7D; id &#x4E3A; <code>id</code> &#x7684;&#x5BC6;&#x94A5;&#x3002;</p>
+<h3 id="proxysslciphers">proxy_ssl_ciphers</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_ciphers</strong> <code>ciphers</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ssl_ciphers DEFAULT;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.5.6 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x5B9A;&#x5BF9; HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BF7;&#x6C42;&#x5DF2;&#x542F;&#x7528;&#x5BC6;&#x7801;&#x3002;&#x5BC6;&#x7801;&#x5E94;&#x4E3A; OpenSSL &#x5E93;&#x652F;&#x6301;&#x7684;&#x683C;&#x5F0F;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>openssl ciphers</code> &#x547D;&#x4EE4;&#x67E5;&#x770B;&#x5B8C;&#x6574;&#x7684;&#x652F;&#x6301;&#x5217;&#x8868;&#x3002;</p>
+<h3 id="proxysslcrl">proxy_ssl_crl</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_crl</strong> <code>file</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.0 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5DF2;&#x64A4;&#x9500;&#x8BC1;&#x4E66;&#xFF08;CRL&#xFF09;&#x7684; PEM &#x683C;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#xFF08;<code>file</code>&#xFF09;&#xFF0C;&#x7528;&#x4E8E;<a href="#proxy_ssl_verify">&#x9A8C;&#x8BC1;</a> HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BC1;&#x4E66;&#x3002;</p>
+<h3 id="proxysslname">proxy_ssl_name</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_name</strong> <code>name</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ssl_name $proxy_host;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.0 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5141;&#x8BB8;&#x8986;&#x76D6;&#x7528;&#x4E8E;<a href="#proxy_ssl_verify">&#x9A8C;&#x8BC1;</a> HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x7684;&#x670D;&#x52A1;&#x5668;&#x540D;&#x79F0;&#xFF0C;&#x5E76;&#x5728;&#x4E0E; HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x65F6;<a href="#proxy_ssl_server_name">&#x901A;&#x8FC7; SNI &#x4F20;&#x9001;</a>&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528; <a href="#proxy_pass">proxy_pass</a> URL &#x7684; host &#x90E8;&#x5206;&#x3002;</p>
+<h3 id="proxysslpasswordfile">proxy_ssl_password_file</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_password_file</strong> <code>file</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.8 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E3A;<a href="#proxy_ssl_certificate_key">&#x5BC6;&#x94A5;</a>&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5BC6;&#x7801;&#x6587;&#x4EF6;&#xFF08;<code>file</code>&#xFF09;&#xFF0C;&#x6BCF;&#x4E2A;&#x5BC6;&#x7801;&#x5355;&#x72EC;&#x5360;&#x4E00;&#x884C;&#x3002;&#x5728;&#x52A0;&#x8F7D;&#x5BC6;&#x94A5;&#x65F6;&#x4F9D;&#x6B21;&#x5C1D;&#x8BD5;&#x8FD9;&#x4E9B;&#x5BC6;&#x7801;&#x3002;</p>
+<h3 id="proxysslprotocols">proxy_ssl_protocols</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_protocols</strong> <code>[SSLv2] [SSLv3] [TLSv1] [TLSv1.1] [TLSv1.2] [TLSv1.3]</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.5.6 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E3A; HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x542F;&#x7528;&#x6307;&#x5B9A;&#x7684;&#x534F;&#x8BAE;&#x3002;</p>
+<h3 id="proxysslservername">proxy_ssl_server_name</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_server_name</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ssl_server_name off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.0 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728;&#x4E0E; HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x901A;&#x8FC7; <a href="http://en.wikipedia.org/wiki/Server_Name_Indication" target="_blank">TLS &#x670D;&#x52A1;&#x5668;&#x540D;&#x79F0;&#x6307;&#x793A;&#x6269;&#x5C55;</a>&#xFF08;SNI&#xFF0C;RFC 6066&#xFF09;&#x4F20;&#x9012;&#x670D;&#x52A1;&#x5668;&#x540D;&#x79F0;&#x3002;</p>
+<h3 id="proxysslsessionreuse">proxy_ssl_session_reuse</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_session_reuse</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ssl_session_reuse on;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x786E;&#x5B9A;&#x5728;&#x4F7F;&#x7528;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x65F6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x590D;&#x7528; SSL &#x4F1A;&#x8BDD;&#x3002;&#x5982;&#x679C;&#x65E5;&#x5FD7;&#x4E2D;&#x51FA;&#x73B0;&#x9519;&#x8BEF; <code>SSL3_GET_FINISHED:digest check failed</code>&#xFF0C;&#x8BF7;&#x5C1D;&#x8BD5;&#x7981;&#x7528;&#x4F1A;&#x8BDD;&#x590D;&#x7528;&#x3002;</p>
+<h3 id="proxyssltrustedcertificate">proxy_ssl_trusted_certificate</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_trusted_certificate</strong> <code>file</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.0 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6307;&#x5B9A; PEM &#x683C;&#x5F0F;&#x7684;&#x53EF;&#x4FE1; CA &#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x4E8E;<a href="#proxy_ssl_verify">&#x9A8C;&#x8BC1;</a> HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x3002;</p>
+<h3 id="proxysslverify">proxy_ssl_verify</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_verify</strong> <code>on</code> | <code>off</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ssl_verify off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.0 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x9A8C;&#x8BC1; HTTPS &#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x3002;</p>
+<h3 id="proxysslverifydepth">proxy_ssl_verify_depth</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_ssl_verify_depth</strong> <code>number</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_ssl_verify_depth 1;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x63D0;&#x793A;</strong></td>
+<td>&#x8BE5;&#x6307;&#x4EE4;&#x5728; 1.7.0 &#x7248;&#x672C;&#x4E2D;&#x51FA;&#x73B0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x7684; HTTPS &#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x94FE;&#x9A8C;&#x8BC1;&#x6DF1;&#x5EA6;&#x3002;</p>
+<h3 id="proxystore">proxy_store</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_store</strong> <code>on</code> | <code>off</code> | <code>string</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_store off;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5141;&#x8BB8;&#x5C06;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x5230;&#x78C1;&#x76D8;&#x3002;<code>on</code> &#x53C2;&#x6570;&#x4F7F;&#x7528;&#x4E0E; <a href="ngx_http_core_module.html#alias">alias</a> &#x6216; <a href="ngx_http_core_module.html#root">root</a> &#x6307;&#x4EE4;&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x5F84;&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x3002;<code>off</code> &#x53C2;&#x6570;&#x7981;&#x7528;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5E26;&#x53D8;&#x91CF;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x663E;&#x5F0F;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x540D;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_store</span> <span class="token operator">/</span>data<span class="token operator">/</span>www<span class="token variable">$original_uri</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x6839;&#x636E;&#x63A5;&#x6536;&#x7684; <strong>Last-Modified</strong> &#x54CD;&#x5E94; header &#x5B57;&#x6BB5;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x3002;&#x9996;&#x5148;&#x5C06;&#x54CD;&#x5E94;&#x5199;&#x5165;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x547D;&#x540D;&#x8BE5;&#x6587;&#x4EF6;&#x3002;&#x4ECE; 0.8.9 &#x7248;&#x672C;&#x5F00;&#x59CB;&#xFF0C;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x548C;&#x6301;&#x4E45;&#x5316;&#x5B58;&#x50A8;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x9700;&#x8981;&#x8DE8;&#x8D8A;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7B80;&#x5355;&#x7684;&#x91CD;&#x547D;&#x540D;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5EFA;&#x8BAE;&#x7531; <a href="#proxy_temp_path">proxy_temp_path</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x7684;&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x548C;&#x4FDD;&#x5B58;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x90FD;&#x653E;&#x5728;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x3002;</p>
+<p>&#x8BE5;&#x6307;&#x4EE4;&#x53EF;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x9759;&#x6001;&#x4E0D;&#x53EF;&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x7684;&#x672C;&#x5730;&#x526F;&#x672C;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>images<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">root</span>               <span class="token operator">/</span>data<span class="token operator">/</span>www<span class="token punctuation">;</span>
+    <span class="token keyword">error_page</span>         <span class="token number">404</span> <span class="token operator">=</span> <span class="token operator">/</span>fetch<span class="token variable">$uri</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">location</span> <span class="token operator">/</span>fetch<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">internal</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">proxy_pass</span>         <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token operator">/</span><span class="token punctuation">;</span>
+    <span class="token keyword">proxy_store</span>        on<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_store_access</span> <span class="token keyword">user</span><span class="token punctuation">:</span>rw group<span class="token punctuation">:</span>rw all<span class="token punctuation">:</span>r<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_temp_path</span>    <span class="token operator">/</span>data<span class="token operator">/</span>temp<span class="token punctuation">;</span>
+
+    <span class="token keyword">alias</span>              <span class="token operator">/</span>data<span class="token operator">/</span>www<span class="token operator">/</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6216;&#x8005;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>images<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">root</span>               <span class="token operator">/</span>data<span class="token operator">/</span>www<span class="token punctuation">;</span>
+    <span class="token keyword">error_page</span>         <span class="token number">404</span> <span class="token operator">=</span> @fetch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">location</span> @fetch <span class="token punctuation">{</span>
+    <span class="token keyword">internal</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">proxy_pass</span>         <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_store</span>        on<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_store_access</span> <span class="token keyword">user</span><span class="token punctuation">:</span>rw group<span class="token punctuation">:</span>rw all<span class="token punctuation">:</span>r<span class="token punctuation">;</span>
+    <span class="token keyword">proxy_temp_path</span>    <span class="token operator">/</span>data<span class="token operator">/</span>temp<span class="token punctuation">;</span>
+
+    <span class="token keyword">root</span>               <span class="token operator">/</span>data<span class="token operator">/</span>www<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="proxystoreaccess">proxy_store_access</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_store_access</strong> <code>users:permissions ...</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_store_access user:rw;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E3A;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_store_access</span> <span class="token keyword">user</span><span class="token punctuation">:</span>rw group<span class="token punctuation">:</span>rw all<span class="token punctuation">:</span>r<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#x4EFB;&#x4F55; <code>group</code> &#x6216; <code>all</code> &#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7528;&#x6237;&#x6743;&#x9650;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_store_access</span> group<span class="token punctuation">:</span>rw all<span class="token punctuation">:</span>r<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="proxytempfilewritesize">proxy_temp_file_write_size</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_temp_file_write_size</strong> <code>size</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_temp_file_write_size 8k|16k;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5F53;&#x542F;&#x7528;&#x7F13;&#x51B2;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5230;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x54CD;&#x5E94;&#x65F6;&#xFF0C;&#x9650;&#x5236;&#x4E00;&#x6B21;&#x5199;&#x5165;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#xFF08;<code>size</code>&#xFF09;&#x3002; &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>size</code> &#x7531; <a href="#proxy_buffer_size">proxy_buffer_size</a> &#x548C; <a href="#proxy_buffers">proxy_buffers</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x7684;&#x4E24;&#x4E2A;&#x7F13;&#x51B2;&#x533A;&#x9650;&#x5236;&#x3002;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x5927;&#x5C0F;&#x7531; <a href="#proxy_max_temp_file_size">proxy_max_temp_file_size</a> &#x6307;&#x4EE4;&#x8BBE;&#x7F6E;&#x3002;</p>
+<h3 id="proxytemppath">proxy_temp_path</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td><strong>proxy_temp_path</strong> <code>path [level1 [level2 [level3]]]</code>;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td>proxy_temp_path proxy_temp;</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td>http&#x3001;server&#x3001;location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x4ECE;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#x3002;&#x5728;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x4E0B;&#x6700;&#x591A;&#x53EF;&#x6709;&#x4E09;&#x7EA7;&#x5B50;&#x76EE;&#x5F55;&#x3002;&#x4F8B;&#x5982;&#x5728;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">proxy_temp_path</span> <span class="token operator">/</span>spool<span class="token operator">/</span>nginx<span class="token operator">/</span>proxy_temp <span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x53EF;&#x80FD;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token operator">/</span>spool<span class="token operator">/</span>nginx<span class="token operator">/</span>proxy_temp<span class="token operator">/</span><span class="token number">7</span><span class="token operator">/</span><span class="token number">45</span><span class="token operator">/</span><span class="token number">00000123457</span>
+</code></pre>
+<p>&#x53E6;&#x8BF7;&#x53C2;&#x9605; <a href="#proxy_cache_path">proxy_cache_path</a> &#x6307;&#x4EE4;&#x7684; <code>use_temp_path</code> &#x53C2;&#x6570;&#x3002;</p>
+<p><a id="embedded_variables"></a></p>
+<h2 id="&#x5185;&#x5D4C;&#x53D8;&#x91CF;">&#x5185;&#x5D4C;&#x53D8;&#x91CF;</h2>
+<p><code>ngx_http_proxy_module</code> &#x6A21;&#x5757;&#x652F;&#x6301;&#x5185;&#x5D4C;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4F7F;&#x7528; <a href="#proxy_set_header">proxy_set_header</a> &#x6307;&#x4EE4;&#x6765;&#x805A;&#x5408; header&#xFF1A;</p>
+<ul>
+<li><p><code>$proxy_host</code></p>
+<p>  <a href="#proxy_pass">proxy_pass</a> &#x6307;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x540D;&#x79F0;&#x548C;&#x7AEF;&#x53E3;</p>
+</li>
+<li><p><code>$proxy_port</code></p>
+<p>  <a href="#proxy_pass">proxy_pass</a> &#x6307;&#x4EE4;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x6216;&#x534F;&#x8BAE;&#x7684;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;</p>
+</li>
+<li><p><code>$proxy_add_x_forwarded_for</code></p>
+<p>  <strong>X-Forwarded-For</strong> &#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x5934;&#x5B57;&#x6BB5;&#xFF0C;&#x5176;&#x4E2D;&#x9644;&#x52A0;&#x4E86; <code>$remote_addr</code> &#x53D8;&#x91CF;&#xFF0C;&#x4EE5;&#x9017;&#x53F7;&#x5206;&#x5272;&#x3002;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x4E0D;&#x5B58;&#x5728; <strong>X-Forwarded-For&#x201D;</strong> &#x5B57;&#x6BB5;&#xFF0C;&#x5219; <code>$proxy_add_x_forwarded_for</code> &#x53D8;&#x91CF;&#x7B49;&#x4E8E; <code>$remote_addr</code> &#x53D8;&#x91CF;&#x3002;</p>
+</li>
+</ul>
+<p><strong>&#x5F85;&#x7EED;&#x2026;&#x2026;</strong></p>
+<h2 id="&#x539F;&#x6587;&#x6863;">&#x539F;&#x6587;&#x6863;</h2>
+<p><a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank">http://nginx.org/en/docs/http/ngx_http_proxy_module.html</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ngx_http_perl_module.html" class="navigation navigation-prev " aria-label="Previous page: ngx_http_perl_module">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ngx_http_random_index_module.html" class="navigation navigation-next " aria-label="Next page: ngx_http_random_index_module">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ngx_http_proxy_module","level":"1.7.1.36","depth":3,"next":{"title":"ngx_http_random_index_module","level":"1.7.1.37","depth":3,"path":"模块参考/http/ngx_http_random_index_module.md","ref":"模块参考/http/ngx_http_random_index_module.md","articles":[]},"previous":{"title":"ngx_http_perl_module","level":"1.7.1.35","depth":3,"path":"模块参考/http/ngx_http_perl_module.md","ref":"模块参考/http/ngx_http_perl_module.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","prism","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico","appleTouch":"favicon.ico","appleTouchMore":{"120x120":"favicon.ico","180x180":"favicon.ico"}},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"DocsHome","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Nginx 文档中文译版","language":"zh-hans","links":{"sidebar":{"Home":"https://github.com/DocsHome"}},"gitbook":"*"},"file":{"path":"模块参考/http/ngx_http_proxy_module.md","mtime":"2020-03-03T11:48:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-03T11:49:46.489Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

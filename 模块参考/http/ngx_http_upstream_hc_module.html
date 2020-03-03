@@ -1,0 +1,2084 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ngx_http_upstream_hc_module · Nginx 文档中文译版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="DocsHome">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ngx_http_userid_module.html" />
+    
+    
+    <link rel="prev" href="ngx_http_upstream_conf_module.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../../favicon.ico'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../../favicon.ico">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.ico">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/DocsHome" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../CONTRIBUTING.html">
+            
+                <a href="../../CONTRIBUTING.html">
+            
+                    
+                    贡献导引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../介绍/安装nginx.html">
+            
+                <a href="../../介绍/安装nginx.html">
+            
+                    
+                    安装 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../How-To/从源码构建nginx.html">
+            
+                <a href="../../How-To/从源码构建nginx.html">
+            
+                    
+                    从源码构建 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../介绍/初学者指南.html">
+            
+                <a href="../../介绍/初学者指南.html">
+            
+                    
+                    初学者指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" >
+            
+                <a target="_blank" href="https://docs.nginx.com/nginx/admin-guide/">
+            
+                    
+                    管理指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../介绍/控制nginx.html">
+            
+                <a href="../../介绍/控制nginx.html">
+            
+                    
+                    控制 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../介绍/连接处理方式.html">
+            
+                <a href="../../介绍/连接处理方式.html">
+            
+                    
+                    连接处理方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../介绍/设置哈希.html">
+            
+                <a href="../../介绍/设置哈希.html">
+            
+                    
+                    设置哈希
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../介绍/调试日志.html">
+            
+                <a href="../../介绍/调试日志.html">
+            
+                    
+                    调试日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../介绍/记录日志到syslog.html">
+            
+                <a href="../../介绍/记录日志到syslog.html">
+            
+                    
+                    记录日志到 syslog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../介绍/配置文件度量单位.html">
+            
+                <a href="../../介绍/配置文件度量单位.html">
+            
+                    
+                    配置文件度量单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../介绍/命令行参数.html">
+            
+                <a href="../../介绍/命令行参数.html">
+            
+                    
+                    命令行参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../介绍/Windows下的Nginx.html">
+            
+                <a href="../../介绍/Windows下的Nginx.html">
+            
+                    
+                    Windows 下的 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../介绍/Nginx如何处理请求.html">
+            
+                <a href="../../介绍/Nginx如何处理请求.html">
+            
+                    
+                    nginx 如何处理请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../../介绍/服务器名称.html">
+            
+                <a href="../../介绍/服务器名称.html">
+            
+                    
+                    服务器名称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../../介绍/使用Nginx作为HTTP负载均衡器.html">
+            
+                <a href="../../介绍/使用Nginx作为HTTP负载均衡器.html">
+            
+                    
+                    使用 nginx 作为 HTTP 负载均衡器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../../介绍/配置HTTPS服务器.html">
+            
+                <a href="../../介绍/配置HTTPS服务器.html">
+            
+                    
+                    配置 HTTPS 服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../../介绍/Nginx如何处理TCP_UDP会话.html">
+            
+                <a href="../../介绍/Nginx如何处理TCP_UDP会话.html">
+            
+                    
+                    nginx 如何处理 TCP/UDP 会话
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../../介绍/关于nginScript.html">
+            
+                <a href="../../介绍/关于nginScript.html">
+            
+                    
+                    关于 nginScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../其他/linux包.html">
+            
+                <a href="../../其他/linux包.html">
+            
+                    
+                    Linux 软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    How-To
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../How-To/在Win32平台上使用VisualC构建nginx.html">
+            
+                <a href="../../How-To/在Win32平台上使用VisualC构建nginx.html">
+            
+                    
+                    在 Win32 平台上使用 Visual C 构建 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <a target="_blank" href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus-amazon-web-services/">
+            
+                    
+                    设置 Amazon EC2 的 Nginx Plus 环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../How-To/使用DTrace_pid提供程序调试nginx.html">
+            
+                <a href="../../How-To/使用DTrace_pid提供程序调试nginx.html">
+            
+                    
+                    使用 DTrace pid 提供程序调试 nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../How-To/转换重写规则.html">
+            
+                <a href="../../How-To/转换重写规则.html">
+            
+                    
+                    转换重写规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../How-To/WebSocket代理.html">
+            
+                <a href="../../How-To/WebSocket代理.html">
+            
+                    
+                    WebSocket 代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../开发/贡献指南.html">
+            
+                <a href="../../开发/贡献指南.html">
+            
+                    
+                    贡献指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    开发指南
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    模块参考
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../核心功能.html">
+            
+                <a href="../核心功能.html">
+            
+                    
+                    核心功能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    HTTP
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="ngx_http_core_module.html">
+            
+                <a href="ngx_http_core_module.html">
+            
+                    
+                    ngx_http_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="ngx_http_access_module.html">
+            
+                <a href="ngx_http_access_module.html">
+            
+                    
+                    ngx_http_access_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="ngx_http_addition_module.html">
+            
+                <a href="ngx_http_addition_module.html">
+            
+                    
+                    ngx_http_addition_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" >
+            
+                <span>
+            
+                    
+                    ngx_http_api_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" data-path="ngx_http_auth_basic_module.html">
+            
+                <a href="ngx_http_auth_basic_module.html">
+            
+                    
+                    ngx_http_auth_basic_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" data-path="ngx_http_auth_jwt_module.html">
+            
+                <a href="ngx_http_auth_jwt_module.html">
+            
+                    
+                    ngx_http_auth_jwt_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.7" data-path="ngx_http_auth_request_module.html">
+            
+                <a href="ngx_http_auth_request_module.html">
+            
+                    
+                    ngx_http_auth_request_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.8" data-path="ngx_http_autoindex_module.html">
+            
+                <a href="ngx_http_autoindex_module.html">
+            
+                    
+                    ngx_http_autoindex_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.9" data-path="ngx_http_browser_module.html">
+            
+                <a href="ngx_http_browser_module.html">
+            
+                    
+                    ngx_http_browser_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.10" data-path="ngx_http_charset_module.html">
+            
+                <a href="ngx_http_charset_module.html">
+            
+                    
+                    ngx_http_charset_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.11" data-path="ngx_http_dav_module.html">
+            
+                <a href="ngx_http_dav_module.html">
+            
+                    
+                    ngx_http_dav_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.12" data-path="ngx_http_empty_gif_module.html">
+            
+                <a href="ngx_http_empty_gif_module.html">
+            
+                    
+                    ngx_http_empty_gif_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.13" data-path="ngx_http_f4f_module.html">
+            
+                <a href="ngx_http_f4f_module.html">
+            
+                    
+                    ngx_http_f4f_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.14" data-path="ngx_http_fastcgi_module.html">
+            
+                <a href="ngx_http_fastcgi_module.html">
+            
+                    
+                    ngx_http_fastcgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.15" data-path="ngx_http_flv_module.html">
+            
+                <a href="ngx_http_flv_module.html">
+            
+                    
+                    ngx_http_flv_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.16" data-path="ngx_http_geo_module.html">
+            
+                <a href="ngx_http_geo_module.html">
+            
+                    
+                    ngx_http_geo_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.17" data-path="ngx_http_geoip_module.html">
+            
+                <a href="ngx_http_geoip_module.html">
+            
+                    
+                    ngx_http_geoip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.18" data-path="ngx_http_grpc_module.html">
+            
+                <a href="ngx_http_grpc_module.html">
+            
+                    
+                    ngx_http_grpc_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.19" data-path="ngx_http_gunzip_module.html">
+            
+                <a href="ngx_http_gunzip_module.html">
+            
+                    
+                    ngx_http_gunzip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.20" data-path="ngx_http_gzip_module.html">
+            
+                <a href="ngx_http_gzip_module.html">
+            
+                    
+                    ngx_http_gzip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.21" data-path="ngx_http_gzip_static_module.html">
+            
+                <a href="ngx_http_gzip_static_module.html">
+            
+                    
+                    ngx_http_gzip_static_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.22" data-path="ngx_http_headers_module.html">
+            
+                <a href="ngx_http_headers_module.html">
+            
+                    
+                    ngx_http_headers_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.23" data-path="ngx_http_hls_module.html">
+            
+                <a href="ngx_http_hls_module.html">
+            
+                    
+                    ngx_http_hls_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.24" data-path="ngx_http_image_filter_module.html">
+            
+                <a href="ngx_http_image_filter_module.html">
+            
+                    
+                    ngx_http_image_filter_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.25" data-path="ngx_http_index_module.html">
+            
+                <a href="ngx_http_index_module.html">
+            
+                    
+                    ngx_http_index_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.26" data-path="ngx_http_js_module.html">
+            
+                <a href="ngx_http_js_module.html">
+            
+                    
+                    ngx_http_js_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.27" data-path="ngx_http_keyval_module.html">
+            
+                <a href="ngx_http_keyval_module.html">
+            
+                    
+                    ngx_http_keyval_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.28" data-path="ngx_http_limit_conn_module.html">
+            
+                <a href="ngx_http_limit_conn_module.html">
+            
+                    
+                    ngx_http_limit_conn_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.29" data-path="ngx_http_limit_req_module.html">
+            
+                <a href="ngx_http_limit_req_module.html">
+            
+                    
+                    ngx_http_limit_req_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.30" data-path="ngx_http_log_module.html">
+            
+                <a href="ngx_http_log_module.html">
+            
+                    
+                    ngx_http_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.31" data-path="ngx_http_map_module.html">
+            
+                <a href="ngx_http_map_module.html">
+            
+                    
+                    ngx_http_map_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.32" data-path="ngx_http_memcached_module.html">
+            
+                <a href="ngx_http_memcached_module.html">
+            
+                    
+                    ngx_http_memcached_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.33" data-path="ngx_http_mirror_module.html">
+            
+                <a href="ngx_http_mirror_module.html">
+            
+                    
+                    ngx_http_mirror_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.34" data-path="ngx_http_mp4_module.html">
+            
+                <a href="ngx_http_mp4_module.html">
+            
+                    
+                    ngx_http_mp4_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.35" data-path="ngx_http_perl_module.html">
+            
+                <a href="ngx_http_perl_module.html">
+            
+                    
+                    ngx_http_perl_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.36" data-path="ngx_http_proxy_module.html">
+            
+                <a href="ngx_http_proxy_module.html">
+            
+                    
+                    ngx_http_proxy_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.37" data-path="ngx_http_random_index_module.html">
+            
+                <a href="ngx_http_random_index_module.html">
+            
+                    
+                    ngx_http_random_index_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.38" data-path="ngx_http_realip_module.html">
+            
+                <a href="ngx_http_realip_module.html">
+            
+                    
+                    ngx_http_realip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.39" data-path="ngx_http_referer_module.html">
+            
+                <a href="ngx_http_referer_module.html">
+            
+                    
+                    ngx_http_referer_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.40" data-path="ngx_http_rewrite_module.html">
+            
+                <a href="ngx_http_rewrite_module.html">
+            
+                    
+                    ngx_http_rewrite_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.41" data-path="ngx_http_scgi_module.html">
+            
+                <a href="ngx_http_scgi_module.html">
+            
+                    
+                    ngx_http_scgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.42" data-path="ngx_http_secure_link_module.html">
+            
+                <a href="ngx_http_secure_link_module.html">
+            
+                    
+                    ngx_http_secure_link_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.43" data-path="ngx_http_session_log_module.html">
+            
+                <a href="ngx_http_session_log_module.html">
+            
+                    
+                    ngx_http_session_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.44" data-path="ngx_http_slice_module.html">
+            
+                <a href="ngx_http_slice_module.html">
+            
+                    
+                    ngx_http_slice_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.45" data-path="ngx_http_spdy_module.html">
+            
+                <a href="ngx_http_spdy_module.html">
+            
+                    
+                    ngx_http_spdy_module（过时）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.46" data-path="ngx_http_split_clients_module.html">
+            
+                <a href="ngx_http_split_clients_module.html">
+            
+                    
+                    ngx_http_split_clients_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.47" data-path="ngx_http_ssi_module.html">
+            
+                <a href="ngx_http_ssi_module.html">
+            
+                    
+                    ngx_http_ssi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.48" data-path="ngx_http_ssl_module.html">
+            
+                <a href="ngx_http_ssl_module.html">
+            
+                    
+                    ngx_http_ssl_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.49" data-path="ngx_http_status_module.html">
+            
+                <a href="ngx_http_status_module.html">
+            
+                    
+                    ngx_http_status_module（过时）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.50" data-path="ngx_http_stub_status_module.html">
+            
+                <a href="ngx_http_stub_status_module.html">
+            
+                    
+                    ngx_http_stub_status_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.51" data-path="ngx_http_sub_module.html">
+            
+                <a href="ngx_http_sub_module.html">
+            
+                    
+                    ngx_http_sub_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.52" data-path="ngx_http_upstream_module.html">
+            
+                <a href="ngx_http_upstream_module.html">
+            
+                    
+                    ngx_http_upstream_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.53" data-path="ngx_http_upstream_conf_module.html">
+            
+                <a href="ngx_http_upstream_conf_module.html">
+            
+                    
+                    ngx_http_upstream_conf_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.1.54" data-path="ngx_http_upstream_hc_module.html">
+            
+                <a href="ngx_http_upstream_hc_module.html">
+            
+                    
+                    ngx_http_upstream_hc_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.55" data-path="ngx_http_userid_module.html">
+            
+                <a href="ngx_http_userid_module.html">
+            
+                    
+                    ngx_http_userid_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.56" data-path="ngx_http_uwsgi_module.html">
+            
+                <a href="ngx_http_uwsgi_module.html">
+            
+                    
+                    ngx_http_uwsgi_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.57" data-path="ngx_http_v2_module.html">
+            
+                <a href="ngx_http_v2_module.html">
+            
+                    
+                    ngx_http_v2_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.58" data-path="ngx_http_xslt_module.html">
+            
+                <a href="ngx_http_xslt_module.html">
+            
+                    
+                    ngx_http_xslt_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    Mail
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../mail/ngx_mail_core_module.html">
+            
+                <a href="../mail/ngx_mail_core_module.html">
+            
+                    
+                    ngx_mail_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../mail/ngx_mail_auth_http_module.html">
+            
+                <a href="../mail/ngx_mail_auth_http_module.html">
+            
+                    
+                    ngx_mail_auth_http_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../mail/ngx_mail_proxy_module.html">
+            
+                <a href="../mail/ngx_mail_proxy_module.html">
+            
+                    
+                    ngx_mail_proxy_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.4" >
+            
+                <span>
+            
+                    
+                    ngx_mail_ssl_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.5" data-path="../mail/ngx_mail_imap_module.html">
+            
+                <a href="../mail/ngx_mail_imap_module.html">
+            
+                    
+                    ngx_mail_imap_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.6" data-path="../mail/ngx_mail_pop3_module.html">
+            
+                <a href="../mail/ngx_mail_pop3_module.html">
+            
+                    
+                    ngx_mail_pop3_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.7" data-path="../mail/ngx_mail_smtp_module.html">
+            
+                <a href="../mail/ngx_mail_smtp_module.html">
+            
+                    
+                    ngx_mail_smtp_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    Stream
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../stream/ngx_stream_core_module.html">
+            
+                <a href="../stream/ngx_stream_core_module.html">
+            
+                    
+                    ngx_stream_core_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.2" data-path="../stream/ngx_stream_access_module.html">
+            
+                <a href="../stream/ngx_stream_access_module.html">
+            
+                    
+                    ngx_stream_access_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.3" data-path="../stream/ngx_stream_geo_module.html">
+            
+                <a href="../stream/ngx_stream_geo_module.html">
+            
+                    
+                    ngx_stream_geo_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.4" data-path="../stream/ngx_stream_geoip_module.html">
+            
+                <a href="../stream/ngx_stream_geoip_module.html">
+            
+                    
+                    ngx_stream_geoip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.5" data-path="../stream/ngx_stream_js_module.html">
+            
+                <a href="../stream/ngx_stream_js_module.html">
+            
+                    
+                    ngx_stream_js_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.6" >
+            
+                <span>
+            
+                    
+                    ngx_stream_keyval_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.7" data-path="../stream/ngx_stream_limit_conn_module.html">
+            
+                <a href="../stream/ngx_stream_limit_conn_module.html">
+            
+                    
+                    ngx_stream_limit_conn_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.8" data-path="../stream/ngx_stream_log_module.html">
+            
+                <a href="../stream/ngx_stream_log_module.html">
+            
+                    
+                    ngx_stream_log_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.9" >
+            
+                <span>
+            
+                    
+                    ngx_stream_map_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.10" >
+            
+                <span>
+            
+                    
+                    ngx_stream_proxy_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.11" data-path="../stream/ngx_stream_realip_module.html">
+            
+                <a href="../stream/ngx_stream_realip_module.html">
+            
+                    
+                    ngx_stream_realip_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.12" data-path="../stream/ngx_stream_return_module.html">
+            
+                <a href="../stream/ngx_stream_return_module.html">
+            
+                    
+                    ngx_stream_return_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.13" data-path="../stream/ngx_stream_split_clients_module.html">
+            
+                <a href="../stream/ngx_stream_split_clients_module.html">
+            
+                    
+                    ngx_stream_split_clients_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.14" >
+            
+                <span>
+            
+                    
+                    ngx_stream_ssl_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.15" data-path="../stream/ngx_stream_ssl_preread_module.html">
+            
+                <a href="../stream/ngx_stream_ssl_preread_module.html">
+            
+                    
+                    ngx_stream_ssl_preread_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.16" >
+            
+                <span>
+            
+                    
+                    ngx_stream_upstream_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.17" >
+            
+                <span>
+            
+                    
+                    ngx_stream_upstream_hc_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3.18" >
+            
+                <span>
+            
+                    
+                    ngx_stream_zone_sync_module
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../google/ngx_google_perftools_module.html">
+            
+                <a href="../google/ngx_google_perftools_module.html">
+            
+                    
+                    ngx_google_perftools_module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ngx_http_upstream_hc_module</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ngxhttpupstreamhcmodule">ngx_http_upstream_hc_module</h1>
+<ul>
+<li><a href="#example_configuration">&#x793A;&#x4F8B;&#x914D;&#x7F6E;</a></li>
+<li><a href="#directives">&#x6307;&#x4EE4;</a><ul>
+<li><a href="#health_check">health_check</a></li>
+<li><a href="#match">match</a></li>
+</ul>
+</li>
+</ul>
+<p><code>ngx_http_upstream_hc_module</code> &#x6A21;&#x5757;&#x5141;&#x8BB8;&#x5BF9;&#x5468;&#x8FB9; location &#x4E2D;&#x5F15;&#x7528;&#x7684;<a href="ngx_http_upstream_module.html#upstream">&#x7EC4;</a>&#x4E2D;&#x7684;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x5B9A;&#x671F;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x3002;&#x670D;&#x52A1;&#x5668;&#x7EC4;&#x5FC5;&#x987B;&#x9A7B;&#x7559;&#x5728;<a href="ngx_http_upstream_module.html#zone">&#x5171;&#x4EAB;&#x5185;&#x5B58;</a>&#x4E2D;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x88AB;&#x89C6;&#x4E3A;&#x8FD0;&#x884C;&#x72B6;&#x51B5;&#x4E0D;&#x4F73;&#x3002;&#x5982;&#x679C;&#x4E3A;&#x540C;&#x4E00;&#x7EC4;&#x670D;&#x52A1;&#x5668;&#x5B9A;&#x4E49;&#x4E86;&#x591A;&#x4E2A;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#xFF0C;&#x5219;&#x4EFB;&#x4F55;&#x68C0;&#x67E5;&#x7684;&#x5355;&#x4E2A;&#x6545;&#x969C;&#x90FD;&#x5C06;&#x4F7F;&#x76F8;&#x5E94;&#x7684;&#x670D;&#x52A1;&#x5668;&#x88AB;&#x89C6;&#x4E3A;&#x8FD0;&#x884C;&#x72B6;&#x51B5;&#x4E0D;&#x4F73;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E0D;&#x4F1A;&#x4F20;&#x9012;&#x5230;&#x5904;&#x4E8E; <strong>checking</strong> &#x72B6;&#x6001;&#x7684;&#x670D;&#x52A1;&#x5668;&#x548C;&#x4E0D;&#x5065;&#x5EB7;&#x7684;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<blockquote>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x4E0E;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x53D8;&#x91CF;&#x90FD;&#x5C06;&#x4E3A;&#x7A7A;&#x503C;&#x3002;</p>
+<p>&#x8BE5;&#x6A21;&#x5757;&#x4F5C;&#x4E3A;<a href="http://nginx.com/products/?_ga=2.72493466.860729840.1564753618-1186072494.1564163363" target="_blank">&#x5546;&#x4E1A;&#x8BA2;&#x9605;</a>&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x3002;</p>
+</blockquote>
+<p><a id="example_configuration"></a></p>
+<h2 id="&#x793A;&#x4F8B;&#x914D;&#x7F6E;">&#x793A;&#x4F8B;&#x914D;&#x7F6E;</h2>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">upstream</span> dynamic <span class="token punctuation">{</span>
+    zone upstream_dynamic <span class="token number">64</span>k<span class="token punctuation">;</span>
+
+    <span class="token keyword">server</span> backend1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com      weight<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token keyword">server</span> backend2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">8080</span> fail_timeout<span class="token operator">=</span><span class="token number">5</span>s slow_start<span class="token operator">=</span><span class="token number">30</span>s<span class="token punctuation">;</span>
+    <span class="token keyword">server</span> <span class="token number">192.0</span><span class="token number">.2</span><span class="token number">.1</span>                 max_fails<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">server</span> backup1<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">8080</span>  backup<span class="token punctuation">;</span>
+    <span class="token keyword">server</span> backup2<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">8080</span>  backup<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>dynamic<span class="token punctuation">;</span>
+        health_check<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x6B64;&#x914D;&#x7F6E;&#xFF0C;nginx &#x5C06;&#x6BCF;&#x9694;&#x4E94;&#x79D2;&#x5411; <code>backend</code> &#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001; <code>/</code> &#x8BF7;&#x6C42;&#x3002;&#x5982;&#x679C;&#x53D1;&#x751F;&#x4EFB;&#x4F55;&#x901A;&#x4FE1;&#x9519;&#x8BEF;&#x6216;&#x8D85;&#x65F6;&#xFF0C;&#x6216;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x4EE5; 2xx &#x6216; 3xx &#x4EE5;&#x5916;&#x7684;&#x72B6;&#x6001;&#x7801;&#x54CD;&#x5E94;&#xFF0C;&#x5219;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x5C06;&#x5931;&#x8D25;&#xFF0C;&#x5E76;&#x4E14;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x88AB;&#x89C6;&#x4E3A;&#x8FD0;&#x884C;&#x72B6;&#x51B5;&#x4E0D;&#x4F73;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x4EE5;&#x6D4B;&#x8BD5;&#x54CD;&#x5E94;&#x7684;&#x72B6;&#x6001;&#x7801;&#x3001;&#x67D0;&#x4E9B;&#x5934;&#x5B57;&#x6BB5;&#x53CA;&#x5176;&#x503C;&#x7684;&#x5B58;&#x5728;&#x4EE5;&#x53CA;&#x62A5;&#x6587;&#x4F53;&#x3002;&#x6D4B;&#x8BD5;&#x4F7F;&#x7528; <a href="#match">match</a> &#x6307;&#x4EE4;&#x5355;&#x72EC;&#x914D;&#x7F6E;&#xFF0C;&#x5E76;&#x5728; <a href="#health_check">health_check</a> &#x6307;&#x4EE4;&#x7684; <code>match</code> &#x53C2;&#x6570;&#x4E2D;&#x5F15;&#x7528;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token keyword">http</span> <span class="token punctuation">{</span>
+    <span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+            <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>backend<span class="token punctuation">;</span>
+            health_check match<span class="token operator">=</span>welcome<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    match welcome <span class="token punctuation">{</span>
+        status <span class="token number">200</span><span class="token punctuation">;</span>
+        header Content<span class="token operator">-</span>Type <span class="token operator">=</span> text<span class="token operator">/</span>html<span class="token punctuation">;</span>
+        body <span class="token operator">~</span> <span class="token string">&quot;Welcome to nginx!&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6B64;&#x914D;&#x7F6E;&#x663E;&#x793A;&#xFF0C;&#x53D1;&#x8D77;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#xFF0C;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x5E94;&#x8BE5;&#x4E3A;&#x6210;&#x529F;&#xFF0C;&#x72B6;&#x6001;&#x7801;&#x4E3A; 200&#xFF0C;&#x5E76;&#x5728;&#x6B63;&#x6587;&#x4E2D;&#x5305;&#x542B; <code>Welcome to nginx!</code>&#x3002;</p>
+<p><a id="directives"></a></p>
+<h2 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h2>
+<h3 id="healthcheck">health_check</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">-</th>
+<th style="text-align:left">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td style="text-align:left"><strong>health_check</strong> <code>[parameters]</code>;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td style="text-align:left">&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td style="text-align:left">location</td>
+</tr>
+</tbody>
+</table>
+<p>&#x542F;&#x7528;&#x5BF9;&#x5468;&#x8FB9; location &#x4E2D;&#x5F15;&#x7528;&#x7684;<a href="ngx_http_upstream_module.html#upstream">&#x7EC4;</a>&#x4E2D;&#x7684;&#x670D;&#x52A1;&#x5668;&#x5B9A;&#x671F;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x3002;</p>
+<p>&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li><p><code>interval=time</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x4E24;&#x6B21;&#x8FDE;&#x7EED;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x4E4B;&#x95F4;&#x7684;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; 5 &#x79D2;</p>
+</li>
+<li><p><code>jitter=time</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x6BCF;&#x4E2A;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x968F;&#x673A;&#x5EF6;&#x8FDF;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6CA1;&#x6709;&#x5EF6;&#x8FDF;</p>
+</li>
+<li><p><code>fails=number</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x7279;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x7EED;&#x5931;&#x8D25;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5728;&#x6B64;&#x4E4B;&#x540E;&#xFF0C;&#x6B64;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x88AB;&#x89C6;&#x4E3A;&#x4E0D;&#x5065;&#x5EB7;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A; 1&#x3002;</p>
+</li>
+<li><p><code>passes=number</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x7279;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x7EED;&#x901A;&#x8FC7;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5728;&#x6B64;&#x4E4B;&#x540E;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x88AB;&#x89C6;&#x4E3A;&#x5065;&#x5EB7;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A; 1&#x3002;</p>
+</li>
+<li><p><code>uri=uri</code></p>
+<p>  &#x5B9A;&#x4E49;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x8BF7;&#x6C42;&#x4E2D;&#x4F7F;&#x7528;&#x7684; URI&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A; <code>/</code>&#x3002;</p>
+</li>
+<li><p><code>mandatory</code></p>
+<p>  &#x8BBE;&#x7F6E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x521D;&#x59CB; <strong>checking</strong> &#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x7B2C;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x5B8C;&#x6210;&#xFF08;1.11.7&#xFF09;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E0D;&#x4F1A;&#x4F20;&#x9012;&#x5230;&#x5904;&#x4E8E; <strong>checking</strong> &#x72B6;&#x6001;&#x7684;&#x670D;&#x52A1;&#x5668;&#x3002;&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x670D;&#x52A1;&#x5668;&#x5F00;&#x59CB;&#x5C06;&#x88AB;&#x89C6;&#x4E3A;&#x5065;&#x5EB7;&#x3002;</p>
+</li>
+<li><p><code>match=name</code></p>
+<p>  &#x6307;&#x5B9A; <code>match</code> &#x5757;&#x914D;&#x7F6E;&#x6D4B;&#x8BD5;&#xFF0C;&#x4E3A;&#x54CD;&#x5E94;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;&#x505A;&#x53C2;&#x7167;&#xFF0C;&#x4EE5;&#x4FBF;&#x901A;&#x8FC7;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x54CD;&#x5E94;&#x7684;&#x72B6;&#x6001;&#x7801;&#x5E94;&#x4E3A; 2xx &#x6216; 3xx&#x3002;</p>
+</li>
+<li><p><code>port=number</code></p>
+<p>  &#x5B9A;&#x4E49;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4EE5;&#x6267;&#x884C;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x7AEF;&#x53E3;&#xFF08;1.9.7&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7B49;&#x4E8E; <a href="ngx_http_upstream_module.html#server">server</a> &#x7AEF;&#x53E3;&#x3002;</p>
+</li>
+</ul>
+<h3 id="match">match</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">-</th>
+<th style="text-align:left">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>&#x8BED;&#x6CD5;</strong></td>
+<td style="text-align:left"><strong>match</strong> <code>name { ... }</code>;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>&#x9ED8;&#x8BA4;</strong></td>
+<td style="text-align:left">&#x2014;&#x2014;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>&#x4E0A;&#x4E0B;&#x6587;</strong></td>
+<td style="text-align:left">http</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B9A;&#x4E49;&#x7528;&#x4E8E;&#x9A8C;&#x8BC1;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x7684;&#x5177;&#x540D;&#x6D4B;&#x8BD5;&#x96C6;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x54CD;&#x5E94;&#x4E2D;&#x6D4B;&#x8BD5;&#x4EE5;&#x4E0B;&#x9879;&#x76EE;&#xFF1A;</p>
+<ul>
+<li><p><code>status 200;</code></p>
+<p>  &#x72B6;&#x6001;&#x7801;&#x4E3A; 200</p>
+</li>
+<li><p><code>status ! 500;</code></p>
+<p>  &#x72B6;&#x6001;&#x7801;&#x975E; 500</p>
+</li>
+<li><p><code>status 200 204;</code></p>
+<p>  &#x72B6;&#x6001;&#x7801;&#x4E3A; 200 &#x6216; 204</p>
+</li>
+<li><p><code>status ! 301 302;</code></p>
+<p>  &#x72B6;&#x6001;&#x7801;&#x65E2;&#x4E0D;&#x662F; 301 &#x4E5F;&#x4E0D;&#x662F; 302</p>
+</li>
+<li><p><code>status 200-399;</code></p>
+<p>  &#x72B6;&#x6001;&#x7801;&#x5728; 200 &#x5230; 399 &#x4E4B;&#x95F4;</p>
+</li>
+<li><p><code>status ! 400-599;</code></p>
+<p>  &#x72B6;&#x6001;&#x7801;&#x4E0D;&#x5728; 400 &#x5230; 599 &#x4E4B;&#x95F4;</p>
+</li>
+<li><p><code>status 301-303 307;</code></p>
+<p>  &#x72B6;&#x6001;&#x7801;&#x4E3A; 301&#x3001;302&#x3001;303 &#x6216; 307</p>
+</li>
+<li><p><code>header Content-Type = text/html;</code></p>
+<p>  header &#x5305;&#x542B;&#x503C;&#x4E3A; <code>text/html</code> &#x7684; <strong>Content-Type</strong></p>
+</li>
+<li><p><code>header Content-Type != text/html;</code></p>
+<p>  header &#x5305;&#x542B; <strong>Content-Type</strong>&#xFF0C;&#x5176;&#x503C;&#x4E0D;&#x662F; <code>text/html</code></p>
+</li>
+<li><p><code>header Connection ~ close;</code></p>
+<p>  header &#x5305;&#x542B; <strong>Connection</strong> &#xFF0C;&#x5176;&#x503C;&#x4E0E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; <code>close</code> &#x5339;&#x914D;</p>
+</li>
+<li><p><code>header Connection !~ close;</code></p>
+<p>  header &#x5305;&#x542B; <strong>Connection</strong>&#xFF0C;&#x5176;&#x503C;&#x4E0E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; <code>close</code> &#x4E0D;&#x5339;&#x914D;</p>
+</li>
+<li><p><code>header Host;</code></p>
+<p>  header &#x5305;&#x542B; <strong>Host</strong></p>
+</li>
+<li><p><code>header ! X-Accel-Redirect;</code></p>
+<p>  header &#x6CA1;&#x6709; <strong>X-Accel-Redirect</strong></p>
+</li>
+<li><p><code>body ~ &quot;Welcome to nginx!&quot;;</code></p>
+<p>  &#x6B63;&#x6587;&#x5185;&#x5BB9;&#x5339;&#x914D;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; <code>Welcome to nginx!</code></p>
+</li>
+<li><p><code>body !~ &quot;Welcome to nginx!&quot;;</code></p>
+<p>  &#x6B63;&#x6587;&#x5185;&#x5BB9;&#x4E0D;&#x7B26;&#x5408;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; <code>Welcome to nginx!</code></p>
+</li>
+<li><p><code>require $variable ...;</code></p>
+<p>  &#x6240;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x4E0D;&#x4E3A;&#x7A7A;&#x4E14;&#x4E0D;&#x7B49;&#x4E8E; <code>&quot;0&quot;</code>&#xFF08;1.15.9&#xFF09;&#x3002;</p>
+</li>
+</ul>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#x591A;&#x4E2A;&#x6D4B;&#x8BD5;&#xFF0C;&#x5219;&#x54CD;&#x5E94;&#x4EC5;&#x5728;&#x5339;&#x914D;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x65F6;&#x624D;&#x5339;&#x914D;&#x3002;</p>
+<blockquote>
+<p>&#x4EC5;&#x68C0;&#x67E5;&#x54CD;&#x5E94;&#x4F53;&#x7684;&#x524D; 256k &#x6570;&#x636E;&#x3002;</p>
+</blockquote>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-nginx"><span class="token comment"># status is 200, content type is &quot;text/html&quot;,</span>
+<span class="token comment"># and body contains &quot;Welcome to nginx!&quot;</span>
+match welcome <span class="token punctuation">{</span>
+    status <span class="token number">200</span><span class="token punctuation">;</span>
+    header Content<span class="token operator">-</span>Type <span class="token operator">=</span> text<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    body <span class="token operator">~</span> <span class="token string">&quot;Welcome to nginx!&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># status is not one of 301, 302, 303, or 307, and header does not have &quot;Refresh:&quot;</span>
+match not_redirect <span class="token punctuation">{</span>
+    status <span class="token operator">!</span> <span class="token number">301</span><span class="token operator">-</span><span class="token number">303</span> <span class="token number">307</span><span class="token punctuation">;</span>
+    header <span class="token operator">!</span> Refresh<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># status ok and not in maintenance mode</span>
+match server_ok <span class="token punctuation">{</span>
+    status <span class="token number">200</span><span class="token operator">-</span><span class="token number">399</span><span class="token punctuation">;</span>
+    body <span class="token operator">!</span><span class="token operator">~</span> <span class="token string">&quot;maintenance mode&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># status is 200 or 204</span>
+<span class="token keyword">map</span> <span class="token variable">$upstream_status</span> <span class="token variable">$good_status</span> <span class="token punctuation">{</span>
+    <span class="token number">200</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token number">204</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+match server_ok <span class="token punctuation">{</span>
+    require <span class="token variable">$good_status</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="&#x539F;&#x6587;&#x6863;">&#x539F;&#x6587;&#x6863;</h2>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_upstream_hc_module.html" target="_blank">http://nginx.org/en/docs/http/ngx_http_upstream_hc_module.html</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ngx_http_upstream_conf_module.html" class="navigation navigation-prev " aria-label="Previous page: ngx_http_upstream_conf_module">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ngx_http_userid_module.html" class="navigation navigation-next " aria-label="Next page: ngx_http_userid_module">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ngx_http_upstream_hc_module","level":"1.7.1.54","depth":3,"next":{"title":"ngx_http_userid_module","level":"1.7.1.55","depth":3,"path":"模块参考/http/ngx_http_userid_module.md","ref":"模块参考/http/ngx_http_userid_module.md","articles":[]},"previous":{"title":"ngx_http_upstream_conf_module","level":"1.7.1.53","depth":3,"path":"模块参考/http/ngx_http_upstream_conf_module.md","ref":"模块参考/http/ngx_http_upstream_conf_module.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","prism","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico","appleTouch":"favicon.ico","appleTouchMore":{"120x120":"favicon.ico","180x180":"favicon.ico"}},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"DocsHome","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Nginx 文档中文译版","language":"zh-hans","links":{"sidebar":{"Home":"https://github.com/DocsHome"}},"gitbook":"*"},"file":{"path":"模块参考/http/ngx_http_upstream_hc_module.md","mtime":"2020-03-03T11:48:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-03T11:49:46.489Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
